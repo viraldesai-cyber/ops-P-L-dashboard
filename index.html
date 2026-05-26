@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ops Cost Dashboard — Mar/Apr/May/Jun 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Calibri','Segoe UI',Arial,sans-serif;background:#EEE4DC;color:#1F2A24;font-size:13px;line-height:1.5}
+.toolbar{background:#1F2A24;color:#fff;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.toolbar-title{font-size:14px;font-weight:700}
+.toolbar-sub{font-size:11px;color:#9CB}
+.wrapper{max-width:1300px;margin:0 auto;padding:20px}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+.kpi{background:#fff;border-radius:5px;padding:13px;border-left:5px solid #0B5239}
+.kpi.bad{border-left-color:#C0392B}
+.kpi.warn{border-left-color:#E67E22}
+.kpi.target{border-left-color:#0B5239;background:#EBF5EB}
+.kpi.navy{border-left-color:#1B2A4A}
+.kpi-lbl{font-size:10px;color:#6B6052;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.kpi-val{font-size:22px;font-weight:700}
+.kpi-sub{font-size:11px;color:#6B6052;margin-top:3px}
+.c-g{color:#0B5239}.c-r{color:#C0392B}.c-a{color:#E67E22}.c-n{color:#1B2A4A}
+.tab-nav{display:flex;flex-wrap:wrap;gap:3px;border-bottom:3px solid #0B5239;margin-bottom:0}
+.tab-btn{background:#C9BEAB;border:none;padding:9px 14px;font-size:11px;font-weight:700;cursor:pointer;border-radius:4px 4px 0 0;color:#6B6052;font-family:inherit;transition:background .15s}
+.tab-btn:hover{background:#BDB1A0}
+.tab-btn.active{background:#0B5239;color:#fff}
+.tab-pane{display:none;background:#fff;border-radius:0 6px 6px 6px;padding:20px;margin-bottom:20px}
+.tab-pane.active{display:block}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:14px}
+th{background:#0B5239;color:#fff;padding:8px 10px;text-align:left;border:1px solid #579071;font-size:11px;white-space:nowrap}
+th.r{text-align:right}th.c{text-align:center}
+td{padding:7px 10px;border:1px solid #DDD2BD;vertical-align:middle;line-height:1.5}
+td.r{text-align:right;font-variant-numeric:tabular-nums}
+td.c{text-align:center}
+td.bold{font-weight:700}
+tr.even td{background:#F4EDDF}
+tr.sub td{background:#D6E4DA!important;font-weight:700;color:#0B5239}
+tr.tot td{background:#0B5239!important;color:#fff!important;font-weight:700}
+tr.sec td{background:#1F2A24!important;color:#fff;font-weight:700;font-size:10px;letter-spacing:1.5px;padding:5px 10px}
+tr.note td{background:#FFF9E6;color:#7A4800;font-size:11px;font-style:italic}
+tr.hl-red td{background:#FDECEA!important}
+tr.hl-amber td{background:#FFF8E1!important}
+tr.hl-green td{background:#EBF5EB!important}
+.e-num{width:100%;border:none;background:transparent;text-align:right;font-family:inherit;font-size:12px;color:#1F2A24;padding:0}
+.e-num:focus{outline:none;background:#FFF9C4;border-bottom:2px solid #0B5239}
+td.editable{background:#FFFDE7!important}
+td.jun{background:#E8F5E9!important}
+.sh{background:#0B5239;color:#fff;padding:9px 14px;border-radius:4px;font-weight:700;font-size:13px;margin:18px 0 10px}
+.ib{background:#EEE4DC;border-left:4px solid #0B5239;padding:10px 14px;margin:10px 0;border-radius:3px;font-size:12px;line-height:1.8}
+.ib.red{background:#FDECEA;border-left-color:#C0392B;color:#7B0000}
+.ib.amber{background:#FFF8E1;border-left-color:#E67E22;color:#7A4800}
+.ib.green{background:#EBF5EB;border-left-color:#0B5239}
+.lever-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.lever-card{background:#fff;border:1px solid #DDD2BD;border-radius:5px;padding:14px}
+.lever-hdr{font-weight:700;color:#0B5239;font-size:13px;border-bottom:2px solid #0B5239;padding-bottom:6px;margin-bottom:10px}
+.lever-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #F4EDDF;font-size:12px}
+.sav{color:#0B5239;font-weight:700}.neg{color:#C0392B;font-weight:700}
+.pbar-wrap{background:#DDD2BD;border-radius:3px;height:10px;overflow:hidden;margin:4px 0 8px}
+.pbar{height:100%;border-radius:3px;transition:width .4s}
+.pbar.g{background:#0B5239}.pbar.a{background:#E67E22}.pbar.r{background:#C0392B}
+.calc-box{background:#F9F4EE;border:1px solid #DDD2BD;border-radius:5px;padding:14px;margin-bottom:14px}
+.calc-title{font-weight:700;font-size:13px;margin-bottom:10px;color:#0B5239}
+.calc-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #DDD2BD;font-size:12px}
+.calc-row:last-child{border-bottom:none}
+.ci{width:110px;border:1px solid #DDD2BD;border-radius:3px;padding:4px 8px;text-align:right;font-size:12px;font-family:inherit;background:#fff}
+.ci:focus{outline:none;border-color:#0B5239}
+.result-row{background:#D6E4DA;font-weight:700;color:#0B5239;padding:8px 10px;display:flex;justify-content:space-between;font-size:13px;margin-top:8px;border-radius:3px}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.bg-g{background:#D6E4DA;color:#0B5239}.bg-r{background:#FDECEA;color:#C0392B}.bg-a{background:#FFF8E1;color:#E67E22}
+.gap-tracker{background:#1F2A24;color:#fff;padding:16px;border-radius:6px;margin-bottom:16px}
+.gap-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:12px;border-bottom:1px solid #333}
+.gap-row:last-child{border-bottom:none}
+.gap-lbl{color:#9BA}.gap-val{font-weight:700;font-size:14px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.white-box{background:#fff;border:1px solid #DDD2BD;border-radius:5px;padding:14px}
+h3{font-size:13px;font-weight:700;margin-bottom:10px;color:#1F2A24}
+h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>
+    <div class="toolbar-title">Ops Cost Dashboard — March / April / May / June 2026</div>
+    <div class="toolbar-sub">Root Labs · USA Supply Chain · AMJ-26 Multiplier &nbsp;|&nbsp; Yellow = editable actuals &nbsp;·&nbsp; Green = June inputs → auto-recalculates</div>
+  </div>
+  <div style="font-size:11px;color:#9CB;">Last updated: May 2026</div>
+</div>
+
+<div class="wrapper">
+
+<!-- KPI CARDS -->
+<div class="kpi-row">
+  <div class="kpi bad">
+    <div class="kpi-lbl">March Ops Cost %</div>
+    <div class="kpi-val c-r" id="kpi-mar">48.8%</div>
+    <div class="kpi-sub">Rev $1,434,465 · 31 days</div>
+    <div class="kpi-sub c-r" style="font-weight:700;">Incl $34K cancelled + $185K SB-TikTok</div>
+  </div>
+  <div class="kpi warn">
+    <div class="kpi-lbl">April Ops Cost %</div>
+    <div class="kpi-val c-a" id="kpi-apr">28.7%</div>
+    <div class="kpi-sub">Rev $2,390,884 · 27 days</div>
+    <div class="kpi-sub c-g" style="font-weight:700;">↓ 20pp from March</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-lbl">May Ops Cost %</div>
+    <div class="kpi-val" id="kpi-may" style="color:#1F2A24;">25.4%</div>
+    <div class="kpi-sub">Rev $1,588,635 · 20 days</div>
+    <div class="kpi-sub c-g" style="font-weight:700;">↓ 3.3pp from April</div>
+  </div>
+  <div class="kpi target">
+    <div class="kpi-lbl">June Model (editable)</div>
+    <div class="kpi-val c-g" id="kpi-jun">—</div>
+    <div class="kpi-sub">Rev: $<span id="kpi-jun-rev">2,200,000</span></div>
+    <div class="kpi-sub" id="kpi-jun-gap" style="font-weight:700;"></div>
+  </div>
+  <div class="kpi navy">
+    <div class="kpi-lbl">AMJ-26 Target</div>
+    <div class="kpi-val c-n">21.0%</div>
+    <div class="kpi-sub">Baseline March ~29.2%</div>
+    <div class="kpi-sub c-n" style="font-weight:700;">↓ 8.2pp needed</div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('summary',this)">📊 Summary P&L</button>
+  <button class="tab-btn" onclick="showTab('inward',this)">✈️ Inward Freight</button>
+  <button class="tab-btn" onclick="showTab('outward',this)">📦 Outward Logistics</button>
+  <button class="tab-btn" onclick="showTab('internal',this)">🔄 Internal Transfers</button>
+  <button class="tab-btn" onclick="showTab('storage',this)">🏭 Storage &amp; Waste</button>
+  <button class="tab-btn" onclick="showTab('india',this)">🇮🇳 India WH</button>
+  <button class="tab-btn" onclick="showTab('levers',this)">🎯 June Levers</button>
+</div>
+
+<!-- ===================== TAB 1: SUMMARY ===================== -->
+<div id="tab-summary" class="tab-pane active">
+
+<div class="ib red"><strong>Why does March show ~46–49%?</strong> Two one-off items inflate it heavily: (1) TikTok via ShipBob = $184,964 (12.9%) — this was <em>before</em> the FBT migration; it dropped to $52,810 in April saving $132K. (2) Cancelled orders shipped loss = $34,367 (2.4%). Remove both → March core = $480,492 = <strong>33.5%</strong>. Remove only cancelled orders → $665,456 = <strong>46.4% ≈ "46%"</strong>. The full 48.8% includes both. Neither recurs.</div>
+
+<table>
+  <colgroup>
+    <col style="width:28%"><col style="width:13%"><col style="width:6%">
+    <col style="width:13%"><col style="width:6%">
+    <col style="width:13%"><col style="width:6%">
+    <col style="width:13%"><col style="width:6%">
+  </colgroup>
+  <tr>
+    <th>Cost Line</th>
+    <th class="r">March (31d)</th><th class="c">%</th>
+    <th class="r">April (27d)</th><th class="c">%</th>
+    <th class="r">May (20d)</th><th class="c">%</th>
+    <th class="r">June Target</th><th class="c">%</th>
+  </tr>
+
+  <!-- REVENUE -->
+  <tr class="sec"><td colspan="9">1. REVENUE</td></tr>
+  <tr>
+    <td class="bold">Gross Revenue</td>
+    <td class="r">$1,434,465</td><td class="c">—</td>
+    <td class="r">$2,390,884</td><td class="c">—</td>
+    <td class="r">$1,588,635</td><td class="c">—</td>
+    <td class="r jun editable"><input class="e-num" id="jun_rev" value="2200000" oninput="refresh()"></td>
+    <td class="c">—</td>
+  </tr>
+  <tr class="even">
+    <td style="padding-left:20px;color:#6B6052;">TikTok Cofunded Credits</td>
+    <td class="r c-g">$0</td><td></td>
+    <td class="r c-g">$51,851</td><td></td>
+    <td class="r c-g">$33,969</td><td></td>
+    <td class="r jun editable"><input class="e-num" id="jun_credits" value="40000" oninput="refresh()"></td>
+    <td></td>
+  </tr>
+
+  <!-- INWARD -->
+  <tr class="sec"><td colspan="9">2. INWARD FREIGHT (India → US)</td></tr>
+  <tr>
+    <td class="bold">Total Inward</td>
+    <td class="r">$138,527</td><td class="c"><span id="s_mar_in_pct">9.7%</span></td>
+    <td class="r">$207,851</td><td class="c">8.9%</td>
+    <td class="r">$113,356</td><td class="c">7.3%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_inward" value="120000" oninput="refresh()"></td>
+    <td class="c jun"><span id="s_jun_in_pct">—</span></td>
+  </tr>
+  <tr class="even"><td style="padding-left:20px">↳ Amazon</td><td class="r">$40,034</td><td></td><td class="r">$60,050</td><td></td><td class="r">$40,550</td><td></td><td class="r jun" style="color:#6B6052;font-size:11px">—</td><td></td></tr>
+  <tr><td style="padding-left:20px">↳ TikTok</td><td class="r">$98,077</td><td></td><td class="r">$147,180</td><td></td><td class="r">$72,656</td><td></td><td class="r jun" style="color:#6B6052;font-size:11px">—</td><td></td></tr>
+  <tr class="even"><td style="padding-left:20px">↳ D2C</td><td class="r">$416</td><td></td><td class="r">$621</td><td></td><td class="r">$150</td><td></td><td class="r jun" style="color:#6B6052;font-size:11px">—</td><td></td></tr>
+  <tr class="note"><td colspan="9">Freight mix: March 100% Air · April 89% Air + 11% Sea · May 70% Air + 30% Sea → improving trend</td></tr>
+
+  <!-- IMPORT DUTY -->
+  <tr class="sec"><td colspan="9">3. IMPORT DUTY (US Customs)</td></tr>
+  <tr>
+    <td class="bold">Total Import Duty</td>
+    <td class="r">$36,600</td><td class="c">2.6%</td>
+    <td class="r">$47,528</td><td class="c">2.0%</td>
+    <td class="r">$27,974</td><td class="c">1.8%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_duty" value="30000" oninput="refresh()"></td>
+    <td class="c jun"><span id="s_jun_duty_pct">—</span></td>
+  </tr>
+  <tr class="even"><td style="padding-left:20px">↳ Amazon</td><td class="r">$17,129</td><td></td><td class="r">$22,287</td><td></td><td class="r">$14,170</td><td></td><td></td><td></td></tr>
+  <tr><td style="padding-left:20px">↳ TikTok</td><td class="r">$19,288</td><td></td><td class="r">$25,028</td><td></td><td class="r">$13,761</td><td></td><td></td><td></td></tr>
+  <tr class="even"><td style="padding-left:20px">↳ D2C</td><td class="r">$183</td><td></td><td class="r">$214</td><td></td><td class="r">$43</td><td></td><td></td><td></td></tr>
+
+  <!-- OUTWARD -->
+  <tr class="sec"><td colspan="9">4. OUTWARD LOGISTICS (Warehouse → Customer)</td></tr>
+  <tr>
+    <td class="bold">Total Outward</td>
+    <td class="r c-r bold">$491,994</td><td class="c c-r"><strong>34.3%</strong></td>
+    <td class="r c-a bold">$390,809</td><td class="c c-a"><strong>16.7%</strong></td>
+    <td class="r bold">$236,559</td><td class="c"><strong>15.2%</strong></td>
+    <td class="r jun editable"><input class="e-num" id="jun_outward_total" value="280000" oninput="refresh()"></td>
+    <td class="c jun bold"><span id="s_jun_out_pct">—</span></td>
+  </tr>
+  <tr class="even hl-green">
+    <td style="padding-left:20px">↳ TikTok FBT (TikTok-fulfilled)</td>
+    <td class="r">$98,510</td><td class="c">6.9%</td>
+    <td class="r">$176,159</td><td class="c">7.5%</td>
+    <td class="r" style="color:#888">$— (est.)</td><td class="c" style="color:#888">—</td>
+    <td class="r jun editable"><input class="e-num" id="jun_fbt" value="170000" oninput="refresh()"></td>
+    <td class="c jun"><span id="s_jun_fbt_pct">—</span></td>
+  </tr>
+  <tr class="hl-red">
+    <td style="padding-left:20px">↳ TikTok ShipBob (3PL)</td>
+    <td class="r c-r bold">$184,964</td><td class="c c-r"><strong>12.9%</strong></td>
+    <td class="r c-g">$52,810</td><td class="c c-g">2.3%</td>
+    <td class="r" style="color:#888">$— (est.)</td><td class="c" style="color:#888">—</td>
+    <td class="r jun editable"><input class="e-num" id="jun_tiktok_sb" value="15000" oninput="refresh()"></td>
+    <td class="c jun"><span id="s_jun_tsb_pct">—</span></td>
+  </tr>
+  <tr class="note"><td colspan="9">⚠ May FBT/ShipBob split not available — no May logistics summary uploaded. May TikTok total = $152,796 (combined). Upload May logistics file to fill.</td></tr>
+  <tr>
+    <td style="padding-left:20px">↳ TikTok Total</td>
+    <td class="r bold">$283,474</td><td class="c">19.8%</td>
+    <td class="r bold">$228,969</td><td class="c">9.8%</td>
+    <td class="r bold">$152,796</td><td class="c">9.8%</td>
+    <td class="r jun bold"><span id="s_jun_tiktok_total">—</span></td><td></td>
+  </tr>
+  <tr class="even">
+    <td style="padding-left:20px">↳ Amazon FBA</td>
+    <td class="r">$166,828</td><td class="c">11.6%</td>
+    <td class="r">$162,763</td><td class="c">7.0%</td>
+    <td class="r">$82,177</td><td class="c">5.3%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_amazon_fba" value="95000" oninput="refresh()"></td>
+    <td class="c jun"><span id="s_jun_amz_pct">—</span></td>
+  </tr>
+  <tr>
+    <td style="padding-left:20px">↳ D2C (RL + Shopify)</td>
+    <td class="r">$1,284</td><td class="c">0.1%</td>
+    <td class="r">$1,177</td><td class="c">0.1%</td>
+    <td class="r">$1,585</td><td class="c">0.1%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_d2c" value="2000" oninput="refresh()"></td>
+    <td></td>
+  </tr>
+  <tr class="even">
+    <td style="padding-left:20px">↳ ShipBob Manual/Unallocated</td>
+    <td class="r">$6,041</td><td class="c">0.4%</td>
+    <td class="r c-g">($4,358)</td><td class="c c-g">credit</td>
+    <td class="r" style="color:#888">—</td><td></td>
+    <td class="r jun editable"><input class="e-num" id="jun_sb_manual" value="0" oninput="refresh()"></td>
+    <td></td>
+  </tr>
+  <tr class="hl-red">
+    <td style="padding-left:20px"><strong>↳ Cancelled Orders — Shipped Loss</strong></td>
+    <td class="r c-r bold">$34,367</td><td class="c c-r bold">2.4%</td>
+    <td class="r c-g">$2,258</td><td class="c c-g">0.1%</td>
+    <td class="r c-g">$0</td><td class="c c-g">0.0%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_cancelled" value="0" oninput="refresh()"></td>
+    <td class="c jun"><span class="badge bg-g">Target $0</span></td>
+  </tr>
+  <tr class="note"><td colspan="9">March $34,367 cancelled loss = one-off. April $2,258. May $0. This single item explains 2.4pp of March cost.</td></tr>
+
+  <!-- STORAGE -->
+  <tr class="sec"><td colspan="9">5. US WAREHOUSE STORAGE + WASTE INVENTORY</td></tr>
+  <tr>
+    <td class="bold">Sub-total Storage</td>
+    <td class="r">$19,359</td><td class="c">1.3%</td>
+    <td class="r c-r">$25,520</td><td class="c c-r">1.1%</td>
+    <td class="r c-g">$11,044</td><td class="c">0.7%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_storage" value="12000" oninput="refresh()"></td>
+    <td class="c jun"><span id="s_jun_stor_pct">—</span></td>
+  </tr>
+  <tr class="even"><td style="padding-left:20px">↳ Amazon FBA Storage</td><td class="r">$4,571</td><td></td><td class="r">$3,545</td><td></td><td class="r">$3,500</td><td></td><td></td><td></td></tr>
+  <tr><td style="padding-left:20px">↳ TikTok WH Storage</td><td class="r">$11,788</td><td></td><td class="r">$7,475</td><td></td><td class="r">$3,544</td><td></td><td></td><td></td></tr>
+  <tr class="even hl-amber"><td style="padding-left:20px">↳ ShipBob Storage (spike in April)</td><td class="r">$3,000</td><td></td><td class="r c-r bold">$14,500</td><td></td><td class="r c-g">$4,000</td><td></td><td></td><td></td></tr>
+  <tr>
+    <td class="bold">Waste Inventory</td>
+    <td class="r">$2,500</td><td class="c">0.2%</td>
+    <td class="r">$2,500</td><td class="c">0.1%</td>
+    <td class="r">$2,500</td><td class="c">0.2%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_waste" value="2500" oninput="refresh()"></td>
+    <td></td>
+  </tr>
+  <tr class="even"><td style="padding-left:20px">↳ TikTok Waste</td><td class="r">$1,000</td><td></td><td class="r">$1,000</td><td></td><td class="r">$1,000</td><td></td><td></td><td></td></tr>
+  <tr><td style="padding-left:20px">↳ Amazon Waste</td><td class="r">$1,000</td><td></td><td class="r">$1,000</td><td></td><td class="r">$1,000</td><td></td><td></td><td></td></tr>
+  <tr class="even"><td style="padding-left:20px">↳ ShipBob Waste</td><td class="r">$500</td><td></td><td class="r">$500</td><td></td><td class="r">$500</td><td></td><td></td><td></td></tr>
+  <tr class="sub">
+    <td>► Total Storage + Waste</td>
+    <td class="r">$21,859</td><td class="c">1.5%</td>
+    <td class="r">$28,020</td><td class="c">1.2%</td>
+    <td class="r">$13,544</td><td class="c">0.9%</td>
+    <td class="r jun"><span id="s_jun_st_total">—</span></td>
+    <td class="c jun"><span id="s_jun_st_pct">—</span></td>
+  </tr>
+
+  <!-- INDIA WH -->
+  <tr class="sec"><td colspan="9">6. INDIA WAREHOUSE — FBR (₹6L/month ÷ ₹84 = $7,143)</td></tr>
+  <tr>
+    <td class="bold">India WH Cost (FBR)</td>
+    <td class="r">$7,143</td><td class="c">0.5%</td>
+    <td class="r">$7,143</td><td class="c">0.3%</td>
+    <td class="r">$7,143</td><td class="c">0.5%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_india_wh" value="7143" oninput="refresh()"></td>
+    <td class="c jun"><span id="s_jun_india_pct">—</span></td>
+  </tr>
+
+  <!-- INTERNAL -->
+  <tr class="sec"><td colspan="9">7. INTERNAL TRANSFERS</td></tr>
+  <tr>
+    <td class="bold">Sky2C Transfer Cost</td>
+    <td class="r">$3,700</td><td class="c">0.3%</td>
+    <td class="r">$3,700</td><td class="c">0.2%</td>
+    <td class="r">$4,500</td><td class="c">0.3%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_sky2c" value="4500" oninput="refresh()"></td>
+    <td></td>
+  </tr>
+  <tr class="even">
+    <td class="bold">FBT Palletization Fee</td>
+    <td class="r">$2,503</td><td class="c">0.2%</td>
+    <td class="r">$1,764</td><td class="c">0.1%</td>
+    <td class="r">$498</td><td class="c">0.0%</td>
+    <td class="r jun editable"><input class="e-num" id="jun_pallet" value="400" oninput="refresh()"></td>
+    <td></td>
+  </tr>
+  <tr class="note"><td colspan="9">FBT Pallet: March 7,152 units @ $0.35/unit = $2,503 · April 5,040 = $1,764 · May 1,422 = $498. Declining as FBT is pre-sorted at India WH.</td></tr>
+  <tr class="sub">
+    <td>► Total Internal Transfers</td>
+    <td class="r">$6,203</td><td class="c">0.4%</td>
+    <td class="r">$5,464</td><td class="c">0.2%</td>
+    <td class="r">$4,998</td><td class="c">0.3%</td>
+    <td class="r jun"><span id="s_jun_int_total">—</span></td>
+    <td class="c jun"><span id="s_jun_int_pct">—</span></td>
+  </tr>
+
+  <!-- GRAND TOTAL -->
+  <tr class="sec"><td colspan="9">8. GRAND TOTAL OPS COST</td></tr>
+  <tr class="sub">
+    <td>► Inward + Duty</td>
+    <td class="r">$175,127</td><td class="c">12.2%</td>
+    <td class="r">$255,379</td><td class="c">10.9%</td>
+    <td class="r">$141,330</td><td class="c">9.1%</td>
+    <td class="r jun"><span id="s_jun_ind_total">—</span></td>
+    <td class="c jun"><span id="s_jun_ind_pct">—</span></td>
+  </tr>
+  <tr class="tot">
+    <td>► GRAND TOTAL OPS COST</td>
+    <td class="r">$699,823</td><td class="c">48.8%</td>
+    <td class="r">$685,051</td><td class="c">28.7%</td>
+    <td class="r">$403,076</td><td class="c">25.4%</td>
+    <td class="r"><span id="s_jun_grand_total">—</span></td>
+    <td class="c"><strong><span id="s_jun_grand_pct">—</span></strong></td>
+  </tr>
+  <tr class="hl-green" style="font-weight:700;">
+    <td>vs 21% Target (gap)</td>
+    <td class="r c-r">+27.8pp over</td><td></td>
+    <td class="r c-a">+7.7pp over</td><td></td>
+    <td class="r c-a">+4.4pp over</td><td></td>
+    <td class="r"><span id="s_jun_gap_vs_target" style="font-weight:700;">—</span></td>
+    <td></td>
+  </tr>
+</table>
+</div>
+
+<!-- ===================== TAB 2: INWARD ===================== -->
+<div id="tab-inward" class="tab-pane">
+<div class="sh">Inward Freight Analysis — India → US + Air+C Savings Calculator</div>
+
+<div class="ib">Freight is shifting from 100% Air (March) → 89%/11% Sea (April) → 70%/30% Sea (May). Continuing this shift + packaging modifications are the two biggest inward levers.</div>
+
+<table>
+  <colgroup><col style="width:30%"><col style="width:17%"><col style="width:17%"><col style="width:17%"><col style="width:19%"></colgroup>
+  <tr><th>Inward Line</th><th class="r">March (31d)</th><th class="r">April (27d)</th><th class="r">May (20d)</th><th class="r">Notes</th></tr>
+  <tr><td class="bold">Total Inward Freight</td><td class="r bold">$138,527</td><td class="r bold">$207,851</td><td class="r bold">$113,356</td><td>May: 20-day partial</td></tr>
+  <tr class="even"><td style="padding-left:16px">↳ Amazon channel</td><td class="r">$40,034</td><td class="r">$60,050</td><td class="r">$40,550</td><td>~2.6% of rev, stable</td></tr>
+  <tr><td style="padding-left:16px">↳ TikTok channel</td><td class="r">$98,077</td><td class="r">$147,180</td><td class="r">$72,656</td><td>Improving with sea shift</td></tr>
+  <tr class="even"><td style="padding-left:16px">↳ D2C</td><td class="r">$416</td><td class="r">$621</td><td class="r">$150</td><td>Negligible</td></tr>
+  <tr class="sub"><td>Inward as % of Revenue</td><td class="r">9.7%</td><td class="r">8.9%</td><td class="r">7.3%</td><td>↓ 2.4pp improvement</td></tr>
+  <tr><td class="bold">Import Duty</td><td class="r bold">$36,600</td><td class="r bold">$47,528</td><td class="r bold">$27,974</td><td></td></tr>
+  <tr class="even"><td style="padding-left:16px">↳ Amazon</td><td class="r">$17,129</td><td class="r">$22,287</td><td class="r">$14,170</td><td></td></tr>
+  <tr><td style="padding-left:16px">↳ TikTok</td><td class="r">$19,288</td><td class="r">$25,028</td><td class="r">$13,761</td><td></td></tr>
+  <tr class="even"><td style="padding-left:16px">↳ D2C</td><td class="r">$183</td><td class="r">$214</td><td class="r">$43</td><td></td></tr>
+  <tr class="sub"><td>Duty as % of Revenue</td><td class="r">2.6%</td><td class="r">2.0%</td><td class="r">1.8%</td><td>↓ with tariff refund filing</td></tr>
+  <tr><td class="bold">Freight Mix — Air %</td><td class="r bold c-r">100%</td><td class="r">89%</td><td class="r c-g">70%</td><td>Target: 50% Air Jun</td></tr>
+  <tr class="even"><td class="bold">Freight Mix — Sea %</td><td class="r c-r">0%</td><td class="r">11%</td><td class="r c-g">30%</td><td>Target: 50% Sea Jun</td></tr>
+</table>
+
+<div class="two-col">
+<div>
+<div class="calc-box">
+  <div class="calc-title">✈️ Air+C Savings Calculator</div>
+  <div class="ib amber" style="margin-bottom:10px;font-size:11px;">Air+C = hybrid air-charter service. Based on your input of ₹350/kg (~$4.17/USD at ₹84). Enter your monthly kg volume and current rate to compute savings.</div>
+  <div class="calc-row"><span>Monthly kg shipped (air portion)</span><input class="ci" id="ac_kg" value="20000" oninput="calcAirC()"></div>
+  <div class="calc-row"><span>Current air rate ($/kg)</span><input class="ci" id="ac_curr_rate" value="5.50" oninput="calcAirC()"></div>
+  <div class="calc-row"><span>Air+C rate ($/kg) — ₹350 ÷ 84</span><input class="ci" id="ac_new_rate" value="4.17" oninput="calcAirC()"></div>
+  <div class="calc-row"><span>% volume to switch to Air+C</span><input class="ci" id="ac_pct" value="50" oninput="calcAirC()"></div>
+  <div class="calc-row"><span>Reference: Monthly Revenue</span><input class="ci" id="ac_rev" value="2200000" oninput="calcAirC()"></div>
+  <div class="result-row">
+    <span>Monthly Saving</span>
+    <span id="ac_saving">—</span>
+  </div>
+  <div class="result-row" style="margin-top:4px;background:#EBF5EB;">
+    <span>Saving as % of Revenue</span>
+    <span id="ac_saving_pct">—</span>
+  </div>
+  <div style="font-size:11px;color:#6B6052;margin-top:8px;line-height:1.7;">
+    <strong>Does Air+C reduce outward cost?</strong> No — Air+C only affects inward (India→US). Outward is last-mile US delivery (FBT/ShipBob/Amazon FBA). Air+C reduces your inward cost per kg, which helps reach the 21% target via the inward lever (~7-9% of revenue).
+  </div>
+</div>
+</div>
+
+<div>
+<div class="calc-box">
+  <div class="calc-title">📦 Packaging Modification Impact</div>
+  <div class="ib green" style="margin-bottom:10px;font-size:11px;">Lighter packaging = fewer grams per unit = lower air freight per kg shipped. Enter the estimated weight reduction per unit and monthly units shipped.</div>
+  <div class="calc-row"><span>Monthly units shipped (air)</span><input class="ci" id="pkg_units" value="80000" oninput="calcPkg()"></div>
+  <div class="calc-row"><span>Current weight per unit (grams)</span><input class="ci" id="pkg_curr_wt" value="350" oninput="calcPkg()"></div>
+  <div class="calc-row"><span>New weight per unit (grams)</span><input class="ci" id="pkg_new_wt" value="310" oninput="calcPkg()"></div>
+  <div class="calc-row"><span>Air freight rate ($/kg)</span><input class="ci" id="pkg_rate" value="5.50" oninput="calcPkg()"></div>
+  <div class="calc-row"><span>Reference: Monthly Revenue</span><input class="ci" id="pkg_rev" value="2200000" oninput="calcPkg()"></div>
+  <div class="result-row">
+    <span>Monthly Saving (freight)</span>
+    <span id="pkg_saving">—</span>
+  </div>
+  <div class="result-row" style="margin-top:4px;background:#EBF5EB;">
+    <span>Saving as % of Revenue</span>
+    <span id="pkg_saving_pct">—</span>
+  </div>
+  <div style="font-size:11px;color:#6B6052;margin-top:8px;line-height:1.7;">
+    Additional benefit: lighter = potentially fewer pieces per carton → lower import duty (ad-valorem). Secondary benefit not computed here.
+  </div>
+</div>
+</div>
+</div>
+
+<div class="sh">Duty Tariff Refund Filing</div>
+<div class="ib amber">Viral is filing for pending duty tariff refunds. March duty = $36,600 (2.6%), April = $47,528 (2.0%), May = $27,974 (1.8%). Successful refund filing could recover overcharged duties — especially material for March/April volumes. Track this as a one-time cash recovery, not a recurring % reduction. Target AMJ rate: &lt;1.8%.</div>
+</div>
+
+<!-- ===================== TAB 3: OUTWARD ===================== -->
+<div id="tab-outward" class="tab-pane">
+<div class="sh">Outward Logistics — TikTok FBT · TikTok ShipBob · Amazon FBA · D2C · Cancelled Orders</div>
+
+<div class="ib green"><strong>Key win:</strong> TikTok ShipBob dropped from $184,964 (12.9%) in March to $52,810 (2.3%) in April = <strong>$132,154 saved</strong> in one month from FBT migration. This single item drove most of the March→April improvement.</div>
+
+<table>
+  <colgroup><col style="width:30%"><col style="width:14%"><col style="width:6%"><col style="width:14%"><col style="width:6%"><col style="width:14%"><col style="width:6%"><col style="width:10%"></colgroup>
+  <tr>
+    <th>Outward Line</th>
+    <th class="r">March</th><th class="c">%</th>
+    <th class="r">April</th><th class="c">%</th>
+    <th class="r">May</th><th class="c">%</th>
+    <th>Trend</th>
+  </tr>
+  <tr class="sec"><td colspan="8">TIKTOK — FBT (Fulfilled by TikTok)</td></tr>
+  <tr class="hl-green">
+    <td class="bold">TikTok FBT</td>
+    <td class="r">$98,510</td><td class="c">6.9%</td>
+    <td class="r">$176,159</td><td class="c">7.5%</td>
+    <td class="r" style="color:#888">— (no split)</td><td class="c" style="color:#888">—</td>
+    <td>↑ Absorbing SB volume</td>
+  </tr>
+  <tr class="note hl-green"><td colspan="8">FBT cost rises as migration progresses — this is expected. FBT rate/unit is LOWER than ShipBob; April spike reflects higher volume through FBT. Good trend.</td></tr>
+
+  <tr class="sec"><td colspan="8">TIKTOK — ShipBob 3PL</td></tr>
+  <tr class="hl-red">
+    <td class="bold">TikTok ShipBob</td>
+    <td class="r c-r bold">$184,964</td><td class="c c-r bold">12.9%</td>
+    <td class="r c-g">$52,810</td><td class="c c-g">2.3%</td>
+    <td class="r" style="color:#888">— (no split)</td><td class="c" style="color:#888">—</td>
+    <td class="c-g bold">↓ $132K saved</td>
+  </tr>
+  <tr class="note hl-red"><td colspan="8">March 12.9% → April 2.3% = 10.6pp drop. This is the FBT migration impact. Target for June: &lt;1% as remaining SB-TikTok orders are residual/edge cases.</td></tr>
+
+  <tr class="even">
+    <td class="bold">TikTok Total</td>
+    <td class="r bold">$283,474</td><td class="c bold">19.8%</td>
+    <td class="r bold">$228,969</td><td class="c bold">9.8%</td>
+    <td class="r bold">$152,796</td><td class="c bold">9.8%</td>
+    <td>Stabilising at ~10%</td>
+  </tr>
+
+  <tr class="sec"><td colspan="8">AMAZON FBA</td></tr>
+  <tr>
+    <td class="bold">Amazon FBA Fees</td>
+    <td class="r">$166,828</td><td class="c">11.6%</td>
+    <td class="r">$162,763</td><td class="c">7.0%</td>
+    <td class="r">$82,177</td><td class="c">5.3%</td>
+    <td>Improving as % of rev</td>
+  </tr>
+  <tr class="note"><td colspan="8">April = $144,532 booked + $15,067 provision + $3,164 Amazon-via-ShipBob = $162,763. May was only 20 days; monthly-equiv = ~$123K.</td></tr>
+
+  <tr class="sec"><td colspan="8">D2C (RL + Shopify)</td></tr>
+  <tr class="even">
+    <td class="bold">D2C Total</td>
+    <td class="r">$1,284</td><td class="c">0.1%</td>
+    <td class="r">$1,177</td><td class="c">0.1%</td>
+    <td class="r">$1,585</td><td class="c">0.1%</td>
+    <td>Negligible</td>
+  </tr>
+  <tr class="even"><td style="padding-left:16px">↳ D2C RL</td><td class="r">$1,284</td><td></td><td class="r">$341</td><td></td><td class="r">$238</td><td></td><td></td></tr>
+  <tr><td style="padding-left:16px">↳ Shopify RL</td><td class="r" style="color:#888">—</td><td></td><td class="r">$836</td><td></td><td class="r">$1,348</td><td></td><td>Growing</td></tr>
+
+  <tr class="sec"><td colspan="8">CANCELLED ORDERS — SHIPPED LOSS</td></tr>
+  <tr class="hl-red">
+    <td class="bold">Cancelled Orders Shipped</td>
+    <td class="r c-r bold">$34,367</td><td class="c c-r bold">2.4%</td>
+    <td class="r c-g">$2,258</td><td class="c c-g">0.1%</td>
+    <td class="r c-g bold">$0</td><td class="c c-g bold">0.0%</td>
+    <td class="c-g bold">Resolved</td>
+  </tr>
+  <tr class="note hl-red"><td colspan="8">March $34,367 was a significant one-off. Fully resolved by May. This single line explains 2.4pp of March's high ops %. No recurrence expected in June.</td></tr>
+
+  <tr class="sec"><td colspan="8">SHIPBOB MANUAL / UNALLOCATED</td></tr>
+  <tr>
+    <td class="bold">ShipBob Manual</td>
+    <td class="r">$6,041</td><td class="c">0.4%</td>
+    <td class="r c-g">($4,358)</td><td class="c c-g">credit</td>
+    <td class="r" style="color:#888">—</td><td></td>
+    <td>April credit = SB recon win</td>
+  </tr>
+
+  <tr class="tot">
+    <td>► TOTAL OUTWARD</td>
+    <td class="r">$491,994</td><td class="c">34.3%</td>
+    <td class="r">$390,809</td><td class="c">16.7%</td>
+    <td class="r">$236,559</td><td class="c">15.2%</td>
+    <td></td>
+  </tr>
+</table>
+
+<div class="ib amber"><strong>May FBT/ShipBob split is missing.</strong> The May TikTok total ($152,796) is from P&L only — no May logistics cost summary has been uploaded. To see the FBT vs ShipBob breakdown for May, upload the May logistics cost file. The split matters to confirm FBT migration is holding.</div>
+</div>
+
+<!-- ===================== TAB 4: INTERNAL TRANSFERS ===================== -->
+<div id="tab-internal" class="tab-pane">
+<div class="sh">Internal Transfers — Sky2C + FBT Palletization</div>
+
+<table>
+  <colgroup><col style="width:30%"><col style="width:17%"><col style="width:7%"><col style="width:17%"><col style="width:7%"><col style="width:17%"><col style="width:7%"><col style="width:18%"></colgroup>
+  <tr><th>Transfer Line</th><th class="r">March</th><th class="c">%</th><th class="r">April</th><th class="c">%</th><th class="r">May</th><th class="c">%</th><th>Notes</th></tr>
+  <tr>
+    <td class="bold">Sky2C Transfer Cost</td>
+    <td class="r">$3,700</td><td class="c">0.3%</td>
+    <td class="r">$3,700</td><td class="c">0.2%</td>
+    <td class="r">$4,500</td><td class="c">0.3%</td>
+    <td>Slight increase May. Stable.</td>
+  </tr>
+  <tr class="even">
+    <td class="bold">FBT Palletization Fee</td>
+    <td class="r">$2,503</td><td class="c">0.2%</td>
+    <td class="r">$1,764</td><td class="c">0.1%</td>
+    <td class="r">$498</td><td class="c">0.0%</td>
+    <td class="c-g bold">↓ 80% in 3 months</td>
+  </tr>
+  <tr class="even"><td style="padding-left:16px;font-size:11px">↳ Units palletized</td><td class="r">7,152 units</td><td></td><td class="r">5,040 units</td><td></td><td class="r">1,422 units</td><td></td><td>Rate = $0.35/unit</td></tr>
+  <tr class="sub">
+    <td>► Total Internal Transfers</td>
+    <td class="r">$6,203</td><td class="c">0.4%</td>
+    <td class="r">$5,464</td><td class="c">0.2%</td>
+    <td class="r">$4,998</td><td class="c">0.3%</td>
+    <td>Trending down</td>
+  </tr>
+</table>
+
+<div class="ib green"><strong>FBT Palletization is dropping sharply</strong> as India WH now pre-sorts inventory before shipping to FBT. March = $2,503 (7,152 units) → May = $498 (1,422 units). At the current rate, June palletization should be &lt;$400. This is a direct result of the India WH process improvement.</div>
+
+<div class="calc-box">
+  <div class="calc-title">FBT Pallet Rate Calculator</div>
+  <div class="calc-row"><span>Units to be palletized (June est.)</span><input class="ci" id="plt_units" value="1100" oninput="calcPallet()"></div>
+  <div class="calc-row"><span>Rate per unit ($)</span><input class="ci" id="plt_rate" value="0.35" oninput="calcPallet()"></div>
+  <div class="result-row"><span>June FBT Palletization Cost</span><span id="plt_result">—</span></div>
+</div>
+</div>
+
+<!-- ===================== TAB 5: STORAGE & WASTE ===================== -->
+<div id="tab-storage" class="tab-pane">
+<div class="sh">US Storage + Waste Inventory — By Channel</div>
+
+<table>
+  <colgroup><col style="width:28%"><col style="width:13%"><col style="width:6%"><col style="width:13%"><col style="width:6%"><col style="width:13%"><col style="width:6%"><col style="width:15%"></colgroup>
+  <tr><th>Storage / Waste Line</th><th class="r">March</th><th class="c">%</th><th class="r">April</th><th class="c">%</th><th class="r">May</th><th class="c">%</th><th>Notes</th></tr>
+
+  <tr class="sec"><td colspan="8">US WAREHOUSE STORAGE</td></tr>
+  <tr>
+    <td class="bold">Amazon FBA Storage</td>
+    <td class="r">$4,571</td><td class="c">0.3%</td>
+    <td class="r">$3,545</td><td class="c">0.2%</td>
+    <td class="r">$3,500</td><td class="c">0.2%</td>
+    <td>Stable. Improving.</td>
+  </tr>
+  <tr class="even">
+    <td class="bold">TikTok WH Storage (FBT)</td>
+    <td class="r">$11,788</td><td class="c">0.8%</td>
+    <td class="r">$7,475</td><td class="c">0.3%</td>
+    <td class="r c-g">$3,544</td><td class="c c-g">0.2%</td>
+    <td class="c-g bold">↓ 70% in 3 months</td>
+  </tr>
+  <tr class="hl-red">
+    <td class="bold">ShipBob Storage</td>
+    <td class="r">$3,000</td><td class="c">0.2%</td>
+    <td class="r c-r bold">$14,500</td><td class="c c-r bold">0.6%</td>
+    <td class="r c-g">$4,000</td><td class="c c-g">0.3%</td>
+    <td class="c-r">April spike! Monitor.</td>
+  </tr>
+  <tr class="sub">
+    <td>► Sub-total Storage</td>
+    <td class="r">$19,359</td><td class="c">1.3%</td>
+    <td class="r">$25,520</td><td class="c">1.1%</td>
+    <td class="r c-g">$11,044</td><td class="c">0.7%</td>
+    <td>May = best month</td>
+  </tr>
+
+  <tr class="sec"><td colspan="8">WASTE INVENTORY — Monthly Provision (P&amp;L provision, see full disposal analysis below)</td></tr>
+  <tr>
+    <td class="bold">Waste — FBT / TikTok</td>
+    <td class="r">$1,000</td><td class="c">0.1%</td>
+    <td class="r">$1,000</td><td class="c">0.0%</td>
+    <td class="r">$1,000</td><td class="c">0.1%</td>
+    <td>Provision (actual data below ↓)</td>
+  </tr>
+  <tr class="even">
+    <td class="bold">Waste — Amazon FBA</td>
+    <td class="r">$1,000</td><td class="c">0.1%</td>
+    <td class="r">$1,000</td><td class="c">0.0%</td>
+    <td class="r">$382</td><td class="c">0.0%</td>
+    <td>Actual Apr: $382.35 (see breakdown ↓)</td>
+  </tr>
+  <tr>
+    <td class="bold">Waste — ShipBob</td>
+    <td class="r">$500</td><td class="c">0.0%</td>
+    <td class="r">$500</td><td class="c">0.0%</td>
+    <td class="r">$1,000</td><td class="c">0.1%</td>
+    <td>$1,000/month (user confirmed)</td>
+  </tr>
+  <tr class="sub">
+    <td>► Total Waste Provision</td>
+    <td class="r">$2,500</td><td class="c">0.2%</td>
+    <td class="r">$2,500</td><td class="c">0.1%</td>
+    <td class="r">$2,382</td><td class="c">0.2%</td>
+    <td>See disposal savings below</td>
+  </tr>
+  <tr class="tot">
+    <td>► TOTAL STORAGE + WASTE</td>
+    <td class="r">$21,859</td><td class="c">1.5%</td>
+    <td class="r">$28,020</td><td class="c">1.2%</td>
+    <td class="r">$13,426</td><td class="c">0.9%</td>
+    <td>May = lowest — target</td>
+  </tr>
+</table>
+
+<div class="ib amber"><strong>ShipBob Storage spike in April ($14,500 vs $3,000 March)</strong> — inventory build during SB→FBT transition. May corrected to $4,000. Keep lean.</div>
+<div class="ib green"><strong>FBT storage declining fast</strong> — $11,788 → $7,475 → $3,544. Target June: &lt;$3,000.</div>
+
+<!-- =================== WASTE DISPOSAL SECTION =================== -->
+<div style="border-top:3px solid #C0392B;margin-top:28px;padding-top:20px;">
+<div style="background:#C0392B;color:#fff;padding:10px 14px;border-radius:4px;font-weight:700;font-size:14px;margin-bottom:6px;">
+  🗑️ Waste &amp; Excess Inventory — Disposal Savings Analysis
+</div>
+<div class="ib red" style="margin-bottom:16px;"><strong>Question: If I dispose of excess/aged inventory now, how much can I save monthly per channel?</strong><br>
+Below shows actual aged inventory storage costs vs disposal costs. The monthly saving is what you stop paying once stock is removed. The disposal fee is a one-time cost Amazon/FBT/ShipBob charges to remove units.</div>
+
+<!-- CHANNEL SUMMARY -->
+<div class="sh" style="margin-top:0;">Channel-Wise Disposal Savings Summary</div>
+<table>
+  <colgroup><col style="width:18%"><col style="width:13%"><col style="width:13%"><col style="width:13%"><col style="width:12%"><col style="width:12%"><col style="width:19%"></colgroup>
+  <tr>
+    <th>Channel</th>
+    <th class="r">Aged Units</th>
+    <th class="r">Monthly Storage Saving</th>
+    <th class="r">One-Time Disposal Cost</th>
+    <th class="c">Break-Even</th>
+    <th class="c">Recommendation</th>
+    <th>Priority Action</th>
+  </tr>
+  <tr class="hl-red">
+    <td class="bold">Amazon FBA</td>
+    <td class="r">8,075 units<br><span style="font-size:10px;color:#6B6052">181+ days aged</span></td>
+    <td class="r c-g bold">$382.35/mo<br><span style="font-size:10px;color:#6B6052">April actual</span></td>
+    <td class="r c-r">$12,354.75<br><span style="font-size:10px;color:#6B6052">@ $1.53/unit</span></td>
+    <td class="c c-r bold">32 months</td>
+    <td class="c"><span class="badge bg-a">Selective</span></td>
+    <td>Dispose DRR=0 SKUs immediately. Sell-through rest. See SKU table ↓.</td>
+  </tr>
+  <tr class="even hl-amber">
+    <td class="bold">FBT / TikTok</td>
+    <td class="r"><input class="e-num" id="fbt_waste_units" value="0" style="width:80px;background:#FFFDE7;border:1px solid #DDD2BD;border-radius:3px;padding:3px 6px;text-align:right" oninput="calcWaste()"> units</td>
+    <td class="r c-g bold"><span id="fbt_monthly_saving">$1,000</span>/mo</td>
+    <td class="r c-r"><input class="e-num" id="fbt_disposal_cost" value="0" style="width:80px;background:#FFFDE7;border:1px solid #DDD2BD;border-radius:3px;padding:3px 6px;text-align:right" oninput="calcWaste()"></td>
+    <td class="c"><span id="fbt_breakeven">—</span></td>
+    <td class="c"><span class="badge bg-a">Enter data</span></td>
+    <td>Enter FBT aged unit count &amp; disposal cost from FBT portal. Current provision = $1,000/mo.</td>
+  </tr>
+  <tr class="hl-amber">
+    <td class="bold">ShipBob</td>
+    <td class="r">—</td>
+    <td class="r c-g bold">$1,000/mo</td>
+    <td class="r c-r"><input class="e-num" id="sb_disposal_cost" value="500" style="width:80px;background:#FFFDE7;border:1px solid #DDD2BD;border-radius:3px;padding:3px 6px;text-align:right" oninput="calcWaste()"></td>
+    <td class="c"><span id="sb_breakeven">—</span></td>
+    <td class="c"><span class="badge bg-g">Dispose</span></td>
+    <td>$1,000/month storage confirmed. Dispose excess — break-even is fast.</td>
+  </tr>
+  <tr class="sub">
+    <td>► Total if All Disposed</td>
+    <td class="r"><span id="waste_total_units">8,075</span> units</td>
+    <td class="r c-g bold"><span id="waste_total_monthly">$2,382</span>/mo</td>
+    <td class="r c-r bold"><span id="waste_total_disposal">$12,355</span></td>
+    <td class="c"><span id="waste_total_be">—</span></td>
+    <td colspan="2" class="c"><span id="waste_total_note" style="font-style:italic;font-size:11px">Complete FBT data to finalise</span></td>
+  </tr>
+</table>
+
+<!-- AMAZON SKU BREAKDOWN -->
+<div class="sh">Amazon FBA — Aged Inventory SKU Detail (180+ Days) · Source: Amazon FBA Inventory Report</div>
+<div class="ib" style="margin-bottom:12px;">Data as of May 2026. Storage cost = actual April charges. Disposal cost @ $1.53/unit (Amazon removal fee). <strong>DRR = 0</strong> rows are dead stock — dispose immediately. High-DRR rows: consider sell-through promotions first.</div>
+
+<table style="font-size:11.5px;">
+  <colgroup>
+    <col style="width:7%"><col style="width:28%"><col style="width:5%">
+    <col style="width:7%"><col style="width:7%"><col style="width:7%"><col style="width:7%">
+    <col style="width:8%"><col style="width:8%"><col style="width:8%"><col style="width:8%">
+  </colgroup>
+  <tr>
+    <th>ASIN</th><th>Product</th><th class="c">DRR</th>
+    <th class="r">181–270d</th><th class="r">271–365d</th><th class="r">366+d</th><th class="r">Total 181+</th>
+    <th class="r">Storage/mo (Apr)</th><th class="r">Disposal Cost</th>
+    <th class="c">Break-Even</th><th class="c">Action</th>
+  </tr>
+  <tr class="hl-red">
+    <td style="font-size:10px">B0FDQZSTZW</td>
+    <td><strong>Man Matters Himalayan Shilajit Gummies 3000mg</strong></td>
+    <td class="c c-r bold">0</td>
+    <td class="r">1</td><td class="r">874</td><td class="r">0</td><td class="r bold">875</td>
+    <td class="r">$40.35</td>
+    <td class="r">$1,338.75</td>
+    <td class="c c-r bold">33 mo</td>
+    <td class="c"><span class="badge bg-r">DISPOSE NOW</span><br><span style="font-size:9px;color:#7B0000">DRR=0, dead stock</span></td>
+  </tr>
+  <tr class="hl-amber">
+    <td style="font-size:10px">B0C6TFSVZ5</td>
+    <td>Little Joys Kids Multivitamin Gummies</td>
+    <td class="c c-a bold">2</td>
+    <td class="r">141</td><td class="r">1,382</td><td class="r">0</td><td class="r bold">1,523</td>
+    <td class="r">$52.07</td>
+    <td class="r">$2,330.19</td>
+    <td class="c c-a">45 mo</td>
+    <td class="c"><span class="badge bg-a">Promote first</span><br><span style="font-size:9px;color:#7A4800">Low DRR, high age</span></td>
+  </tr>
+  <tr class="hl-amber">
+    <td style="font-size:10px">B0FDQYJ7FH</td>
+    <td>Man Matters Pure Shilajit Gummies 4000mg 75%+</td>
+    <td class="c c-a bold">2</td>
+    <td class="r">0</td><td class="r">499</td><td class="r">0</td><td class="r bold">499</td>
+    <td class="r">$32.62</td>
+    <td class="r">$763.47</td>
+    <td class="c c-a">23 mo</td>
+    <td class="c"><span class="badge bg-a">Promote first</span></td>
+  </tr>
+  <tr class="hl-amber">
+    <td style="font-size:10px">B0FM3XWXL7</td>
+    <td>Little Joys Omega-3 (DHA) Brain Gummies Kids</td>
+    <td class="c c-a bold">2</td>
+    <td class="r">319</td><td class="r">0</td><td class="r">0</td><td class="r bold">319</td>
+    <td class="r">$22.17</td>
+    <td class="r">$488.07</td>
+    <td class="c c-a">22 mo</td>
+    <td class="c"><span class="badge bg-a">Promote first</span></td>
+  </tr>
+  <tr>
+    <td style="font-size:10px">B0FM3YZS T7</td>
+    <td>Man Matters DHA Omega 3 Brain Gummies for Kids</td>
+    <td class="c c-a bold">3</td>
+    <td class="r">401</td><td class="r">0</td><td class="r">0</td><td class="r bold">401</td>
+    <td class="r">$25.28</td>
+    <td class="r">$613.53</td>
+    <td class="c">24 mo</td>
+    <td class="c"><span class="badge bg-a">Monitor</span></td>
+  </tr>
+  <tr class="even">
+    <td style="font-size:10px">B0DQWLVD4F</td>
+    <td>ROOT LABS Sea Moss Gummies 92+ Minerals</td>
+    <td class="c c-g bold">7</td>
+    <td class="r">780</td><td class="r">0</td><td class="r">0</td><td class="r bold">780</td>
+    <td class="r">$142.63</td>
+    <td class="r">$1,193.40</td>
+    <td class="c c-g">8 mo</td>
+    <td class="c"><span class="badge bg-g">Sell through</span><br><span style="font-size:9px;color:#0B5239">DRR ok, will clear</span></td>
+  </tr>
+  <tr class="even">
+    <td style="font-size:10px">B092ZXX7XP</td>
+    <td>Be Bodywise Biotin Hair Growth Gummies Women</td>
+    <td class="c c-g bold">10</td>
+    <td class="r">606</td><td class="r">0</td><td class="r">0</td><td class="r bold">606</td>
+    <td class="r">$37.71</td>
+    <td class="r">$927.18</td>
+    <td class="c c-g">25 mo</td>
+    <td class="c"><span class="badge bg-g">Sell through</span><br><span style="font-size:9px;color:#0B5239">High DRR</span></td>
+  </tr>
+  <tr class="even">
+    <td style="font-size:10px">B0FDR14FSM</td>
+    <td>Be Bodywise Deodorant Roll on Aluminum Free</td>
+    <td class="c c-g bold">16</td>
+    <td class="r">3,072</td><td class="r">0</td><td class="r">0</td><td class="r bold">3,072</td>
+    <td class="r">$29.52</td>
+    <td class="r">$4,700.16</td>
+    <td class="c c-g">159 mo</td>
+    <td class="c"><span class="badge bg-g">Sell through</span><br><span style="font-size:9px;color:#0B5239">High DRR — will clear</span></td>
+  </tr>
+  <tr class="tot">
+    <td colspan="4">TOTAL</td>
+    <td class="r">2,755</td><td class="r">0</td><td class="r bold">8,075</td>
+    <td class="r bold">$382.35/mo</td>
+    <td class="r bold">$12,354.75</td>
+    <td class="c bold">32 mo blended</td>
+    <td class="c"><span class="badge bg-r">$1,379 priority</span></td>
+  </tr>
+</table>
+
+<div class="two-col" style="margin-top:16px;">
+<div class="white-box">
+  <h3 style="color:#C0392B;border-bottom:2px solid #C0392B;padding-bottom:6px;margin-bottom:12px;">📋 Recommended Disposal Action</h3>
+  <div style="font-size:12px;line-height:2.0;">
+    <strong style="color:#C0392B">DISPOSE NOW (DRR=0, dead stock):</strong><br>
+    &nbsp;• Man Matters Himalayan Shilajit 3000mg — 875 units — $1,338.75 disposal — saves $40.35/mo<br>
+    &nbsp;• Estimated total: $1,339 one-time → saves <strong>$40/month</strong>
+    <br><br>
+    <strong style="color:#E67E22">PROMOTE &amp; MONITOR (Low DRR, high age):</strong><br>
+    &nbsp;• Little Joys Multivitamin (DRR=2), Shilajit 4000mg (DRR=2), LJ Omega-3 (DRR=2)<br>
+    &nbsp;• Run Amazon deals/coupons first. If no improvement in 30d, dispose.<br>
+    &nbsp;• Combined disposal: $3,582 → saves $107/month
+    <br><br>
+    <strong style="color:#0B5239">SELL THROUGH (DRR≥7):</strong><br>
+    &nbsp;• Sea Moss, Bodywise Biotin, Bodywise Deodorant — actively selling<br>
+    &nbsp;• Do NOT dispose — they will sell out naturally
+  </div>
+</div>
+<div class="white-box">
+  <h3 style="color:#0B5239;border-bottom:2px solid #0B5239;padding-bottom:6px;margin-bottom:12px;">💰 Disposal Savings Calculator — All Channels</h3>
+  <div class="calc-row"><span>Amazon — dispose DRR=0 only (875 units)</span><span class="sav">Save $40.35/mo</span></div>
+  <div class="calc-row"><span>Amazon — dispose DRR≤2 also (2,897 units)</span><span class="sav">Save $147.19/mo</span></div>
+  <div class="calc-row"><span>Amazon — dispose ALL (8,075 units)</span><span class="sav">Save $382.35/mo</span></div>
+  <div class="calc-row"><span>ShipBob — dispose excess</span><span class="sav">Save $1,000/mo</span></div>
+  <div class="calc-row"><span>FBT — dispose excess (enter data above)</span><span class="sav" id="fbt_disp_sum">$1,000/mo provision</span></div>
+  <div style="background:#0B5239;color:#fff;padding:10px;border-radius:4px;margin-top:10px;font-size:13px;display:flex;justify-content:space-between;font-weight:700;">
+    <span>Best case: ALL channels disposed</span>
+    <span id="waste_best_case">~$2,382/mo saved</span>
+  </div>
+  <div style="font-size:11px;color:#6B6052;margin-top:8px;line-height:1.7;">
+    As % of $2.2M June revenue, full disposal saving = <strong id="waste_as_pct_rev">0.11%</strong> — small but it eliminates a cost permanently. Priority: ShipBob ($1,000/mo) has the best ROI.
+  </div>
+</div>
+</div>
+</div><!-- end waste disposal section -->
+
+</div>
+
+<!-- ===================== TAB 6: INDIA WH ===================== -->
+<div id="tab-india" class="tab-pane">
+<div class="sh">India Warehouse Cost — FBR (₹6 Lakh/month)</div>
+
+<div class="ib">India WH cost is ₹6,00,000/month = <strong>$7,143/month</strong> at ₹84/USD. This is a fixed cost — it doesn't scale with revenue, so at higher revenue months it's a smaller % automatically.</div>
+
+<div class="two-col">
+<div>
+<table>
+  <tr><th>Month</th><th class="r">INR</th><th class="r">USD (÷84)</th><th class="c">% of Rev</th></tr>
+  <tr><td>March</td><td class="r">₹6,00,000</td><td class="r">$7,143</td><td class="c">0.50%</td></tr>
+  <tr class="even"><td>April</td><td class="r">₹6,00,000</td><td class="r">$7,143</td><td class="c">0.30%</td></tr>
+  <tr><td>May</td><td class="r">₹6,00,000</td><td class="r">$7,143</td><td class="c">0.45%</td></tr>
+  <tr class="sub"><td>June (target)</td><td class="r">₹6,00,000</td><td class="r">$7,143</td><td class="c">0.32%</td></tr>
+</table>
+</div>
+<div>
+<div class="calc-box">
+  <div class="calc-title">FX Sensitivity (India WH)</div>
+  <div class="calc-row"><span>India WH cost (₹/month)</span><input class="ci" id="wh_inr" value="600000" oninput="calcWH()"></div>
+  <div class="calc-row"><span>USD/INR rate</span><input class="ci" id="wh_fx" value="84" oninput="calcWH()"></div>
+  <div class="calc-row"><span>Monthly Revenue ($)</span><input class="ci" id="wh_rev" value="2200000" oninput="calcWH()"></div>
+  <div class="result-row"><span>India WH in USD</span><span id="wh_usd">$7,143</span></div>
+  <div class="result-row" style="margin-top:4px;background:#EBF5EB;"><span>% of Revenue</span><span id="wh_pct">0.32%</span></div>
+</div>
+</div>
+</div>
+
+<div class="ib green">India WH cost is relatively small at 0.3–0.5% of revenue. The key value it provides is pre-sorting for FBT (reducing palletization fees) and enabling the SB→FBT migration. The cost is well-justified by the $132K+ savings from FBT migration.</div>
+</div>
+
+<!-- ===================== TAB 7: JUNE LEVERS ===================== -->
+<div id="tab-levers" class="tab-pane">
+<div class="sh">June Cost Reduction Roadmap — From 25.4% to 21% Target</div>
+
+<div class="gap-tracker">
+  <div class="gap-row"><span class="gap-lbl">May Ops Cost (20d actual)</span><span class="gap-val">25.4%</span></div>
+  <div class="gap-row"><span class="gap-lbl">May 30-day equivalent (scaled)</span><span class="gap-val">~25.4% (same % basis)</span></div>
+  <div class="gap-row"><span class="gap-lbl">June Target</span><span class="gap-val" style="color:#7CFC00;">21.0%</span></div>
+  <div class="gap-row"><span class="gap-lbl">Gap to close</span><span class="gap-val" style="color:#FFD700;">−4.4pp needed</span></div>
+  <div class="gap-row"><span class="gap-lbl">June Model (from Summary tab)</span><span class="gap-val" id="lever-jun-pct">Update Summary tab ↑</span></div>
+</div>
+
+<div class="ib amber"><strong>Key insight:</strong> Revenue growth is the single most powerful lever. If June does $2.5M (vs May's $1.59M for 20 days → implied $2.4M/month), the same ops cost structure = ~22–23%. Combine with cost reductions below and 21% is achievable.</div>
+
+<div class="sh" style="margin-top:10px;">Cost Levers — Ranked by Impact</div>
+
+<table>
+  <colgroup><col style="width:5%"><col style="width:22%"><col style="width:10%"><col style="width:10%"><col style="width:10%"><col style="width:13%"><col style="width:30%"></colgroup>
+  <tr><th>Rank</th><th>Lever</th><th class="c">Current %</th><th class="c">Target %</th><th class="c">pp Saving</th><th class="c">Difficulty</th><th>How to Execute</th></tr>
+
+  <tr class="hl-green">
+    <td class="c bold">1</td>
+    <td class="bold">Revenue Growth (TikTok volume)</td>
+    <td class="c">25.4%</td><td class="c">—</td>
+    <td class="c c-g bold">−2 to −3pp</td>
+    <td class="c"><span class="badge bg-g">Easy</span></td>
+    <td>TikTok revenue at $2.4M/month (full 30d equiv) makes costs ~22% with no changes. Scale ad spend, new SKU listings.</td>
+  </tr>
+  <tr class="even hl-green">
+    <td class="c bold">2</td>
+    <td class="bold">Sea Freight Shift (50%→ 50%)</td>
+    <td class="c">7.3% inward</td><td class="c">6.0%</td>
+    <td class="c c-g bold">−1.3pp</td>
+    <td class="c"><span class="badge bg-g">Easy</span></td>
+    <td>May already at 30% sea. Push to 50% sea for June. Sea freight ~$1.5–2/kg vs air $5–6/kg. Requires 4–6 week lead time for sea shipments.</td>
+  </tr>
+  <tr>
+    <td class="c bold">3</td>
+    <td class="bold">Air+C at ₹350/kg (~$4.17)</td>
+    <td class="c">$5.50/kg (est.)</td><td class="c">$4.17/kg</td>
+    <td class="c c-g bold">−0.5 to −0.8pp</td>
+    <td class="c"><span class="badge bg-a">Medium</span></td>
+    <td>Switch 50% of remaining air volume to Air+C carrier. At 20K kg/month, saves ~$13K = 0.6pp at $2.2M rev.</td>
+  </tr>
+  <tr class="even">
+    <td class="c bold">4</td>
+    <td class="bold">Packaging Weight Reduction</td>
+    <td class="c">~350g/unit</td><td class="c">~310g/unit</td>
+    <td class="c c-g bold">−0.5pp</td>
+    <td class="c"><span class="badge bg-a">Medium</span></td>
+    <td>−40g per unit × 80K units = −3,200 kg/month. At $5/kg = $16K saving = 0.7pp at $2.2M. Already in pipeline per packaging NPA team.</td>
+  </tr>
+  <tr>
+    <td class="c bold">5</td>
+    <td class="bold">Amazon Multi-Pack (FBA fee reduction)</td>
+    <td class="c">$166K/month</td><td class="c">$130K</td>
+    <td class="c c-g bold">−1.6pp</td>
+    <td class="c"><span class="badge bg-a">Medium</span></td>
+    <td>Bundle 2-packs for Amazon. FBA fee per 2-pack is lower than 2× single units. Alpha 120×2 and HGR 50ml×2 already live. Add more SKUs. Could save $30–40K/month.</td>
+  </tr>
+  <tr class="even">
+    <td class="c bold">6</td>
+    <td class="bold">Duty Tariff Refund (one-time)</td>
+    <td class="c">2.0–2.6%</td><td class="c">&lt;1.8%</td>
+    <td class="c c-g bold">One-time recovery</td>
+    <td class="c"><span class="badge bg-a">Medium</span></td>
+    <td>Viral filing for pending refunds. $110K+ in duties paid Mar–May. Recovery reduces effective duty rate. Not a monthly recurring saving but a cash win.</td>
+  </tr>
+  <tr>
+    <td class="c bold">7</td>
+    <td class="bold">ShipBob Storage — keep low</td>
+    <td class="c">$14.5K peak</td><td class="c">$3–4K</td>
+    <td class="c c-g bold">−0.5pp</td>
+    <td class="c"><span class="badge bg-g">Easy</span></td>
+    <td>May already at $4K (good). Ensure SB inventory stays lean as FBT absorbs TikTok volume. Don't build at ShipBob unless needed for D2C/Amazon.</td>
+  </tr>
+  <tr class="even">
+    <td class="c bold">8</td>
+    <td class="bold">TikTok ShipBob (residual)</td>
+    <td class="c">2.3% Apr</td><td class="c">&lt;1%</td>
+    <td class="c c-g bold">−1.3pp</td>
+    <td class="c"><span class="badge bg-g">Easy</span></td>
+    <td>Complete FBT migration. Any remaining TikTok orders via ShipBob are costing ~2.3× vs FBT. Push to 95%+ FBT for TikTok orders.</td>
+  </tr>
+</table>
+
+<div class="sh">June Scenario — Path to 21%</div>
+<table>
+  <colgroup><col style="width:35%"><col style="width:20%"><col style="width:20%"><col style="width:25%"></colgroup>
+  <tr><th>Assumption</th><th class="c">Conservative</th><th class="c">Base Case</th><th class="c">Best Case</th></tr>
+  <tr><td>June Gross Revenue</td><td class="c">$2,000,000</td><td class="c">$2,200,000</td><td class="c">$2,500,000</td></tr>
+  <tr class="even"><td>Inward (sea shift + Air+C)</td><td class="c">$140,000 (7.0%)</td><td class="c">$120,000 (5.5%)</td><td class="c">$110,000 (4.4%)</td></tr>
+  <tr><td>Outward (FBT + multi-pack)</td><td class="c">$310,000 (15.5%)</td><td class="c">$270,000 (12.3%)</td><td class="c">$240,000 (9.6%)</td></tr>
+  <tr class="even"><td>Import Duty</td><td class="c">$35,000 (1.8%)</td><td class="c">$30,000 (1.4%)</td><td class="c">$28,000 (1.1%)</td></tr>
+  <tr><td>Storage + Waste</td><td class="c">$16,000 (0.8%)</td><td class="c">$14,500 (0.7%)</td><td class="c">$13,000 (0.5%)</td></tr>
+  <tr class="even"><td>India WH + Internal + Sky2C</td><td class="c">$12,000 (0.6%)</td><td class="c">$12,000 (0.5%)</td><td class="c">$12,000 (0.5%)</td></tr>
+  <tr class="sub"><td><strong>Total Ops Cost</strong></td><td class="c"><strong>$513,000 (25.7%)</strong></td><td class="c"><strong>$446,500 (20.3%)</strong></td><td class="c"><strong>$403,000 (16.1%)</strong></td></tr>
+  <tr class="tot"><td><strong>vs 21% Target</strong></td><td class="c c-r">+4.7pp over</td><td class="c c-g">−0.7pp ACHIEVED</td><td class="c c-g">−4.9pp ahead</td></tr>
+</table>
+
+<div class="sh">Out-of-Box Cost Reduction Ideas</div>
+<div class="lever-grid">
+  <div class="lever-card">
+    <div class="lever-hdr">📦 Amazon Seller-Fulfilled Prime (SFP)</div>
+    <div class="lever-row"><span>What</span><span>Fulfill Amazon orders from FBT warehouse instead of FBA</span></div>
+    <div class="lever-row"><span>Saving</span><span class="sav">$20–40K/month</span></div>
+    <div class="lever-row"><span>How</span><span>FBT rates lower than Amazon FBA fees. Requires SFP approval + badge.</span></div>
+    <div class="lever-row"><span>Risk</span><span class="neg">Amazon Prime badge at risk if TAT missed</span></div>
+  </div>
+  <div class="lever-card">
+    <div class="lever-hdr">🚢 Sea + Air Express Combo Routing</div>
+    <div class="lever-row"><span>What</span><span>Ship 70% sea for base stock, 30% air for fast-moving replenishment only</span></div>
+    <div class="lever-row"><span>Saving</span><span class="sav">$25–35K/month on inward</span></div>
+    <div class="lever-row"><span>How</span><span>Identify top-velocity SKUs for air, rest via sea. Requires DOI discipline.</span></div>
+    <div class="lever-row"><span>Risk</span><span class="neg">Stockout if sea delayed</span></div>
+  </div>
+  <div class="lever-card">
+    <div class="lever-hdr">🏭 FBT as Primary Hub (All Channels)</div>
+    <div class="lever-row"><span>What</span><span>Route Amazon + D2C orders through FBT instead of ShipBob</span></div>
+    <div class="lever-row"><span>Saving</span><span class="sav">$15–25K/month</span></div>
+    <div class="lever-row"><span>How</span><span>FBT handles TikTok at lower rates. Extend to D2C + select Amazon.</span></div>
+    <div class="lever-row"><span>Risk</span><span class="neg">FBT SLA for non-TikTok orders needs validation</span></div>
+  </div>
+  <div class="lever-card">
+    <div class="lever-hdr">🔄 ShipBob Renegotiation</div>
+    <div class="lever-row"><span>What</span><span>Volume dropped — renegotiate ShipBob rates down</span></div>
+    <div class="lever-row"><span>Saving</span><span class="sav">$8–15K/month</span></div>
+    <div class="lever-row"><span>How</span><span>TikTok ShipBob fell from $185K to $53K. Lower volume = leverage for lower per-unit rate.</span></div>
+    <div class="lever-row"><span>Risk</span><span class="neg">SB may require volume commitment</span></div>
+  </div>
+  <div class="lever-card">
+    <div class="lever-hdr">📉 Amazon Inventory Placement Opt.</div>
+    <div class="lever-row"><span>What</span><span>Use Amazon's Inventory Placement Service to reduce split-shipment surcharges</span></div>
+    <div class="lever-row"><span>Saving</span><span class="sav">$5–12K/month</span></div>
+    <div class="lever-row"><span>How</span><span>Send all inventory to one FC → Amazon spreads it. Avoids per-unit placement fee.</span></div>
+    <div class="lever-row"><span>Risk</span><span class="neg">Longer inbound processing time</span></div>
+  </div>
+  <div class="lever-card">
+    <div class="lever-hdr">📦 Lightweight Packaging (Beyond NPA)</div>
+    <div class="lever-row"><span>What</span><span>Move to recyclable film bags vs rigid boxes where possible</span></div>
+    <div class="lever-row"><span>Saving</span><span class="sav">$10–20K/month</span></div>
+    <div class="lever-row"><span>How</span><span>−80–100g per unit. Requires FSSAI + brand approval. Already in NPA pipeline.</span></div>
+    <div class="lever-row"><span>Risk</span><span class="neg">Brand perception if packaging downgrades visually</span></div>
+  </div>
+</div>
+</div>
+
+</div><!-- .wrapper -->
+
+<script>
+function $(id){return document.getElementById(id)}
+function v(id){return parseFloat($(id).value)||0}
+function fmt(n){return'$'+Math.round(n).toLocaleString()}
+function pct(a,b){return b?((a/b)*100).toFixed(1)+'%':'—'}
+function ppDiff(a,b){var d=a-b;return(d>0?'+':'')+d.toFixed(1)+'pp'}
+
+function refresh(){
+  var rev=v('jun_rev');
+  var credits=v('jun_credits');
+  var inward=v('jun_inward');
+  var duty=v('jun_duty');
+  var fbt=v('jun_fbt');
+  var tsb=v('jun_tiktok_sb');
+  var amz=v('jun_amazon_fba');
+  var d2c=v('jun_d2c');
+  var sbm=v('jun_sb_manual');
+  var can=v('jun_cancelled');
+  var outward_total=v('jun_outward_total');
+  var storage=v('jun_storage');
+  var waste=v('jun_waste');
+  var india=v('jun_india_wh');
+  var sky2c=v('jun_sky2c');
+  var pallet=v('jun_pallet');
+
+  var net=rev-credits;
+  var int_total=sky2c+pallet;
+  var st_total=storage+waste;
+  var ind_total=inward+duty;
+  var grand=inward+duty+outward_total+st_total+india+int_total;
+  var tiktok_total=fbt+tsb;
+
+  // Update spans
+  if($('s_jun_in_pct'))    $('s_jun_in_pct').textContent    = pct(inward,rev);
+  if($('s_jun_duty_pct'))  $('s_jun_duty_pct').textContent  = pct(duty,rev);
+  if($('s_jun_out_pct'))   $('s_jun_out_pct').textContent   = pct(outward_total,rev);
+  if($('s_jun_fbt_pct'))   $('s_jun_fbt_pct').textContent   = pct(fbt,rev);
+  if($('s_jun_tsb_pct'))   $('s_jun_tsb_pct').textContent   = pct(tsb,rev);
+  if($('s_jun_tiktok_total')) $('s_jun_tiktok_total').textContent = fmt(tiktok_total);
+  if($('s_jun_amz_pct'))   $('s_jun_amz_pct').textContent   = pct(amz,rev);
+  if($('s_jun_stor_pct'))  $('s_jun_stor_pct').textContent  = pct(storage,rev);
+  if($('s_jun_st_total'))  $('s_jun_st_total').textContent  = fmt(st_total);
+  if($('s_jun_st_pct'))    $('s_jun_st_pct').textContent    = pct(st_total,rev);
+  if($('s_jun_india_pct')) $('s_jun_india_pct').textContent = pct(india,rev);
+  if($('s_jun_int_total')) $('s_jun_int_total').textContent = fmt(int_total);
+  if($('s_jun_int_pct'))   $('s_jun_int_pct').textContent   = pct(int_total,rev);
+  if($('s_jun_ind_total')) $('s_jun_ind_total').textContent = fmt(ind_total);
+  if($('s_jun_ind_pct'))   $('s_jun_ind_pct').textContent   = pct(ind_total,rev);
+  if($('s_jun_grand_total'))$('s_jun_grand_total').textContent=fmt(grand);
+
+  var gPct=(grand/rev*100);
+  var gPctStr=gPct.toFixed(1)+'%';
+  if($('s_jun_grand_pct')){
+    $('s_jun_grand_pct').textContent=gPctStr;
+    $('s_jun_grand_pct').style.color=gPct<=21?'#00C851':gPct<=25?'#E67E22':'#C0392B';
+  }
+
+  var gap=gPct-21;
+  var gapStr=(gap>0?'+':'')+gap.toFixed(1)+'pp vs 21% target';
+  if($('s_jun_gap_vs_target')){
+    $('s_jun_gap_vs_target').textContent=gapStr;
+    $('s_jun_gap_vs_target').style.color=gap<=0?'#0B5239':'#C0392B';
+  }
+
+  // KPI cards
+  if($('kpi-jun'))     $('kpi-jun').textContent=gPctStr;
+  if($('kpi-jun-rev')) $('kpi-jun-rev').textContent=Math.round(rev).toLocaleString();
+  if($('kpi-jun-gap')){
+    $('kpi-jun-gap').textContent=gapStr;
+    $('kpi-jun-gap').style.color=gap<=0?'#0B5239':'#C0392B';
+  }
+  if($('lever-jun-pct')) $('lever-jun-pct').textContent=gPctStr+(gap<=0?' ✅ ON TARGET':' — need '+Math.abs(gap).toFixed(1)+'pp more');
+}
+
+function calcAirC(){
+  var kg=v('ac_kg');var curr=v('ac_curr_rate');var newR=v('ac_new_rate');var pctSwitch=v('ac_pct');var rev=v('ac_rev');
+  var saving=kg*(pctSwitch/100)*(curr-newR);
+  if($('ac_saving'))     $('ac_saving').textContent=saving>0?fmt(saving):'No saving';
+  if($('ac_saving_pct')) $('ac_saving_pct').textContent=saving>0&&rev>0?((saving/rev)*100).toFixed(2)+'%':'—';
+}
+
+function calcPkg(){
+  var units=v('pkg_units');var curr=v('pkg_curr_wt');var nw=v('pkg_new_wt');var rate=v('pkg_rate');var rev=v('pkg_rev');
+  var kgSaved=units*(curr-nw)/1000;
+  var saving=kgSaved*rate;
+  if($('pkg_saving'))     $('pkg_saving').textContent=saving>0?fmt(saving):'No saving';
+  if($('pkg_saving_pct')) $('pkg_saving_pct').textContent=saving>0&&rev>0?((saving/rev)*100).toFixed(2)+'%':'—';
+}
+
+function calcPallet(){
+  var u=v('plt_units');var r=v('plt_rate');
+  if($('plt_result')) $('plt_result').textContent=fmt(u*r);
+}
+
+function calcWH(){
+  var inr=v('wh_inr');var fx=v('wh_fx');var rev=v('wh_rev');
+  var usd=fx>0?inr/fx:0;
+  if($('wh_usd')) $('wh_usd').textContent=fmt(usd);
+  if($('wh_pct')) $('wh_pct').textContent=usd>0&&rev>0?((usd/rev)*100).toFixed(2)+'%':'—';
+}
+
+function showTab(id,btn){
+  document.querySelectorAll('.tab-pane').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function calcWaste(){
+  var fbt_units=v('fbt_waste_units');
+  var fbt_disp=v('fbt_disposal_cost');
+  var sb_disp=v('sb_disposal_cost');
+
+  // FBT monthly saving = provision $1,000 (since no actual data yet)
+  var fbt_monthly=1000;
+  var sb_monthly=1000;
+  var amz_monthly=382.35;
+
+  // Break-evens
+  var fbt_be=fbt_disp>0&&fbt_monthly>0?(fbt_disp/fbt_monthly).toFixed(1)+' mo':'—';
+  var sb_be=sb_disp>0&&sb_monthly>0?(sb_disp/sb_monthly).toFixed(1)+' mo':'—';
+
+  if($('fbt_breakeven')) $('fbt_breakeven').textContent=fbt_be;
+  if($('sb_breakeven')) $('sb_breakeven').textContent=sb_be;
+  if($('fbt_monthly_saving')) $('fbt_monthly_saving').textContent='$'+fbt_monthly.toFixed(0);
+
+  // Totals
+  var total_units=8075+(fbt_units||0);
+  var total_monthly=amz_monthly+fbt_monthly+sb_monthly;
+  var total_disp=12354.75+fbt_disp+sb_disp;
+  var total_be=total_monthly>0?(total_disp/total_monthly).toFixed(1)+' mo':'—';
+
+  if($('waste_total_units')) $('waste_total_units').textContent=Math.round(total_units).toLocaleString();
+  if($('waste_total_monthly')) $('waste_total_monthly').textContent='$'+Math.round(total_monthly).toLocaleString();
+  if($('waste_total_disposal')) $('waste_total_disposal').textContent='$'+Math.round(total_disp).toLocaleString();
+  if($('waste_total_be')) $('waste_total_be').textContent=total_be;
+
+  var rev=2200000;
+  if($('waste_best_case')) $('waste_best_case').textContent='~'+fmt(total_monthly)+'/mo saved';
+  if($('waste_as_pct_rev')) $('waste_as_pct_rev').textContent=((total_monthly/rev)*100).toFixed(2)+'%';
+  if($('fbt_disp_sum')) $('fbt_disp_sum').textContent='$'+fbt_monthly+'/mo provision';
+}
+
+// Init
+window.onload=function(){
+  refresh();calcAirC();calcPkg();calcPallet();calcWH();calcWaste();
+};
+</script>
+</body>
+</html>
