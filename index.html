@@ -932,74 +932,111 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   <div class="gap-row"><span class="gap-lbl">June Model</span><span class="gap-val" id="lever-jun-pct">Set June forecast in Summary tab ↑</span></div>
 </div>
 
-<table style="margin-top:20px;">
-  <colgroup><col style="width:38%"><col style="width:25%"><col style="width:37%"></colgroup>
+<div style="font-size:11px;color:#6B6052;margin:16px 0 4px 0;">All pp impacts calculated at $2.2M reference revenue. Gap to close = 4.4pp.</div>
+<table style="margin-top:4px;">
+  <colgroup><col style="width:34%"><col style="width:17%"><col style="width:13%"><col style="width:36%"></colgroup>
   <tr>
     <th>Lever</th>
-    <th class="c">June Monthly Saving</th>
+    <th class="c">June $ Saving</th>
+    <th class="c">pp Impact</th>
     <th>Notes</th>
   </tr>
 
   <tr class="hl-green">
     <td><strong>1. Grow Revenue → $2.5M</strong></td>
-    <td class="c c-g bold" style="font-size:15px;">−2 to −3pp</td>
-    <td style="font-size:12px;">Scale TikTok + Amazon. Same costs, higher revenue = lower %. No cash needed.</td>
+    <td class="c c-g bold" style="font-size:15px;">—</td>
+    <td class="c c-g bold" style="font-size:15px;">−3.0pp</td>
+    <td style="font-size:12px;">Same $ costs ÷ higher revenue. No cash needed. Closes 68% of the 4.4pp gap alone.</td>
   </tr>
 
   <tr class="even">
-    <td><strong>2. Xindus Air+Sea Freight</strong><br><span style="font-size:11px;color:#6B6052;">Xindus carrier · Air+Sea route · 30%→50%</span></td>
+    <td><strong>2. Xindus Air+Sea (30%→50%)</strong><br><span style="font-size:11px;color:#6B6052;">Xindus carrier · Air+Sea route</span></td>
     <td class="c c-g bold" style="font-size:15px;">~$15,000</td>
-    <td style="font-size:12px;">Switch more volume to Xindus carrier ($3.6/kg) vs UPS Air ($6.1/kg). Use planner below ↓</td>
+    <td class="c c-g bold" style="font-size:15px;">−0.7pp</td>
+    <td style="font-size:12px;">Shift 6,000 kg/month extra to Xindus ($3.6/kg) from UPS Air ($6.1/kg). Use planner below ↓</td>
   </tr>
 
   <tr>
     <td><strong>3. Lighter Packaging (−40g/unit)</strong></td>
     <td class="c c-g bold" style="font-size:15px;">~$16,000</td>
+    <td class="c c-g bold" style="font-size:15px;">−0.7pp</td>
     <td style="font-size:12px;">80K units × −40g = −3,200 kg less air freight. In NPA pipeline.</td>
   </tr>
 
   <tr class="even">
     <td><strong>4. Amazon 2-Pack Bundles</strong></td>
     <td class="c c-g bold" style="font-size:15px;">~$33,000</td>
+    <td class="c c-g bold" style="font-size:15px;">−1.5pp</td>
     <td style="font-size:12px;">FBA fee per 2-pack &lt; 2× singles. Alpha 120×2 + HGR 50ml×2 live. Add more SKUs.</td>
   </tr>
 
   <tr>
     <td><strong>5. Complete FBT Migration</strong></td>
     <td class="c c-g bold" style="font-size:15px;">~$25,000</td>
-    <td style="font-size:12px;">Move remaining TikTok ShipBob orders to FBT. Apr SB was $52K → target &lt;$5K.</td>
+    <td class="c c-g bold" style="font-size:15px;">−1.1pp</td>
+    <td style="font-size:12px;">Move remaining TikTok ShipBob orders → FBT. Apr SB was $52K → target &lt;$5K.</td>
   </tr>
 
   <tr class="even">
     <td><strong>6. Keep ShipBob Storage Lean</strong></td>
     <td class="c c-g bold" style="font-size:15px;">~$10,000</td>
+    <td class="c c-g bold" style="font-size:15px;">−0.5pp</td>
     <td style="font-size:12px;">May SB storage at ~$4K (down from $14.5K peak). Don't rebuild for TikTok.</td>
   </tr>
 
   <tr>
     <td><strong>7. Dispose Excess FBT + SB Stock</strong></td>
     <td class="c c-g bold" style="font-size:15px;">~$2,400</td>
+    <td class="c c-g bold" style="font-size:15px;">−0.1pp</td>
     <td style="font-size:12px;">Stop paying storage on stuck / unsellable units. Clear and close out.</td>
   </tr>
 
   <tr class="even">
     <td><strong>8. Captrack FBT Loss Recovery</strong><br><span style="font-size:11px;color:#6B6052;">Partnered recovery · FBT chargebacks</span></td>
     <td class="c c-g bold" style="font-size:15px;">~$17,000</td>
-    <td style="font-size:12px;">Captrack partnership recovers $17K/month from FBT losses/chargebacks. Month-on-month recurring recovery.</td>
+    <td class="c c-g bold" style="font-size:15px;">−0.8pp</td>
+    <td style="font-size:12px;">Captrack recovers $17K/month from FBT losses. Month-on-month recurring.</td>
   </tr>
 
   <tr>
     <td><strong>9. ShipBob Per-Unit Rate Reduction</strong><br><span style="font-size:11px;color:#6B6052;">Later stage — pending negotiation</span></td>
     <td class="c c-g bold" style="font-size:15px;" id="sb_lever_saving">—</td>
-    <td style="font-size:12px;">Save $0.30/unit on ShipBob-processed orders only. Use planner below ↓ to size the saving.</td>
+    <td class="c c-g bold" style="font-size:15px;" id="sb_lever_pp">—</td>
+    <td style="font-size:12px;">$0.30/unit on ShipBob-processed orders. Use planner below ↓ to size saving.</td>
   </tr>
 
   <tr class="tot">
     <td><strong>Total recurring saving (levers 2–8)</strong></td>
-    <td class="c bold" style="font-size:16px;color:#0B5239;">~$118,400 / month</td>
-    <td style="font-size:12px;color:#6B6052;">≈ 5.4pp at $2.2M revenue → well past 21% target</td>
+    <td class="c bold" style="font-size:15px;color:#0B5239;">~$118,400 / month</td>
+    <td class="c bold" style="font-size:15px;color:#0B5239;">−5.4pp</td>
+    <td style="font-size:12px;color:#6B6052;">25.4% − 3.0pp (rev) − 5.4pp (costs) = <strong style="color:#0B5239;">~17% — well past 21% target</strong></td>
   </tr>
 </table>
+
+<!-- ── P0 Callout ── -->
+<div style="background:#0B5239;color:#FFFFFF;border-radius:8px;padding:18px 22px;margin:20px 0;max-width:800px;">
+  <div style="font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:10px;">🎯 P0 FOCUS — Convert 100% Inward Freight to Xindus Air+Sea</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:13px;">
+    <div>
+      <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">CURRENT MIX (May)</div>
+      <div style="font-size:18px;font-weight:700;">70% UPS · 30% Xindus</div>
+      <div style="color:#D6E4DA;margin-top:4px;">Blended rate: $5.38/kg</div>
+    </div>
+    <div>
+      <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">P0 TARGET (June)</div>
+      <div style="font-size:18px;font-weight:700;">0% UPS · 100% Xindus</div>
+      <div style="color:#D6E4DA;margin-top:4px;">Rate: $3.60/kg</div>
+    </div>
+    <div>
+      <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">P0 IMPACT (30K kg/mo)</div>
+      <div style="font-size:18px;font-weight:700;color:#7CFC00;">~$53,000 / mo</div>
+      <div style="color:#D6E4DA;margin-top:4px;">= <strong style="color:#7CFC00;">−2.4pp</strong> vs the −0.7pp from 30→50%</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.2);margin-top:14px;padding-top:12px;font-size:12px;color:#D6E4DA;">
+    Going 100% Xindus saves <strong style="color:#FFFFFF;">$53K/month</strong> — 3.5× more than the partial 30→50% shift ($15K). The additional $38K unlocked by going from 50% → 100% Xindus is the single biggest inward lever available. Model it in the planner below ↓ (set UPS Air = 0%, Xindus = 100%).
+  </div>
+</div>
 
 <!-- ── Xindus Freight Mix Planner ── -->
 <div class="calc-box" style="margin-top:24px;max-width:800px;">
@@ -1197,6 +1234,7 @@ function calcSBSaving(){
   if($('sb_saving_total')) $('sb_saving_total').textContent=saving>0?fmt(saving):'—';
   if($('sb_saving_pct2'))  $('sb_saving_pct2').textContent=saving>0&&rev>0?((saving/rev)*100).toFixed(3)+'%':'—';
   if($('sb_lever_saving')) $('sb_lever_saving').textContent=saving>0?'~'+fmt(saving):'—';
+  if($('sb_lever_pp'))     $('sb_lever_pp').textContent=saving>0&&rev>0?'−'+((saving/rev)*100).toFixed(2)+'pp':'—';
   // Outward tab planner inputs (separate fields, keep in sync display)
   var units2=v('sb_out_units'), rate2=v('sb_out_rate'), rev2=v('sb_out_rev');
   var saving2=units2*rate2;
