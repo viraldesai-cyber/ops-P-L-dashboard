@@ -405,7 +405,8 @@ h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
       <div class="calc-row"><span>UPS Air (₹/kg)</span><input class="ci" id="fm_ups_inr" value="516" oninput="calcFreightMix()"></div>
       <div class="calc-row"><span>FX Rate (₹ per $)</span><input class="ci" id="fm_fx" value="84" oninput="calcFreightMix()"></div>
       <div style="font-size:11px;color:#6B6052;padding:2px 0 6px 4px;">= $<span id="fm_ups_usd">6.14</span>/kg</div>
-      <div class="calc-row"><span>Xindus Air+Sea ($/kg)</span><input class="ci" id="fm_xindus_rate" value="3.60" oninput="calcFreightMix()"></div>
+      <div class="calc-row"><span>Xindus Air+Sea (₹/kg)</span><input class="ci" id="fm_xindus_inr" value="334" oninput="calcFreightMix()"></div>
+      <div style="font-size:11px;color:#6B6052;padding:2px 0 6px 4px;">= $<span id="fm_xindus_usd">3.98</span>/kg</div>
       <div class="calc-row"><span>Pure Sea ($/kg)</span><input class="ci" id="fm_sea_rate" value="1.50" oninput="calcFreightMix()"></div>
       <div class="calc-row"><span>Total kg shipped/month</span><input class="ci" id="fm_kg" value="30000" oninput="calcFreightMix()"></div>
       <div class="calc-row"><span>Monthly Revenue ($)</span><input class="ci" id="fm_rev" value="2200000" oninput="calcFreightMix()"></div>
@@ -950,10 +951,10 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   </tr>
 
   <tr class="even">
-    <td><strong>2. Xindus Air+Sea (30%→50%)</strong><br><span style="font-size:11px;color:#6B6052;">Xindus carrier · Air+Sea route</span></td>
-    <td class="c c-g bold" style="font-size:15px;">~$15,000</td>
-    <td class="c c-g bold" style="font-size:15px;">−0.7pp</td>
-    <td style="font-size:12px;">Shift 6,000 kg/month extra to Xindus ($3.6/kg) from UPS Air ($6.1/kg). Use planner below ↓</td>
+    <td><strong>2. Xindus Air+Sea (30%→50%)</strong><br><span style="font-size:11px;color:#6B6052;">Xindus carrier · Air+Sea route · ₹334/kg from June</span></td>
+    <td class="c c-g bold" style="font-size:15px;">~$13,000</td>
+    <td class="c c-g bold" style="font-size:15px;">−0.6pp</td>
+    <td style="font-size:12px;">Shift 6,000 kg/month extra to Xindus (₹334/kg = $3.98/kg) from UPS Air (₹516/kg = $6.14/kg). Use planner below ↓</td>
   </tr>
 
   <tr>
@@ -1007,9 +1008,9 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 
   <tr class="tot">
     <td><strong>Total recurring saving (levers 2–8)</strong></td>
-    <td class="c bold" style="font-size:15px;color:#0B5239;">~$118,400 / month</td>
-    <td class="c bold" style="font-size:15px;color:#0B5239;">−5.4pp</td>
-    <td style="font-size:12px;color:#6B6052;">25.4% − 3.0pp (rev) − 5.4pp (costs) = <strong style="color:#0B5239;">~17% — well past 21% target</strong></td>
+    <td class="c bold" style="font-size:15px;color:#0B5239;">~$116,400 / month</td>
+    <td class="c bold" style="font-size:15px;color:#0B5239;">−5.3pp</td>
+    <td style="font-size:12px;color:#6B6052;">25.4% − 3.0pp (rev) − 5.3pp (costs) = <strong style="color:#0B5239;">~17% — well past 21% target</strong></td>
   </tr>
 </table>
 
@@ -1020,21 +1021,21 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
     <div>
       <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">CURRENT MIX (May)</div>
       <div style="font-size:18px;font-weight:700;">70% UPS · 30% Xindus</div>
-      <div style="color:#D6E4DA;margin-top:4px;">Blended rate: $5.38/kg</div>
+      <div style="color:#D6E4DA;margin-top:4px;">Blended rate: <span id="p0_blended">—</span></div>
     </div>
     <div>
       <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">P0 TARGET (June)</div>
       <div style="font-size:18px;font-weight:700;">0% UPS · 100% Xindus</div>
-      <div style="color:#D6E4DA;margin-top:4px;">Rate: $3.60/kg</div>
+      <div style="color:#D6E4DA;margin-top:4px;">Rate: <span id="p0_xindus">—</span></div>
     </div>
     <div>
       <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">P0 IMPACT (30K kg/mo)</div>
-      <div style="font-size:18px;font-weight:700;color:#7CFC00;">~$53,000 / mo</div>
-      <div style="color:#D6E4DA;margin-top:4px;">= <strong style="color:#7CFC00;">−2.4pp</strong> vs the −0.7pp from 30→50%</div>
+      <div style="font-size:18px;font-weight:700;color:#7CFC00;" id="p0_saving">—</div>
+      <div style="color:#D6E4DA;margin-top:4px;">= <strong style="color:#7CFC00;" id="p0_pp">—</strong></div>
     </div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.2);margin-top:14px;padding-top:12px;font-size:12px;color:#D6E4DA;">
-    Going 100% Xindus saves <strong style="color:#FFFFFF;">$53K/month</strong> — 3.5× more than the partial 30→50% shift ($15K). The additional $38K unlocked by going from 50% → 100% Xindus is the single biggest inward lever available. Model it in the planner below ↓ (set UPS Air = 0%, Xindus = 100%).
+  <div style="border-top:1px solid rgba(255,255,255,0.2);margin-top:14px;padding-top:12px;font-size:12px;color:#D6E4DA;" id="p0_note">
+    Rates auto-update from the planner below. Set UPS Air = 0%, Xindus = 100% to model the full P0 scenario.
   </div>
 </div>
 
@@ -1048,7 +1049,8 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
       <div class="calc-row"><span>UPS Air (₹/kg)</span><input class="ci" id="jm_ups_inr" value="516" oninput="calcJuneMix()"></div>
       <div class="calc-row"><span>FX Rate (₹ per $)</span><input class="ci" id="jm_fx" value="84" oninput="calcJuneMix()"></div>
       <div style="font-size:11px;color:#6B6052;padding:2px 0 6px 4px;">= $<span id="jm_ups_usd">6.14</span>/kg</div>
-      <div class="calc-row"><span>Xindus Air+Sea ($/kg)</span><input class="ci" id="jm_xindus_rate" value="3.60" oninput="calcJuneMix()"></div>
+      <div class="calc-row"><span>Xindus Air+Sea (₹/kg)</span><input class="ci" id="jm_xindus_inr" value="334" oninput="calcJuneMix()"></div>
+      <div style="font-size:11px;color:#6B6052;padding:2px 0 6px 4px;">= $<span id="jm_xindus_usd">3.98</span>/kg</div>
       <div class="calc-row"><span>Pure Sea ($/kg)</span><input class="ci" id="jm_sea_rate" value="1.50" oninput="calcJuneMix()"></div>
       <div class="calc-row"><span>Total kg / month</span><input class="ci" id="jm_kg" value="30000" oninput="calcJuneMix()"></div>
       <div class="calc-row"><span>Monthly Revenue ($)</span><input class="ci" id="jm_rev" value="2200000" oninput="calcJuneMix()"></div>
@@ -1176,8 +1178,9 @@ function refresh(){
 function calcFreightMix(){
   var kg=v('fm_kg'), rev=v('fm_rev');
   var fx=v('fm_fx')||84;
-  var upsR=v('fm_ups_inr')/fx, xindusR=v('fm_xindus_rate'), seaR=v('fm_sea_rate');
-  if($('fm_ups_usd')) $('fm_ups_usd').textContent=upsR.toFixed(2);
+  var upsR=v('fm_ups_inr')/fx, xindusR=v('fm_xindus_inr')/fx, seaR=v('fm_sea_rate');
+  if($('fm_ups_usd'))    $('fm_ups_usd').textContent=upsR.toFixed(2);
+  if($('fm_xindus_usd')) $('fm_xindus_usd').textContent=xindusR.toFixed(2);
   var cUps=v('fm_curr_ups'), cXindus=v('fm_curr_xindus'), cSea=v('fm_curr_sea');
   var tUps=v('fm_tgt_ups'), tXindus=v('fm_tgt_xindus'), tSea=v('fm_tgt_sea');
   var cSum=Math.round(cUps+cXindus+cSea), tSum=Math.round(tUps+tXindus+tSea);
@@ -1211,8 +1214,9 @@ function calcPkg(){
 function calcJuneMix(){
   var kg=v('jm_kg'), rev=v('jm_rev');
   var fx=v('jm_fx')||84;
-  var upsR=v('jm_ups_inr')/fx, xindusR=v('jm_xindus_rate'), seaR=v('jm_sea_rate');
-  if($('jm_ups_usd')) $('jm_ups_usd').textContent=upsR.toFixed(2);
+  var upsR=v('jm_ups_inr')/fx, xindusR=v('jm_xindus_inr')/fx, seaR=v('jm_sea_rate');
+  if($('jm_ups_usd'))    $('jm_ups_usd').textContent=upsR.toFixed(2);
+  if($('jm_xindus_usd')) $('jm_xindus_usd').textContent=xindusR.toFixed(2);
   var ups=v('jm_ups'), xindus=v('jm_xindus'), sea=v('jm_sea');
   var sum=Math.round(ups+xindus+sea);
   if($('jm_check')){
@@ -1225,6 +1229,19 @@ function calcJuneMix(){
   if($('jm_cost'))   $('jm_cost').textContent=fmt(cost);
   if($('jm_pct'))    $('jm_pct').textContent=rev>0?((cost/rev)*100).toFixed(1)+'%':'—';
   if($('jm_saving')) $('jm_saving').textContent=saving>0?fmt(saving)+' saved':saving<0?fmt(-saving)+' more expensive':'No change';
+  // P0 callout — always computed at 100% Xindus vs May 70/30 baseline
+  var blended=(0.70*upsR+0.30*xindusR);
+  var p0Cost=kg*xindusR;
+  var p0Saving=mayCost-p0Cost;
+  var p0Pp=(p0Saving/rev*100).toFixed(1);
+  var shift3050Saving=kg*0.20*(upsR-xindusR);
+  var extra=p0Saving-shift3050Saving;
+  var mult=shift3050Saving>0?(p0Saving/shift3050Saving).toFixed(1)+'×':'—';
+  if($('p0_blended'))  $('p0_blended').textContent='$'+blended.toFixed(2)+'/kg';
+  if($('p0_xindus'))   $('p0_xindus').textContent='₹'+v('jm_xindus_inr')+'/kg ($'+xindusR.toFixed(2)+'/kg)';
+  if($('p0_saving'))   $('p0_saving').textContent='~'+fmt(p0Saving)+' / mo';
+  if($('p0_pp'))       $('p0_pp').textContent='−'+p0Pp+'pp';
+  if($('p0_note'))     $('p0_note').textContent='Going 100% Xindus saves '+fmt(p0Saving)+'/month — '+mult+' more than the 30→50% shift ('+fmt(shift3050Saving)+'). Additional '+fmt(extra)+' unlocked by going 50→100%.';
 }
 
 function calcSBSaving(){
