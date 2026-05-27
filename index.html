@@ -553,11 +553,11 @@ h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
 
 <div class="calc-box" style="margin-top:20px;max-width:700px;">
   <div class="calc-title">📦 ShipBob Per-Unit Rate Reduction (Later Stage)</div>
-  <div style="font-size:12px;color:#6B6052;margin-bottom:12px;">Model the outward cost saving from a $0.003/unit reduction on ShipBob-processed orders only. Enter ShipBob monthly unit volume to size the saving.</div>
+  <div style="font-size:12px;color:#6B6052;margin-bottom:12px;">Model the outward cost saving from a $0.30/unit reduction on ShipBob-processed orders only. Enter ShipBob monthly unit volume to size the saving.</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
     <div>
       <div class="calc-row"><span>Monthly ShipBob-processed units</span><input class="ci" id="sb_out_units" value="50000" oninput="calcSBSaving()"></div>
-      <div class="calc-row"><span>Rate saving per unit ($)</span><input class="ci" id="sb_out_rate" value="0.003" oninput="calcSBSaving()"></div>
+      <div class="calc-row"><span>Rate saving per unit ($)</span><input class="ci" id="sb_out_rate" value="0.30" oninput="calcSBSaving()"></div>
       <div class="calc-row"><span>Monthly Revenue ($)</span><input class="ci" id="sb_out_rev" value="2200000" oninput="calcSBSaving()"></div>
     </div>
     <div style="display:flex;flex-direction:column;justify-content:center;gap:8px;">
@@ -991,7 +991,7 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   <tr>
     <td><strong>9. ShipBob Per-Unit Rate Reduction</strong><br><span style="font-size:11px;color:#6B6052;">Later stage — pending negotiation</span></td>
     <td class="c c-g bold" style="font-size:15px;" id="sb_lever_saving">—</td>
-    <td style="font-size:12px;">Save $0.003/unit on ShipBob-processed orders only. Use planner below ↓ to size the saving.</td>
+    <td style="font-size:12px;">Save $0.30/unit on ShipBob-processed orders only. Use planner below ↓ to size the saving.</td>
   </tr>
 
   <tr class="tot">
@@ -1043,11 +1043,11 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 <!-- ── ShipBob Per-Unit Rate Planner ── -->
 <div class="calc-box" style="margin-top:16px;max-width:800px;">
   <div class="calc-title">📦 Lever 9 — ShipBob Per-Unit Rate Reduction Planner <span style="font-size:11px;font-weight:400;color:#A0522D;">(Later Stage)</span></div>
-  <div style="font-size:12px;color:#6B6052;margin-bottom:14px;">Model the saving from a $0.003/unit rate reduction on ShipBob-processed orders only.</div>
+  <div style="font-size:12px;color:#6B6052;margin-bottom:14px;">Model the saving from a $0.30/unit rate reduction on ShipBob-processed orders only.</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
     <div>
       <div class="calc-row"><span>Monthly ShipBob-processed units</span><input class="ci" id="sb_units" value="50000" oninput="calcSBSaving()"></div>
-      <div class="calc-row"><span>Rate saving per unit ($)</span><input class="ci" id="sb_rate_saving" value="0.003" oninput="calcSBSaving()"></div>
+      <div class="calc-row"><span>Rate saving per unit ($)</span><input class="ci" id="sb_rate_saving" value="0.30" oninput="calcSBSaving()"></div>
       <div class="calc-row"><span>Monthly Revenue ($)</span><input class="ci" id="sb_rev" value="2200000" oninput="calcSBSaving()"></div>
     </div>
     <div style="display:flex;flex-direction:column;justify-content:center;gap:8px;">
