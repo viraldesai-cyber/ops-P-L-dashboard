@@ -954,9 +954,9 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 
   <tr class="even">
     <td><strong>2. Xindus Air+Sea (30%→50%)</strong><br><span style="font-size:11px;color:#6B6052;">Xindus carrier · Air+Sea route · ₹334/kg from June</span></td>
-    <td class="c c-g bold" style="font-size:15px;">~$15,000</td>
-    <td class="c c-g bold" style="font-size:15px;">−0.7pp</td>
-    <td style="font-size:12px;">Target &gt;70% Xindus (₹334/$3.98/kg) vs 30% UPS Air (₹590/$7.02/kg). Saving vs May's air mix at June rates. Use planner below ↓</td>
+    <td class="c c-g bold" style="font-size:15px;">~$75,000</td>
+    <td class="c c-g bold" style="font-size:15px;">−3.4pp</td>
+    <td style="font-size:12px;">Saving vs 100% UPS Air (₹590/$7.02/kg) baseline — same basis as May's ~$96K. 70% Xindus (₹334/$3.98/kg) at 35K kg/mo. Use planner below ↓</td>
   </tr>
 
   <tr>
@@ -1010,9 +1010,9 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 
   <tr class="tot">
     <td><strong>Total recurring saving (levers 2–8)</strong></td>
-    <td class="c bold" style="font-size:15px;color:#0B5239;">~$110,100 / month</td>
-    <td class="c bold" style="font-size:15px;color:#0B5239;">−5.0pp</td>
-    <td style="font-size:12px;color:#6B6052;">24.1% − 3.0pp (rev) − 5.0pp (costs) = <strong style="color:#0B5239;">~16.1% — well past 21% target</strong></td>
+    <td class="c bold" style="font-size:15px;color:#0B5239;">~$170,000 / month</td>
+    <td class="c bold" style="font-size:15px;color:#0B5239;">−7.7pp</td>
+    <td style="font-size:12px;color:#6B6052;">Lever 2 now on consistent basis (vs 100% UPS Air). 24.1% − 3.0pp (rev) − 7.7pp (costs) = <strong style="color:#0B5239;">&lt;14% — well past 21% target</strong></td>
   </tr>
 </table>
 
@@ -1021,9 +1021,9 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   <div style="font-weight:700;font-size:13px;letter-spacing:1px;margin-bottom:10px;">🎯 P0 FOCUS — Convert 100% Inward Freight to Xindus Air+Sea</div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:13px;">
     <div>
-      <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">CURRENT MIX (May)</div>
-      <div style="font-size:18px;font-weight:700;">70% UPS · 30% Xindus</div>
-      <div style="color:#D6E4DA;margin-top:4px;">Blended rate: <span id="p0_blended">—</span></div>
+      <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">BASELINE (100% UPS AIR)</div>
+      <div style="font-size:18px;font-weight:700;">100% UPS Air</div>
+      <div style="color:#D6E4DA;margin-top:4px;">Rate: <span id="p0_blended">—</span></div>
     </div>
     <div>
       <div style="color:#D6E4DA;font-size:11px;margin-bottom:4px;">P0 TARGET (June)</div>
@@ -1076,7 +1076,7 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
         <span id="jm_pct" style="font-weight:700;font-size:16px;">—</span>
       </div>
       <div class="result-row">
-        <span>Saving vs May (70/30 mix)</span>
+        <span>Saving vs 100% UPS Air</span>
         <span id="jm_saving">—</span>
       </div>
     </div>
@@ -1230,24 +1230,21 @@ function calcJuneMix(){
     $('jm_check').style.color=sum===100?'#0B5239':'#C0392B';
   }
   var cost=kg*((ups/100)*upsR+(xindus/100)*xindusR+(sea/100)*seaR);
-  var mayCost=kg*(0.70*upsR+0.30*xindusR_may);
-  var saving=mayCost-cost;
+  var allAirCost=kg*upsR;  // baseline: 100% UPS Air at current rates
+  var saving=allAirCost-cost;
   if($('jm_cost'))   $('jm_cost').textContent=fmt(cost);
   if($('jm_pct'))    $('jm_pct').textContent=rev>0?((cost/rev)*100).toFixed(1)+'%':'—';
-  if($('jm_saving')) $('jm_saving').textContent=saving>0?fmt(saving)+' saved':saving<0?fmt(-saving)+' more expensive':'No change';
-  // P0 callout: May blended uses May Xindus rate; P0 target = 100% at June rate
-  var blended=(0.70*upsR+0.30*xindusR_may);
+  if($('jm_saving')) $('jm_saving').textContent=saving>0?fmt(saving)+' vs 100% UPS Air':saving<0?fmt(-saving)+' more than UPS Air':'Same as UPS Air';
+  // P0 callout: all scenarios vs 100% UPS Air at current rates (consistent with May $96K)
   var p0Cost=kg*xindusR;
-  var p0Saving=mayCost-p0Cost;
+  var p0Saving=allAirCost-p0Cost;
   var p0Pp=(p0Saving/rev*100).toFixed(1);
-  var shift3050Saving=kg*0.20*(upsR-xindusR);
-  var extra=p0Saving-shift3050Saving;
-  var mult=shift3050Saving>0?(p0Saving/shift3050Saving).toFixed(1)+'×':'—';
-  if($('p0_blended'))  $('p0_blended').textContent='$'+blended.toFixed(2)+'/kg';
+  var plan70Saving=allAirCost-(kg*(0.30*upsR+0.70*xindusR));
+  if($('p0_blended'))  $('p0_blended').textContent='$'+upsR.toFixed(2)+'/kg · 100% UPS Air';
   if($('p0_xindus'))   $('p0_xindus').textContent='₹'+v('jm_xindus_inr')+'/kg ($'+xindusR.toFixed(2)+'/kg)';
   if($('p0_saving'))   $('p0_saving').textContent='~'+fmt(p0Saving)+' / mo';
   if($('p0_pp'))       $('p0_pp').textContent='−'+p0Pp+'pp';
-  if($('p0_note'))     $('p0_note').textContent='Going 100% Xindus saves '+fmt(p0Saving)+'/month — '+mult+' more than the 30→50% shift ('+fmt(shift3050Saving)+'). Additional '+fmt(extra)+' unlocked by going 50→100%.';
+  if($('p0_note'))     $('p0_note').textContent='P0 saving vs 100% UPS Air baseline — consistent with how May \'s $96K was measured. At 70% Xindus target: '+fmt(plan70Saving)+'/mo. At 100% Xindus: '+fmt(p0Saving)+'/mo. June saves more than May because UPS is now ₹'+v('jm_ups_inr')+'/kg (was ₹516).';
 }
 
 function calcSBSaving(){
