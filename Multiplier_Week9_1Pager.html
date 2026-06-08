@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AMJ-26 Multiplier — Week 9 One-Pager</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #EEE4DC; font-family: 'Calibri','Segoe UI',Arial,sans-serif; color: #1F2A24; font-size: 13px; line-height: 1.45; }
+  #copy-toolbar { position: fixed; top: 16px; right: 16px; z-index: 9999; display: flex; gap: 8px; align-items: center; }
+  #copy-status { background: #1F2A24; color: #fff; font-size: 12px; padding: 7px 12px; border-radius: 6px; opacity: 0; transition: opacity 0.25s; }
+  #copyBtn { background: #0B5239; color: #fff; padding: 9px 16px; border: none; border-radius: 7px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: inherit; }
+  #wrapper { max-width: 900px; margin: 20px auto; }
+  #email-content { background: #fff; }
+  .banner { background: #0B5239; border-left: 6px solid #579071; padding: 22px 28px; }
+  .banner-tag { color: #D6E4DA; font-weight: 700; font-size: 10px; letter-spacing: 3px; margin-bottom: 6px; }
+  .banner-title { color: #fff; font-weight: 700; font-size: 24px; margin-bottom: 6px; }
+  .banner-sub { color: #D6E4DA; font-size: 13px; }
+  .body-pad { padding: 22px 28px; }
+  .intro { font-size: 13px; margin-bottom: 18px; color: #444; }
+  .okr-header { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #0B5239; padding-bottom: 8px; margin: 20px 0 12px 0; }
+  .okr-num { background: #0B5239; color: #fff; font-weight: 700; font-size: 15px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; flex-shrink: 0; }
+  .okr-title { font-size: 16px; font-weight: 700; color: #1F2A24; }
+  .section-label { color: #6B6052; font-weight: 700; font-size: 10px; letter-spacing: 2px; border-bottom: 1px solid #DDD2BD; padding-bottom: 5px; margin: 14px 0 8px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { background: #0B5239; color: #fff; padding: 8px 10px; text-align: left; }
+  th.c { text-align: center; }
+  td { padding: 7px 10px; border: 1px solid #DDD2BD; vertical-align: top; }
+  td.c { text-align: center; }
+  td.r { text-align: right; }
+  tr:nth-child(even) { background: #F4EDDF; }
+  .green { color: #0B5239; font-weight: 700; }
+  .amber { color: #E67E22; font-weight: 700; }
+  .red { color: #C0392B; font-weight: 700; }
+  .note { font-size: 11px; color: #777; margin: 4px 0 10px 0; }
+  .highlight-row { background: #D6E4DA !important; font-weight: 700; }
+  .callout { background: #F0F7F2; border-left: 4px solid #0B5239; padding: 9px 12px; font-size: 12px; margin: 10px 0; }
+  .pill-green { background: #D6E4DA; color: #0B5239; font-weight: 700; padding: 2px 8px; border-radius: 10px; font-size: 11px; display: inline-block; }
+  .pill-amber { background: #FFF3CD; color: #856404; font-weight: 700; padding: 2px 8px; border-radius: 10px; font-size: 11px; display: inline-block; }
+  .pill-red { background: #FADBD8; color: #C0392B; font-weight: 700; padding: 2px 8px; border-radius: 10px; font-size: 11px; display: inline-block; }
+  .footer { font-size: 11px; color: #6B6052; border-top: 1px solid #DDD2BD; padding-top: 12px; margin-top: 20px; }
+  .kpi-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .kpi-box { flex: 1; background: #F0F7F2; border-left: 3px solid #0B5239; padding: 10px 12px; }
+  .kpi-val { font-size: 20px; font-weight: 700; color: #0B5239; }
+  .kpi-lbl { font-size: 10px; color: #6B6052; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+  .kpi-sub { font-size: 11px; color: #444; }
+</style>
+</head>
+<body>
+
+<div id="copy-toolbar">
+  <span id="copy-status">Copied — paste into Gmail</span>
+  <button id="copyBtn">Copy for Email</button>
+</div>
+
+<div id="wrapper">
+<div id="email-content">
+
+<!-- BANNER -->
+<div class="banner">
+  <div class="banner-tag">AMJ-26 MULTIPLIER · ROOT LABS</div>
+  <div class="banner-title">Week 9 — What Moved This Week</div>
+  <div class="banner-sub">USA Supply Chain &nbsp;·&nbsp; 8 June 2026 &nbsp;·&nbsp; Both OKRs</div>
+</div>
+
+<div class="body-pad">
+
+<p class="intro">Quick read on what moved this week across both OKRs. Figures are from the OPS P&amp;L and have been vetted by finance.</p>
+
+<!-- ===================== OKR 01 ===================== -->
+<div class="okr-header">
+  <div class="okr-num">01</div>
+  <div class="okr-title">Logistics &amp; Fulfilment Cost Optimisation</div>
+</div>
+
+<!-- KPI row -->
+<div class="kpi-row">
+  <div class="kpi-box">
+    <div class="kpi-lbl">May Final (31d)</div>
+    <div class="kpi-val">24.4%</div>
+    <div class="kpi-sub">incl. storage $17,255</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-lbl">Outward</div>
+    <div class="kpi-val">14.6%</div>
+    <div class="kpi-sub">First month below 15% target ✓</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-lbl">Gap to 21%</div>
+    <div class="kpi-val" style="color:#E67E22;">3.4pp</div>
+    <div class="kpi-sub">Was 6.3pp in April (27.3%)</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-lbl">May Savings vs 100% UPS Air</div>
+    <div class="kpi-val">~$96K</div>
+    <div class="kpi-sub">Xindus mix: 43% of volume</div>
+  </div>
+</div>
+
+<!-- Lever Table -->
+<div class="section-label">LEVER PERFORMANCE — WHAT MOVED &amp; WHAT'S LEFT</div>
+<table>
+  <tr>
+    <th style="width:22%">Lever</th>
+    <th class="c" style="width:8%">Leg</th>
+    <th class="c" style="width:9%">Apr→May $ Saved</th>
+    <th class="c" style="width:9%">Apr→May pp</th>
+    <th class="c" style="width:9%">May Cost %</th>
+    <th class="c" style="width:9%">Target</th>
+    <th class="c" style="width:9%">June Potential</th>
+    <th style="width:25%">Key SKUs / Notes</th>
+  </tr>
+
+  <!-- INWARD — Xindus -->
+  <tr class="highlight-row">
+    <td><strong>P0 · Xindus Air+Sea &gt;70%</strong></td>
+    <td class="c">Inward</td>
+    <td class="c green">$53,803</td>
+    <td class="c green">−1.6pp</td>
+    <td class="c">7.3%</td>
+    <td class="c">↓</td>
+    <td class="c green">~$30–40K</td>
+    <td>RL Mag+Ashwagandha rate dropped $6.91→$5.03/unit. Amazon inward flat — may not be on Xindus yet.</td>
+  </tr>
+
+  <!-- OUTWARD — FBT -->
+  <tr>
+    <td><strong>FBT Migration (TikTok)</strong></td>
+    <td class="c">Outward</td>
+    <td class="c green">$34,814</td>
+    <td class="c green">−0.8pp</td>
+    <td class="c">15.6%</td>
+    <td class="c">≤15%</td>
+    <td class="c green">~$30–33K</td>
+    <td>TikTok outward: 16.4%→15.6%. Amazon already at 13.3% — 2.3pp gap to close via full FBT.</td>
+  </tr>
+
+  <!-- OUTWARD — Shipping mix overall -->
+  <tr>
+    <td><strong>Outward Rate Improvement</strong></td>
+    <td class="c">Outward</td>
+    <td class="c green">$56,559</td>
+    <td class="c green">−1.3pp</td>
+    <td class="c">14.6% ✓</td>
+    <td class="c">≤15%</td>
+    <td class="c green">~$20K</td>
+    <td>Per-unit outward: $4.17→$3.87. 10-1 Alpha 60N saved $36K outward. BB Density Roll On saved $8.7K.</td>
+  </tr>
+
+  <!-- DUTY -->
+  <tr>
+    <td><strong>Duty Mix Optimisation</strong></td>
+    <td class="c">Duty</td>
+    <td class="c green">$9,188</td>
+    <td class="c green">−0.2pp</td>
+    <td class="c">1.8%</td>
+    <td class="c">↓</td>
+    <td class="c amber">~$3–5K</td>
+    <td>Per-unit duty: $0.53→$0.47. Turmeric &amp; Shilajit SKUs still 8–10% duty rate — highest remaining exposure.</td>
+  </tr>
+
+  <!-- STORAGE — ShipBob -->
+  <tr>
+    <td><strong>ShipBob Storage Lean</strong></td>
+    <td class="c">Storage</td>
+    <td class="c green">$10,700</td>
+    <td class="c green">−0.4pp</td>
+    <td class="c">0.2% ($3.8K)</td>
+    <td class="c">&lt;$3K</td>
+    <td class="c amber">~$800/mo</td>
+    <td>Down from $14.5K April spike. Don't rebuild TikTok inventory here.</td>
+  </tr>
+
+  <!-- STORAGE — Amazon -->
+  <tr>
+    <td><strong>Amazon FBA Storage</strong></td>
+    <td class="c">Storage</td>
+    <td class="c red">−$5,245</td>
+    <td class="c red">+0.2pp ↑</td>
+    <td class="c red">0.4% ($8.8K)</td>
+    <td class="c">&lt;$4K</td>
+    <td class="c green">~$5K</td>
+    <td>Spiked Apr $3.5K → May $8.8K. Investigate aged inventory — clear excess to recover.</td>
+  </tr>
+
+  <!-- STORAGE — FBT/TikTok -->
+  <tr>
+    <td><strong>FBT Storage (TikTok)</strong></td>
+    <td class="c">Storage</td>
+    <td class="c green">$2,810</td>
+    <td class="c green">−0.1pp</td>
+    <td class="c">0.2% ($4.7K)</td>
+    <td class="c">&lt;$3K</td>
+    <td class="c amber">~$1.7K/mo</td>
+    <td>Mar $11.8K → Apr $7.5K → May $4.7K. On track — target below $3K June.</td>
+  </tr>
+
+  <!-- PACKAGING -->
+  <tr>
+    <td><strong>Packaging Weight Reduction</strong></td>
+    <td class="c">Inward + Outward</td>
+    <td class="c amber">In trial</td>
+    <td class="c amber">—</td>
+    <td class="c">—</td>
+    <td class="c">—</td>
+    <td class="c green">~$15–20K</td>
+    <td>NPD trialling horizontal placement (18→24 units/shipper). Advama packaging trials in progress.</td>
+  </tr>
+
+  <!-- REVENUE DILUTION -->
+  <tr>
+    <td><strong>Revenue Growth (dilution)</strong></td>
+    <td class="c">All</td>
+    <td class="c">—</td>
+    <td class="c green">−3.0pp est.</td>
+    <td class="c">—</td>
+    <td class="c">↑ Rev</td>
+    <td class="c green">~$2.2M→$2.5M</td>
+    <td>Same $ costs ÷ higher revenue closes ~3pp of gap. No cash spend required.</td>
+  </tr>
+
+  <!-- TOTAL ROW -->
+  <tr class="highlight-row">
+    <td><strong>TOTAL — All Levers</strong></td>
+    <td class="c">—</td>
+    <td class="c green"><strong>$119,550</strong></td>
+    <td class="c green"><strong>−3.0pp</strong></td>
+    <td class="c"><strong>24.4%</strong></td>
+    <td class="c"><strong>&lt;21%</strong></td>
+    <td class="c green"><strong>~$100–120K/mo</strong></td>
+    <td>3.4pp remaining gap. June execution targets P0 Xindus &gt;70% + FBT completion + packaging trials.</td>
+  </tr>
+</table>
+<p class="note">¹ Apr→May savings on inward/outward/duty legs only (excl. storage). Storage actuals: Amazon $8,790 · TikTok $4,665 · ShipBob $3,800. Figures vetted by finance.</p>
+
+<!-- SKU callout -->
+<div class="callout">
+  <strong>Highest-impact SKUs to target for June cost reduction:</strong><br>
+  · <strong>RL Mag+Ashwagandha</strong> — 39.8% total ops cost; inward still $5.03/unit (21.2% of rev). Most room left via Xindus.<br>
+  · <strong>10-1 Alpha Gummies 60N</strong> — largest abs $ saver ($37K outward Apr→May). Still at 27.8% — push FBT completion.<br>
+  · <strong>BB Density Roll On</strong> — highest revenue SKU ($1.05M May). At 17.2%; every 1pp = ~$10K/month.
+</div>
+
+<!-- ===================== OKR 02 ===================== -->
+<div class="okr-header" style="margin-top:22px;">
+  <div class="okr-num">02</div>
+  <div class="okr-title">Inventory Planning &amp; Availability</div>
+</div>
+
+<div class="section-label">SUPPLY PLANNING DASHBOARD — STATUS</div>
+<p style="font-size:12px; color:#6B6052; margin: 0 0 8px 0;">No change this week — statuses carry forward from last update.</p>
+
+<table>
+  <tr>
+    <th>Feature / Milestone</th>
+    <th class="c">Status</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Dashboard + APIs</td>
+    <td class="c"><span class="pill-green">✓ Live</span></td>
+    <td>Inward shipments tracking live</td>
+  </tr>
+  <tr>
+    <td>Automated Dispatch Suggestion</td>
+    <td class="c"><span class="pill-amber">Testing on DB</span></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td>Monthly Dispatch Plan</td>
+    <td class="c"><span class="pill-amber">Testing on DB</span></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td>Production Plan</td>
+    <td class="c"><span class="pill-amber">Testing on DB</span></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td>Shipment Tracker — Inward</td>
+    <td class="c"><span class="pill-red">In Pipeline</span></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td>Shipment Tracker — Outward</td>
+    <td class="c"><span class="pill-red">In Pipeline</span></td>
+    <td>—</td>
+  </tr>
+</table>
+
+<p class="footer">AMJ-26 Multiplier · Root Labs · USA Operations · Week 9 · 8 June 2026 &nbsp;|&nbsp; <a href="https://viraldesai-cyber.github.io/ops-P-L-dashboard/" style="color:#0B5239; font-weight:700;">Ops Cost Dashboard →</a></p>
+
+</div><!-- body-pad -->
+</div><!-- email-content -->
+</div><!-- wrapper -->
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', function() {
+  var el = document.getElementById('email-content');
+  var r = document.createRange(); r.selectNodeContents(el);
+  var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  document.execCommand('copy'); s.removeAllRanges();
+  var st = document.getElementById('copy-status');
+  st.style.opacity = '1'; setTimeout(function(){ st.style.opacity='0'; }, 2200);
+});
+</script>
+</body>
+</html>
