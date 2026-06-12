@@ -145,6 +145,8 @@ h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
   <button class="tab-btn" onclick="showTab('storage',this)">🏭 Storage &amp; Waste</button>
   <button class="tab-btn" onclick="showTab('india',this)">🇮🇳 India WH</button>
   <button class="tab-btn" onclick="showTab('levers',this)">🎯 June Levers</button>
+  <button class="tab-btn" onclick="showTab('skusum',this)">📋 SKU Summary</button>
+  <button class="tab-btn" onclick="showTab('skureco',this)">💡 SKU Reco</button>
 </div>
 
 <!-- ===================== TAB 1: SUMMARY ===================== -->
@@ -1114,6 +1116,298 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 </div>
 
 <div class="ib green" style="margin-top:16px;"><strong>Summary:</strong> Revenue growth → −2pp → 23.4%. Xindus + Packaging + Multi-pack + FBT + Captrack = −4.4pp → <strong>~19%. Comfortably under 21% target.</strong></div>
+</div>
+
+
+<!-- ===================== TAB 8: SKU SUMMARY ===================== -->
+<div id="tab-skusum" class="tab-pane">
+<div class="sh">All-SKU Ops Cost — March / April / May 2026</div>
+<div class="ib">Ops % = (Inward + Outward + Duty) ÷ Gross Revenue &nbsp;|&nbsp; <strong>Target: &lt;21%</strong> &nbsp;|&nbsp; Storage excluded (added at portfolio: 0.7% May) &nbsp;|&nbsp; Vetted by finance</div>
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2" style="min-width:190px">SKU</th>
+      <th colspan="2" class="c">March</th>
+      <th colspan="2" class="c">April</th>
+      <th colspan="2" class="c">May (Final)</th>
+      <th class="r" rowspan="2">May Units</th>
+      <th class="r" rowspan="2">Out/unit</th>
+      <th rowspan="2">Trend</th>
+    </tr>
+    <tr>
+      <th class="r">Revenue</th><th class="c">Ops %</th>
+      <th class="r">Revenue</th><th class="c">Ops %</th>
+      <th class="r">Revenue</th><th class="c">Ops %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="sec"><td colspan="10">✓ UNDER 21% TARGET</td></tr>
+    <tr>
+      <td>BB Density Roll On &nbsp;<span class="badge bg-g">Leader</span></td>
+      <td class="r">$1,194,547</td><td class="c c-a">22.5%</td>
+      <td class="r">$1,018,516</td><td class="c c-g">18.6%</td>
+      <td class="r">$1,053,039</td><td class="c c-g"><b>17.2%</b></td>
+      <td class="r">43,907</td><td class="r">$3.39</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even">
+      <td>HDR 50ml</td>
+      <td class="r">$142,847</td><td class="c c-g">13.9%</td>
+      <td class="r">$145,241</td><td class="c c-g">14.0%</td>
+      <td class="r">$83,340</td><td class="c c-a">15.1%</td>
+      <td class="r">2,234</td><td class="r">$3.80</td><td>→ flat</td>
+    </tr>
+    <tr class="sec"><td colspan="10">~ NEAR TARGET (21–26%)</td></tr>
+    <tr>
+      <td>Alpha 120N</td>
+      <td class="r">$302,542</td><td class="c c-a">27.1%</td>
+      <td class="r">$251,543</td><td class="c c-a">26.4%</td>
+      <td class="r">$319,998</td><td class="c c-g">23.7%</td>
+      <td class="r">6,908</td><td class="r">$5.42</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even">
+      <td>Sea Moss 120N</td>
+      <td class="r">$19,047</td><td class="c c-a">28.7%</td>
+      <td class="r">$15,314</td><td class="c c-g">22.9%</td>
+      <td class="r">$15,761</td><td class="c c-g">23.0%</td>
+      <td class="r">404</td><td class="r">$3.13</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr>
+      <td>Shilajit+Mushroom</td>
+      <td class="r">$1,960</td><td class="c c-a">34.2%</td>
+      <td class="r">$1,506</td><td class="c c-a">30.6%</td>
+      <td class="r">$14,613</td><td class="c c-g">25.0%</td>
+      <td class="r">491</td><td class="r">$4.55</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even hl-red">
+      <td>HDR 25ml &nbsp;<span class="badge bg-r">Vol↓</span></td>
+      <td class="r">$19,668</td><td class="c c-g">14.0%</td>
+      <td class="r">$9,333</td><td class="c c-a">17.7%</td>
+      <td class="r">$5,762</td><td class="c c-a">26.6%</td>
+      <td class="r">304</td><td class="r c-r"><b>$4.07</b></td><td class="c-r">↑ worsening</td>
+    </tr>
+    <tr class="sec"><td colspan="10">⚠ NEEDS WORK (26–35%)</td></tr>
+    <tr>
+      <td>Alpha 60N &nbsp;<span class="badge bg-a">Priority</span></td>
+      <td class="r">$747,613</td><td class="c c-r">34.4%</td>
+      <td class="r">$618,554</td><td class="c c-a">30.5%</td>
+      <td class="r">$479,191</td><td class="c c-a">27.8%</td>
+      <td class="r">18,828</td><td class="r">$4.23</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even">
+      <td>Blackseed 60N &nbsp;<span class="badge bg-g">Watch</span></td>
+      <td class="r">$81,158</td><td class="c c-r">38.3%</td>
+      <td class="r">$75,398</td><td class="c c-r">38.3%</td>
+      <td class="r">$70,399</td><td class="c c-a">28.2%</td>
+      <td class="r">3,722</td><td class="r">$2.81</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr>
+      <td>Shilajit 60N</td>
+      <td class="r">$148,298</td><td class="c c-a">33.2%</td>
+      <td class="r">$132,727</td><td class="c c-a">32.2%</td>
+      <td class="r">$127,003</td><td class="c c-a">31.0%</td>
+      <td class="r">4,942</td><td class="r">$4.40</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even">
+      <td>Shilajit 120N</td>
+      <td class="r">$147,144</td><td class="c c-a">32.8%</td>
+      <td class="r">$101,304</td><td class="c c-a">32.6%</td>
+      <td class="r">$80,669</td><td class="c c-a">31.6%</td>
+      <td class="r">2,024</td><td class="r">$5.50</td><td>→ flat</td>
+    </tr>
+    <tr>
+      <td>Turmeric 60N</td>
+      <td class="r">$8,084</td><td class="c c-r">40.2%</td>
+      <td class="r">$7,982</td><td class="c c-a">31.5%</td>
+      <td class="r">$9,085</td><td class="c c-a">34.8%</td>
+      <td class="r">531</td><td class="r">$2.10</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even">
+      <td>Choco Spread</td>
+      <td class="r">$1,280</td><td class="c c-r">36.0%</td>
+      <td class="r">$2,149</td><td class="c c-a">33.4%</td>
+      <td class="r">$1,689</td><td class="c c-a">29.7%</td>
+      <td class="r">108</td><td class="r">$4.38</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr>
+      <td>Kids Multivit 2+</td>
+      <td class="r">$1,932</td><td class="c c-r">37.1%</td>
+      <td class="r">$1,102</td><td class="c c-r">37.1%</td>
+      <td class="r">$901</td><td class="c c-a">34.4%</td>
+      <td class="r">49</td><td class="r">$4.09</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="sec"><td colspan="10">✗ CRITICAL (&gt;35%) — STRUCTURAL ISSUES</td></tr>
+    <tr class="hl-red">
+      <td>MagAshwa (RL) &nbsp;<span class="badge bg-r">Inward 21%</span></td>
+      <td class="r">$210,435</td><td class="c c-r"><b>52.6%</b></td>
+      <td class="r">$258,064</td><td class="c c-r"><b>48.9%</b></td>
+      <td class="r">$213,980</td><td class="c c-r"><b>39.8%</b></td>
+      <td class="r">9,042</td><td class="r">$4.11</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even hl-red">
+      <td>Biotin Hair 60N</td>
+      <td class="r">$4,608</td><td class="c c-r"><b>43.7%</b></td>
+      <td class="r">$3,141</td><td class="c c-r"><b>43.5%</b></td>
+      <td class="r">$3,418</td><td class="c c-r"><b>43.1%</b></td>
+      <td class="r">193</td><td class="r">$4.68</td><td>→ flat</td>
+    </tr>
+    <tr class="hl-red">
+      <td>DHA Gummies</td>
+      <td class="r">$1,688</td><td class="c c-r">42.1%</td>
+      <td class="r">$1,318</td><td class="c c-r">42.0%</td>
+      <td class="r">$983</td><td class="c c-r">38.5%</td>
+      <td class="r">46</td><td class="r">$4.19</td><td class="c-g">↓ improving</td>
+    </tr>
+    <tr class="even hl-red">
+      <td>Foot Roll Cream</td>
+      <td class="r">$573</td><td class="c c-r"><b>52.9%</b></td>
+      <td class="r">$398</td><td class="c c-r"><b>52.0%</b></td>
+      <td class="r">$195</td><td class="c c-r"><b>49.2%</b></td>
+      <td class="r">20</td><td class="r">$3.01</td><td>→ flat</td>
+    </tr>
+    <tr class="hl-red">
+      <td>AH&amp;BH Body Wash &nbsp;<span class="badge bg-r">Exiting</span></td>
+      <td class="r">$5,092</td><td class="c c-r">47.6%</td>
+      <td class="r">$537</td><td class="c c-r">47.2%</td>
+      <td class="r">$13</td><td class="c c-r">51.5%</td>
+      <td class="r">1</td><td class="r">$4.35</td><td class="c-r">↑ worsening</td>
+    </tr>
+    <tr class="even">
+      <td>LJ Choco 350g &nbsp;<span class="badge">Exited</span></td>
+      <td class="r">$5,067</td><td class="c c-r">66.7%</td>
+      <td class="r">$41</td><td class="c c-r">70.5%</td>
+      <td class="r">—</td><td class="c">—</td>
+      <td class="r">—</td><td class="r">—</td><td class="c-g">↓ exited</td>
+    </tr>
+  </tbody>
+</table>
+<div class="ib"><strong>Color guide:</strong> <span class="c-g">Green = &lt;25%</span> &nbsp;|&nbsp; <span class="c-a">Amber = 25–35%</span> &nbsp;|&nbsp; <span class="c-r">Red = &gt;35%</span> &nbsp;|&nbsp; Source: OPS P&amp;L CSVs March-26, April-26, OPS USA PNL 1–31 May26. Vetted by finance.</div>
+</div>
+
+<!-- ===================== TAB 9: SKU RECOMMENDATIONS ===================== -->
+<div id="tab-skureco" class="tab-pane">
+<div class="sh">Lever-Level Recommendations by SKU</div>
+<div class="ib">Each SKU shows March / April / May actuals per lever and June target. <strong>Outward Logistics Action</strong> gives the specific carrier/fulfillment recommendation. Sorted by revenue impact.</div>
+
+<!-- Alpha 60N -->
+<div class="sh" style="background:#7B3A00;margin-top:10px">Alpha 60N &nbsp;<span class="badge bg-r">HIGH PRIORITY</span>&nbsp;&nbsp; May Rev $479K &nbsp;|&nbsp; Ops 27.8% → Target 22%</div>
+<table>
+  <thead><tr>
+    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th class="r">March</th><th class="r">April</th><th class="r">May</th>
+    <th class="c">June Target</th>
+    <th>Outward Logistics Action</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Xindus Migration</td><td>Inward</td><td class="r c-r">11.4%</td><td class="r c-a">9.9%</td><td class="r c-a">9.9%</td><td class="c c-g"><b>8.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="even"><td>FBT Migration</td><td>Outward</td><td class="r c-r">19.7%</td><td class="r c-r">18.8%</td><td class="r c-a">16.6%</td><td class="c c-g"><b>13.0%</b></td><td>60N still predominantly Amazon FBA. Push FBT intake for 60N — each 10% FBT shift saves ~0.8pp. <strong>Target: 60%+ FBT mix in June.</strong></td></tr>
+    <tr><td>Duty (HS code)</td><td>Duty</td><td class="r">3.2%</td><td class="r">1.8%</td><td class="r">1.2%</td><td class="c c-g"><b>1.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">34.4%</td><td class="r">30.5%</td><td class="r">27.8%</td><td class="c"><b>22.0%</b></td><td>Est. ~$27K/month saving vs May at target.</td></tr>
+  </tbody>
+</table>
+
+<!-- MagAshwa RL -->
+<div class="sh" style="background:#7B3A00;margin-top:10px">MagAshwa (RL) &nbsp;<span class="badge bg-r">HIGH PRIORITY</span>&nbsp;&nbsp; May Rev $214K &nbsp;|&nbsp; Ops 39.8% → Target 25%</div>
+<table>
+  <thead><tr>
+    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th class="r">March</th><th class="r">April</th><th class="r">May</th>
+    <th class="c">June Target</th>
+    <th>Outward Logistics Action</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Inward Renegotiation</td><td>Inward</td><td class="r c-r"><b>30.6%</b></td><td class="r c-r"><b>31.3%</b></td><td class="r c-r">21.2%</td><td class="c c-g"><b>10.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="even"><td>FBT / Carrier</td><td>Outward</td><td class="r c-a">18.8%</td><td class="r c-a">16.1%</td><td class="r c-a">17.4%</td><td class="c c-g"><b>14.0%</b></td><td>Assess RL SKU FBT eligibility — currently Amazon FBA only. FBT would save ~$0.60–0.80/unit. <strong>Raise with ops team this week.</strong></td></tr>
+    <tr><td>Duty</td><td>Duty</td><td class="r">3.2%</td><td class="r">1.5%</td><td class="r">1.2%</td><td class="c c-g"><b>1.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">52.6%</td><td class="r">48.9%</td><td class="r">39.8%</td><td class="c"><b>25.0%</b></td><td>~$31K/month saving at target. Inward is the primary lever.</td></tr>
+  </tbody>
+</table>
+
+<!-- Shilajit 60N -->
+<div class="sh" style="margin-top:10px">Shilajit 60N &nbsp;<span class="badge bg-a">MEDIUM</span>&nbsp;&nbsp; May Rev $127K &nbsp;|&nbsp; Ops 31.0% → Target 25%</div>
+<table>
+  <thead><tr>
+    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th class="r">March</th><th class="r">April</th><th class="r">May</th>
+    <th class="c">June Target</th>
+    <th>Outward Logistics Action</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Xindus Migration</td><td>Inward</td><td class="r">9.2%</td><td class="r">8.9%</td><td class="r">8.8%</td><td class="c c-g"><b>7.5%</b></td><td style="color:#555">—</td></tr>
+    <tr class="even"><td>FBT Migration</td><td>Outward</td><td class="r c-a">18.7%</td><td class="r c-a">18.0%</td><td class="r c-a">17.1%</td><td class="c c-g"><b>14.0%</b></td><td>Shilajit eligible for FBT. Low ASP ($25) makes per-unit rate critical — every $0.50/unit saving = ~2pp. <strong>Batch FBT intake with Alpha 60N to reduce per-carton cost.</strong></td></tr>
+    <tr><td>HS Code / Duty</td><td>Duty</td><td class="r c-a">5.3%</td><td class="r c-a">5.3%</td><td class="r c-a">5.0%</td><td class="c c-g"><b>4.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">33.2%</td><td class="r">32.2%</td><td class="r">31.0%</td><td class="c"><b>25.0%</b></td><td>~$7.6K/month saving at target vs May.</td></tr>
+  </tbody>
+</table>
+
+<!-- Shilajit 120N -->
+<div class="sh" style="margin-top:10px">Shilajit 120N &nbsp;<span class="badge bg-a">MEDIUM</span>&nbsp;&nbsp; May Rev $81K &nbsp;|&nbsp; Ops 31.6% → Target 24%</div>
+<table>
+  <thead><tr>
+    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th class="r">March</th><th class="r">April</th><th class="r">May</th>
+    <th class="c">June Target</th>
+    <th>Outward Logistics Action</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Xindus Migration</td><td>Inward</td><td class="r">9.7%</td><td class="r">9.2%</td><td class="r">9.2%</td><td class="c c-g"><b>7.5%</b></td><td style="color:#555">—</td></tr>
+    <tr class="even"><td>FBT / Rate</td><td>Outward</td><td class="r">14.4%</td><td class="r">14.8%</td><td class="r">13.8%</td><td class="c c-g"><b>11.0%</b></td><td>Higher ASP ($46) absorbs outward better. FBT intake brings per-unit from $5.50 → ~$4.20. <strong>Batch with Shilajit 60N in FBT shipments for carton efficiency.</strong></td></tr>
+    <tr><td>HS Code / Duty</td><td>Duty</td><td class="r c-r">8.7%</td><td class="r c-r">8.6%</td><td class="r c-r">8.6%</td><td class="c c-g"><b>6.0%</b></td><td style="color:#555">Duty HS review is P0 — highest duty% across all SKUs. 2–3pp available.</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">32.8%</td><td class="r">32.6%</td><td class="r">31.6%</td><td class="c"><b>24.0%</b></td><td>~$6.1K/month saving at target.</td></tr>
+  </tbody>
+</table>
+
+<!-- Alpha 120N -->
+<div class="sh" style="margin-top:10px">Alpha 120N &nbsp;<span class="badge bg-g">NEAR TARGET</span>&nbsp;&nbsp; May Rev $320K &nbsp;|&nbsp; Ops 23.7% → Target 21%</div>
+<table>
+  <thead><tr>
+    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th class="r">March</th><th class="r">April</th><th class="r">May</th>
+    <th class="c">June Target</th>
+    <th>Outward Logistics Action</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Xindus Migration</td><td>Inward</td><td class="r c-a">9.8%</td><td class="r">9.3%</td><td class="r">8.6%</td><td class="c c-g"><b>7.5%</b></td><td style="color:#555">—</td></tr>
+    <tr class="even"><td>FBT / Rate</td><td>Outward</td><td class="r">13.5%</td><td class="r">13.4%</td><td class="r c-g">11.7%</td><td class="c c-g"><b>10.0%</b></td><td>Strong improvement underway. 120N benefits from FBT case-pack efficiency (larger bottles, lower carton count). <strong>Sustain current carrier mix — no new action required.</strong></td></tr>
+    <tr><td>Duty</td><td>Duty</td><td class="r">3.8%</td><td class="r">3.7%</td><td class="r">3.5%</td><td class="c c-g"><b>3.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">27.1%</td><td class="r">26.4%</td><td class="r">23.7%</td><td class="c"><b>21.0%</b></td><td>~$8.6K/month saving at target. On track — sustain.</td></tr>
+  </tbody>
+</table>
+
+<!-- HDR 50ml -->
+<div class="sh" style="margin-top:10px">HDR 50ml &nbsp;<span class="badge bg-g">MONITOR</span>&nbsp;&nbsp; May Rev $83K &nbsp;|&nbsp; Ops 15.1% → Target 13%</div>
+<table>
+  <thead><tr>
+    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th class="r">March</th><th class="r">April</th><th class="r">May</th>
+    <th class="c">June Target</th>
+    <th>Outward Logistics Action</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Xindus</td><td>Inward</td><td class="r c-g">3.3%</td><td class="r c-g">2.6%</td><td class="r c-g">2.9%</td><td class="c c-g"><b>2.5%</b></td><td style="color:#555">—</td></tr>
+    <tr class="even"><td>FBT Migration</td><td>Outward</td><td class="r c-g">8.5%</td><td class="r c-a">9.6%</td><td class="r c-a">10.2%</td><td class="c c-g"><b>8.0%</b></td><td>Outward% creeping up as volume declines (2,234 units vs 3,734 in March). <strong>Target 70%+ FBT mix in June — brings outward/unit from $3.80 → ~$3.00.</strong></td></tr>
+    <tr><td>Duty</td><td>Duty</td><td class="r">2.1%</td><td class="r">1.8%</td><td class="r">2.1%</td><td class="c c-g"><b>2.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">13.9%</td><td class="r">14.0%</td><td class="r">15.1%</td><td class="c"><b>13.0%</b></td><td>Already below portfolio target. FBT will close the 2pp gap. ~$1.8K/month saving.</td></tr>
+  </tbody>
+</table>
+
+<!-- HDR 25ml -->
+<div class="sh" style="background:#5B0079;margin-top:10px">HDR 25ml &nbsp;<span class="badge bg-r">REVIEW VIABILITY</span>&nbsp;&nbsp; May Rev $5.7K &nbsp;|&nbsp; Out/unit $4.07 vs $2.09 in March</div>
+<table>
+  <thead><tr>
+    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th class="r">March</th><th class="r">April</th><th class="r">May</th>
+    <th class="c">June Target</th>
+    <th>Outward Logistics Action</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Inward Rate</td><td>Inward</td><td class="r c-g">3.1%</td><td class="r c-g">3.0%</td><td class="r c-g">3.0%</td><td class="c c-g"><b>3.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="even"><td>Carrier Rate</td><td>Outward</td><td class="r c-g">9.0%</td><td class="r c-a">12.6%</td><td class="r c-r"><b>21.5%</b></td><td class="c c-g"><b>9.0%</b></td><td>Carrier minimum charge triggered at 304 units — outward/unit hit $4.07 vs $2.09 in March. <strong>(1) Consolidate onto same carrier lane as HDR 50ml. (2) If vol &lt;350 units for 2 months, evaluate discontinuation.</strong></td></tr>
+    <tr><td>Duty</td><td>Duty</td><td class="r">1.9%</td><td class="r">2.1%</td><td class="r">2.1%</td><td class="c c-g"><b>2.0%</b></td><td style="color:#555">—</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">14.0%</td><td class="r">17.7%</td><td class="r">26.6%</td><td class="c"><b>14.0%</b></td><td>Outward consolidation is the only fix. No FBT savings possible at this volume.</td></tr>
+  </tbody>
+</table>
+
+<div class="ib" style="margin-top:14px">¹ Savings at target assume May revenue stays flat. ² Source: OPS P&amp;L CSVs March-26, April-26, OPS USA PNL 1–31 May26. Vetted by finance.</div>
 </div>
 
 </div><!-- .wrapper -->
