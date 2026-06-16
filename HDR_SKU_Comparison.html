@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HDR SKU — Month-on-Month Comparison</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f8fa; margin: 0; padding: 24px; }
+  .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  h2 { font-size: 1.25rem; color: #1a1a2e; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: #1a1a2e; color: #fff; }
+  thead th { padding: 10px 12px; text-align: center; font-weight: 600; }
+  thead th:first-child { text-align: left; }
+  .section-header td { background: #e8eaf6; font-weight: 700; color: #1a1a2e; padding: 8px 12px; font-size: 0.87rem; letter-spacing: 0.03em; }
+  tbody tr:nth-child(even) { background: #fafbfd; }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr:hover { background: #f0f4ff; }
+  td { padding: 8px 12px; text-align: center; color: #333; border-bottom: 1px solid #eee; }
+  td:first-child { text-align: left; color: #555; padding-left: 20px; }
+  .warn { color: #c62828; font-weight: 700; }
+  .ok { color: #2e7d32; }
+  .neutral { color: #e65100; }
+  .june-col { background: #fffde7 !important; color: #5d4037; font-style: italic; }
+  .j14-col { background: #D0ECE7 !important; font-weight: 600; }
+  .total-row td { font-weight: 700; background: #e3f2fd !important; }
+  .divider { border-top: 2px solid #c5cae9; }
+  .badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; }
+  .badge-red { background: #ffebee; color: #c62828; }
+  .badge-green { background: #e8f5e9; color: #2e7d32; }
+  .badge-amber { background: #fff8e1; color: #e65100; }
+  .footnote { font-size: 0.78rem; color: #888; margin-top: 16px; border-top: 1px solid #eee; padding-top: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>HDR — SKU-Level Cost Comparison: March → April → May → Jun 1–14</h2>
+  <div class="subtitle">Source: OPS P&L CSVs — vetted by finance. Jun 1–14 = actual data from OPS USA PNL Jun 26 xlsx. June Est. = forward estimate.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%">Metric</th>
+        <th>March</th>
+        <th>April</th>
+        <th>May</th>
+        <th class="j14-col">Jun 1–14 Actual</th>
+        <th class="june-col">June (Est.)</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- HDR 25ml -->
+      <tr class="section-header">
+        <td colspan="6">HDR 25ml &nbsp;<span class="badge badge-red">Volume Critical</span></td>
+      </tr>
+      <tr>
+        <td>Units sold</td>
+        <td>849</td>
+        <td>484</td>
+        <td class="warn">304</td>
+        <td class="j14-col warn">92</td>
+        <td class="june-col">~250 (full mo)</td>
+      </tr>
+      <tr>
+        <td>Revenue</td>
+        <td>$19,668</td>
+        <td>$9,333</td>
+        <td class="warn">$5,762</td>
+        <td class="j14-col warn">$1,844</td>
+        <td class="june-col">~$4,800</td>
+      </tr>
+      <tr>
+        <td>ASP / unit</td>
+        <td>$23.17</td>
+        <td>$19.28</td>
+        <td>$18.95</td>
+        <td class="j14-col">$20.04</td>
+        <td class="june-col">~$19</td>
+      </tr>
+      <tr>
+        <td>Inward % rev</td>
+        <td>3.1%</td>
+        <td>3.0%</td>
+        <td>3.0%</td>
+        <td class="j14-col">2.9%</td>
+        <td class="june-col">~3%</td>
+      </tr>
+      <tr>
+        <td>Outward / unit</td>
+        <td>$2.09</td>
+        <td>$2.42</td>
+        <td class="warn">$4.07 ⚠️</td>
+        <td class="j14-col warn">$4.72 ⚠️</td>
+        <td class="june-col">Carrier audit needed</td>
+      </tr>
+      <tr>
+        <td>Outward % rev</td>
+        <td>9.0%</td>
+        <td class="neutral">12.6%</td>
+        <td class="warn">21.5%</td>
+        <td class="j14-col warn">23.5%</td>
+        <td class="june-col">—</td>
+      </tr>
+      <tr>
+        <td>Duty % rev</td>
+        <td>1.9%</td>
+        <td>2.1%</td>
+        <td>2.1%</td>
+        <td class="j14-col">2.1%</td>
+        <td class="june-col">~2%</td>
+      </tr>
+      <tr class="total-row">
+        <td>Total Ops % rev</td>
+        <td>14.0%</td>
+        <td class="neutral">17.7%</td>
+        <td class="warn">26.6%</td>
+        <td class="j14-col warn">28.5% ↑</td>
+        <td class="june-col">⚠️ Review viability</td>
+      </tr>
+
+      <!-- Spacer -->
+      <tr style="height:6px"><td colspan="6"></td></tr>
+
+      <!-- HDR 50ml -->
+      <tr class="section-header">
+        <td colspan="6">HDR 50ml &nbsp;<span class="badge badge-amber">Monitor — FBT lever pending</span></td>
+      </tr>
+      <tr>
+        <td>Units sold</td>
+        <td>3,734</td>
+        <td>3,463</td>
+        <td class="neutral">2,234</td>
+        <td class="j14-col">988</td>
+        <td class="june-col">~2,000 (full mo)</td>
+      </tr>
+      <tr>
+        <td>Revenue</td>
+        <td>$142,847</td>
+        <td>$145,241</td>
+        <td class="neutral">$83,340</td>
+        <td class="j14-col">$36,595</td>
+        <td class="june-col">~$75,000</td>
+      </tr>
+      <tr>
+        <td>ASP / unit</td>
+        <td>$38.26</td>
+        <td>$41.94</td>
+        <td>$37.31</td>
+        <td class="j14-col">$37.04</td>
+        <td class="june-col">~$38</td>
+      </tr>
+      <tr>
+        <td>Inward % rev</td>
+        <td>3.3%</td>
+        <td>2.6%</td>
+        <td>2.9%</td>
+        <td class="j14-col ok">2.9%</td>
+        <td class="june-col">~2.5% (Xindus)</td>
+      </tr>
+      <tr>
+        <td>Outward / unit</td>
+        <td>$3.26</td>
+        <td>$4.02</td>
+        <td class="neutral">$3.80</td>
+        <td class="j14-col neutral">$4.01</td>
+        <td class="june-col">~$3.20 (FBT shift)</td>
+      </tr>
+      <tr>
+        <td>Outward % rev</td>
+        <td class="ok">8.5%</td>
+        <td class="neutral">9.6%</td>
+        <td class="neutral">10.2%</td>
+        <td class="j14-col neutral">10.8%</td>
+        <td class="june-col">~9% (if FBT ↑)</td>
+      </tr>
+      <tr>
+        <td>Duty % rev</td>
+        <td>2.1%</td>
+        <td>1.8%</td>
+        <td>2.1%</td>
+        <td class="j14-col">2.1%</td>
+        <td class="june-col">~2%</td>
+      </tr>
+      <tr class="total-row">
+        <td>Total Ops % rev</td>
+        <td class="ok">13.9%</td>
+        <td>14.0%</td>
+        <td class="neutral">15.1%</td>
+        <td class="j14-col neutral">15.8% ↑</td>
+        <td class="june-col ok">~13.5% (target)</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="footnote">
+    <strong>Jun 1–14 notes:</strong>
+    HDR 25ml — only 92 units in first 14 days; outward/unit hit $4.72 (carrier minimum). At &lt;100 units/fortnight the carrier minimum charge dominates. Urgent: consolidate onto HDR 50ml carrier lane.
+    &nbsp;|&nbsp;
+    HDR 50ml — 988 units, outward/unit $4.01 (FBT not yet started). FBT intake will bring per-unit rate to ~$3.20.
+    <br>
+    ¹ Data: OPS P&L CSVs (March/April/May). Jun 1–14 = OPS USA PNL 1st to 14th June 26.xlsx. June (Est.) = forward estimate.
+  </div>
+</div>
+</body>
+</html>
