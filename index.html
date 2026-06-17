@@ -800,12 +800,12 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   </tr>
   <tr>
     <td class="bold">ShipBob</td>
-    <td class="r">18,676 units<br><span style="font-size:10px;color:#6B6052">@ $1.60/unit disposal</span></td>
+    <td class="r">11,644 units<br><span style="font-size:10px;color:#6B6052">8 inactive SKUs · May-26 qty · $1.60/u</span></td>
     <td class="r c-g bold">$2,696/mo<br><span style="font-size:10px;color:#6B6052">full ShipBob storage</span></td>
-    <td class="r c-r bold">$29,882<br><span style="font-size:10px;color:#6B6052">one-time removal fee</span></td>
-    <td class="c c-a bold">~11 mo</td>
+    <td class="r c-r bold">$18,631<br><span style="font-size:10px;color:#6B6052">one-time removal fee</span></td>
+    <td class="c c-a bold">~7 mo</td>
     <td class="c"><span class="badge bg-a">Review by SKU</span></td>
-    <td>Actual: ShipBob portal — 18,676 units flagged. $29,882 one-time disposal. Break-even ~11 months at $2,696/mo storage saving. Prioritise disposing zero-velocity SKUs first.</td>
+    <td>Actual: ShipBob inventory data (May-26) — 8 inactive SKUs, 11,644 units total. $1.60/unit = $18,631 one-time disposal. Break-even ~7 months at $2,696/mo storage saving. SKUs: LJ Brain Health, Biotin 60s, UARO 50ml, BB Glycolic Stick, LJ NutriMix, others.</td>
   </tr>
   <tr class="sub">
     <td>► Total if All Disposed</td>
@@ -946,7 +946,7 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   <div class="calc-row"><span>Amazon — dispose DRR=0 only (875 units)</span><span class="sav">Save $40.35/mo</span></div>
   <div class="calc-row"><span>Amazon — dispose DRR≤2 also (2,897 units)</span><span class="sav">Save $147.19/mo</span></div>
   <div class="calc-row"><span>Amazon — dispose ALL (8,075 units)</span><span class="sav">Save $382.35/mo</span></div>
-  <div class="calc-row"><span>ShipBob — dispose excess (18,676 units)</span><span class="sav">Save $2,696/mo · $29,882 one-time</span></div>
+  <div class="calc-row"><span>ShipBob — dispose excess (11,644 units)</span><span class="sav">Save $2,696/mo · $18,631 one-time</span></div>
   <div class="calc-row"><span>FBT — dispose inactive SKUs (2 SKUs)</span><span class="sav">Save ~$150/mo · $100.80 one-time</span></div>
   <div style="background:#0B5239;color:#fff;padding:10px;border-radius:4px;margin-top:10px;font-size:13px;display:flex;justify-content:space-between;font-weight:700;">
     <span>Best case: ALL channels disposed</span>
@@ -1530,134 +1530,151 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 
 <!-- Unit Economics Table (Table 3) -->
 <div class="sh" style="margin-top:18px;background:#1a3a2e">Table 3 · Unit Economics — COGS → Inward → Outward (Channel-wise, Jun 1–14)</div>
-<div class="ib">Selling prices from FBT product catalogue. Amazon = Jun 1–14 realized ASP. Net% = (Selling Price − COGS − Inward − Outward) ÷ Selling Price — excludes platform fees (~8–15%) &amp; duty (~2%). COGS = qty-weighted avg from SKU_avg_Shipment_COGS.xlsx. Inward = per-unit allocation from Jun P&amp;L.</div>
+<div class="ib">All prices = Jun 1–14 realized ASP from OPS P&amp;L (not list price). Net/u = ASP − COGS − Inward − Outward. Net% excludes platform fees (~8–15%) &amp; duty (~2%) — deduct ~$3–4/u for true margin. COGS = qty-weighted avg from SKU_avg_Shipment_COGS.xlsx.</div>
 <style>
   .ue-hdr2{background:#1a3a2e;color:#fff;font-weight:700;font-size:0.84rem;padding:5px 8px}
   .ue-fbt{background:#FFF3E0!important}.ue-amz{background:#EAF4FB!important}.ue-d2c{background:#F0FFF4!important}
   .ue-nm-g{color:#1B5E20;font-weight:700}.ue-nm-a{color:#E65100;font-weight:700}.ue-nm-r{color:#B71C1C;font-weight:700}
+  .tc-col{background:#E8EAF6!important;font-weight:600}
 </style>
 <table>
   <thead>
     <tr style="background:#1a1a2e;color:#fff">
       <th style="width:125px;text-align:left">Product</th>
-      <th style="width:75px">Channel</th>
-      <th class="r">List Price</th>
+      <th style="width:70px">Channel</th>
+      <th class="r">ASP</th>
       <th class="r" style="background:#4E342E;color:#fff">COGS/u</th>
       <th class="r" style="background:#1a3a2e;color:#fff">Inward/u</th>
       <th class="c" style="background:#1a3a2e;color:#fff">In%</th>
       <th class="r" style="background:#263238;color:#fff">Outward/u</th>
       <th class="c" style="background:#263238;color:#fff">Out%</th>
+      <th class="r" style="background:#37474F;color:#fff">Total Cost/u</th>
       <th class="r" style="background:#0B5239;color:#fff">Net/u</th>
       <th class="c" style="background:#0B5239;color:#fff">Net%</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td colspan="10" class="ue-hdr2">BB Roll On 25ml &nbsp;·&nbsp; COGS $0.75/u &nbsp;·&nbsp; 19,022 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Strong Margin</span></td></tr>
+    <tr><td colspan="11" class="ue-hdr2">BB Roll On 25ml &nbsp;·&nbsp; COGS $0.75/u &nbsp;·&nbsp; 19,022 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Strong Margin</span></td></tr>
     <tr class="ue-fbt">
-      <td>BB Roll On 25ml</td><td><b>FBT (TikTok)</b></td><td class="r">$25.64</td>
-      <td class="r">$0.75</td><td class="r c-g">$0.48</td><td class="c c-g">1.9%</td>
-      <td class="r">$3.71</td><td class="c">14.5%</td>
-      <td class="r ue-nm-g">$20.70</td><td class="c ue-nm-g">80.7%</td>
+      <td>BB Roll On 25ml</td><td><b>FBT (TikTok)</b></td><td class="r">$23.54</td>
+      <td class="r">$0.75</td><td class="r c-g">$0.48</td><td class="c c-g">2.0%</td>
+      <td class="r">$3.71</td><td class="c">15.8%</td>
+      <td class="r tc-col">$4.94</td>
+      <td class="r ue-nm-g">$18.60</td><td class="c ue-nm-g">79.0%</td>
     </tr>
     <tr class="ue-amz">
-      <td>BB Roll On 25ml</td><td><b>Amazon FBA</b></td><td class="r">$29.00 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>BB Roll On 25ml</td><td><b>Amazon FBA</b></td><td class="r">$29.00</td>
       <td class="r">$0.75</td><td class="r c-g">$0.49</td><td class="c c-g">1.7%</td>
       <td class="r">$3.45</td><td class="c">11.9%</td>
+      <td class="r tc-col">$4.69</td>
       <td class="r ue-nm-g">$24.31</td><td class="c ue-nm-g">83.8%</td>
     </tr>
 
-    <tr><td colspan="10" class="ue-hdr2">BB Roll On 50ml &nbsp;·&nbsp; COGS $1.54/u &nbsp;·&nbsp; 988 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Strong Margin</span></td></tr>
+    <tr><td colspan="11" class="ue-hdr2">BB Roll On 50ml &nbsp;·&nbsp; COGS $1.54/u &nbsp;·&nbsp; 988 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Strong Margin</span></td></tr>
     <tr class="ue-fbt">
-      <td>BB Roll On 50ml</td><td><b>FBT (TikTok)</b></td><td class="r">$46.58</td>
-      <td class="r">$1.54</td><td class="r c-g">$1.07</td><td class="c c-g">2.3%</td>
-      <td class="r">$4.15</td><td class="c">8.9%</td>
-      <td class="r ue-nm-g">$39.82</td><td class="c ue-nm-g">85.5%</td>
+      <td>BB Roll On 50ml</td><td><b>FBT (TikTok)</b></td><td class="r">$42.31</td>
+      <td class="r">$1.54</td><td class="r c-g">$1.07</td><td class="c c-g">2.5%</td>
+      <td class="r">$4.15</td><td class="c">9.8%</td>
+      <td class="r tc-col">$6.76</td>
+      <td class="r ue-nm-g">$35.55</td><td class="c ue-nm-g">84.0%</td>
     </tr>
     <tr class="ue-amz">
-      <td>BB Roll On 50ml</td><td><b>Amazon FBA</b></td><td class="r">$33.83 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>BB Roll On 50ml</td><td><b>Amazon FBA</b></td><td class="r">$33.83</td>
       <td class="r">$1.54</td><td class="r c-g">$1.07</td><td class="c c-g">3.2%</td>
       <td class="r c-g">$2.05</td><td class="c c-g">6.1%</td>
+      <td class="r tc-col">$4.66</td>
       <td class="r ue-nm-g">$29.17</td><td class="c ue-nm-g">86.2%</td>
     </tr>
 
-    <tr><td colspan="10" class="ue-hdr2">Alpha 60s &nbsp;·&nbsp; COGS $1.50/u &nbsp;·&nbsp; 8,011 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Good Margin</span></td></tr>
+    <tr><td colspan="11" class="ue-hdr2">Alpha 60s &nbsp;·&nbsp; COGS $1.50/u &nbsp;·&nbsp; 8,011 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Good Margin</span></td></tr>
     <tr class="ue-fbt">
-      <td>Alpha 60s</td><td><b>FBT (TikTok)</b></td><td class="r">$24.93</td>
-      <td class="r">$1.50</td><td class="r c-g">$0.59</td><td class="c c-g">2.4%</td>
-      <td class="r">$4.19</td><td class="c c-a">16.8%</td>
-      <td class="r ue-nm-g">$18.65</td><td class="c ue-nm-g">74.8%</td>
+      <td>Alpha 60s</td><td><b>FBT (TikTok)</b></td><td class="r">$21.77</td>
+      <td class="r">$1.50</td><td class="r c-g">$0.59</td><td class="c c-g">2.7%</td>
+      <td class="r">$4.19</td><td class="c c-a">19.2%</td>
+      <td class="r tc-col">$6.28</td>
+      <td class="r ue-nm-g">$15.49</td><td class="c ue-nm-g">71.1%</td>
     </tr>
     <tr class="ue-amz">
-      <td>Alpha 60s</td><td><b>Amazon FBA</b></td><td class="r">$30.75 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>Alpha 60s</td><td><b>Amazon FBA</b></td><td class="r">$30.75</td>
       <td class="r">$1.50</td><td class="r c-g">$0.83</td><td class="c c-g">2.7%</td>
       <td class="r">$4.51</td><td class="c c-a">14.7%</td>
+      <td class="r tc-col">$6.84</td>
       <td class="r ue-nm-g">$23.91</td><td class="c ue-nm-g">77.7%</td>
     </tr>
 
-    <tr><td colspan="10" class="ue-hdr2">Alpha 120s &nbsp;·&nbsp; COGS $2.80/u &nbsp;·&nbsp; 2,697 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Good Margin</span></td></tr>
+    <tr><td colspan="11" class="ue-hdr2">Alpha 120s &nbsp;·&nbsp; COGS $2.80/u &nbsp;·&nbsp; 2,697 units Jun 1–14 &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Good Margin</span></td></tr>
     <tr class="ue-fbt">
-      <td>Alpha 120s</td><td><b>FBT (TikTok)</b></td><td class="r">$42.78</td>
-      <td class="r">$2.80</td><td class="r c-g">$1.05</td><td class="c c-g">2.5%</td>
-      <td class="r">$4.94</td><td class="c c-a">11.5%</td>
-      <td class="r ue-nm-g">$33.99</td><td class="c ue-nm-g">79.5%</td>
+      <td>Alpha 120s</td><td><b>FBT (TikTok)</b></td><td class="r">$37.58</td>
+      <td class="r">$2.80</td><td class="r c-g">$1.05</td><td class="c c-g">2.8%</td>
+      <td class="r">$4.94</td><td class="c c-a">13.1%</td>
+      <td class="r tc-col">$8.79</td>
+      <td class="r ue-nm-g">$28.79</td><td class="c ue-nm-g">76.6%</td>
     </tr>
     <tr class="ue-amz">
-      <td>Alpha 120s</td><td><b>Amazon FBA</b></td><td class="r">$54.39 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>Alpha 120s</td><td><b>Amazon FBA</b></td><td class="r">$54.39</td>
       <td class="r">$2.80</td><td class="r c-g">$1.52</td><td class="c c-g">2.8%</td>
       <td class="r">$6.05</td><td class="c c-a">11.1%</td>
+      <td class="r tc-col">$10.37</td>
       <td class="r ue-nm-g">$44.02</td><td class="c ue-nm-g">80.9%</td>
     </tr>
 
-    <tr><td colspan="10" class="ue-hdr2" style="background:#7B1A1A">MagAshwa 60s &nbsp;·&nbsp; COGS $2.18/u &nbsp;·&nbsp; 5,520 units Jun 1–14 &nbsp;<span class="badge bg-r">⚠️ Vol. Weight Penalty on Inward</span></td></tr>
+    <tr><td colspan="11" class="ue-hdr2" style="background:#7B1A1A">MagAshwa 60s &nbsp;·&nbsp; COGS $2.18/u &nbsp;·&nbsp; 5,520 units Jun 1–14 &nbsp;<span class="badge bg-r">⚠️ Vol. Weight Penalty on Inward</span></td></tr>
     <tr class="ue-fbt">
-      <td>MagAshwa 60s</td><td><b>FBT (TikTok)</b></td><td class="r">$27.99</td>
-      <td class="r">$2.18</td><td class="r c-r"><b>$5.04</b></td><td class="c c-r"><b>18.0%</b></td>
-      <td class="r">$4.20</td><td class="c c-a">15.0%</td>
-      <td class="r ue-nm-a">$16.57</td><td class="c ue-nm-a">59.2%</td>
+      <td>MagAshwa 60s</td><td><b>FBT (TikTok)</b></td><td class="r">$23.26</td>
+      <td class="r">$2.18</td><td class="r c-r"><b>$5.04</b></td><td class="c c-r"><b>21.7%</b></td>
+      <td class="r">$4.20</td><td class="c c-a">18.1%</td>
+      <td class="r tc-col c-r">$11.42</td>
+      <td class="r ue-nm-a">$11.84</td><td class="c ue-nm-a">50.9%</td>
     </tr>
     <tr class="ue-amz">
-      <td>MagAshwa 60s</td><td><b>Amazon FBA</b></td><td class="r">$33.96 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>MagAshwa 60s</td><td><b>Amazon FBA</b></td><td class="r">$33.96</td>
       <td class="r">$2.18</td><td class="r c-r"><b>$5.19</b></td><td class="c c-r"><b>15.3%</b></td>
       <td class="r">$4.67</td><td class="c c-a">13.7%</td>
+      <td class="r tc-col c-a">$12.04</td>
       <td class="r ue-nm-a">$21.92</td><td class="c ue-nm-a">64.5%</td>
     </tr>
     <tr class="ue-d2c">
-      <td>MagAshwa 60s</td><td><b>D2C (ShipBob)</b></td><td class="r">$24.05 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>MagAshwa 60s</td><td><b>D2C (ShipBob)</b></td><td class="r">$24.05</td>
       <td class="r">$2.18</td><td class="r c-r"><b>$5.19</b></td><td class="c c-r"><b>21.6%</b></td>
       <td class="r">$3.46</td><td class="c c-a">14.4%</td>
+      <td class="r tc-col c-a">$10.83</td>
       <td class="r ue-nm-r">$13.22</td><td class="c ue-nm-r">55.0%</td>
     </tr>
 
-    <tr><td colspan="10" class="ue-hdr2">BW Shilajit 60s &nbsp;·&nbsp; COGS $1.40/u &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Good Margin</span></td></tr>
+    <tr><td colspan="11" class="ue-hdr2">BW Shilajit 60s &nbsp;·&nbsp; COGS $1.40/u &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">Good Margin</span></td></tr>
     <tr class="ue-fbt">
       <td>BW Shilajit 60s</td><td><b>FBT (TikTok)</b></td><td class="r">$23.27</td>
       <td class="r">$1.40</td><td class="r c-g">$0.52</td><td class="c c-g">2.2%</td>
       <td class="r">$4.47</td><td class="c c-a">19.2%</td>
+      <td class="r tc-col">$6.39</td>
       <td class="r ue-nm-g">$16.88</td><td class="c ue-nm-g">72.5%</td>
     </tr>
     <tr class="ue-amz">
-      <td>BW Shilajit 60s</td><td><b>Amazon FBA</b></td><td class="r">$28.84 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>BW Shilajit 60s</td><td><b>Amazon FBA</b></td><td class="r">$28.84</td>
       <td class="r">$1.40</td><td class="r c-g">$0.58</td><td class="c c-g">2.0%</td>
       <td class="r">$4.46</td><td class="c c-a">15.5%</td>
+      <td class="r tc-col">$6.44</td>
       <td class="r ue-nm-g">$22.40</td><td class="c ue-nm-g">77.6%</td>
     </tr>
 
-    <tr><td colspan="10" class="ue-hdr2">RL Seamoss 60s &nbsp;·&nbsp; COGS $1.31/u &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">FBT Excellent · Amazon Watch</span></td></tr>
+    <tr><td colspan="11" class="ue-hdr2">RL Seamoss 60s &nbsp;·&nbsp; COGS $1.31/u &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">FBT Excellent · Amazon Watch</span></td></tr>
     <tr class="ue-fbt">
-      <td>RL Seamoss 60s</td><td><b>FBT (TikTok)</b></td><td class="r">$27.99</td>
-      <td class="r">$1.31</td><td class="r c-g">$0.44</td><td class="c c-g">1.6%</td>
-      <td class="r c-g">$2.45</td><td class="c c-g">8.8%</td>
-      <td class="r ue-nm-g">$23.79</td><td class="c ue-nm-g">85.0%</td>
+      <td>RL Seamoss 60s</td><td><b>FBT (TikTok)</b></td><td class="r">$22.04</td>
+      <td class="r">$1.31</td><td class="r c-g">$0.44</td><td class="c c-g">2.0%</td>
+      <td class="r c-g">$2.45</td><td class="c c-g">11.1%</td>
+      <td class="r tc-col">$4.20</td>
+      <td class="r ue-nm-g">$17.84</td><td class="c ue-nm-g">80.9%</td>
     </tr>
     <tr class="ue-amz">
-      <td>RL Seamoss 60s</td><td><b>Amazon FBA</b></td><td class="r">$22.89 <span style="font-size:0.72rem;color:#888">ASP</span></td>
+      <td>RL Seamoss 60s</td><td><b>Amazon FBA</b></td><td class="r">$22.89</td>
       <td class="r">$1.31</td><td class="r c-g">$0.46</td><td class="c c-g">2.0%</td>
       <td class="r c-r"><b>$5.45</b></td><td class="c c-r"><b>23.8%</b></td>
+      <td class="r tc-col c-a">$7.22</td>
       <td class="r ue-nm-a">$15.67</td><td class="c ue-nm-a">68.5%</td>
     </tr>
   </tbody>
 </table>
-<div class="ib">¹ Net% excludes platform/referral fees (~8–15%), duty (~2%), and India WH costs — add ~17pp to get true net margin. &nbsp;|&nbsp; MagAshwa inward ($5.04–5.19/u) elevated due to 62×45×27 cm carton → volumetric weight 15.07 kg vs 8.87 kg actual. Carton fix target 45×35×27 cm → billing drops to actual weight → saves ~$1.54/u. &nbsp;|&nbsp; Seamoss: Amazon FBA outward ($5.45) unusually high vs FBT ($2.45) — FBT is preferred channel.</div>
+<div class="ib">¹ Net/u = ASP − Total Cost/u (COGS + Inward + Outward). Excludes platform/referral fees (~8–15%) &amp; duty (~2%) — deduct ~$3–4/u for true margin. &nbsp;|&nbsp; MagAshwa inward ($5.04–5.19/u) = volumetric weight overcharge: 62×45×27 cm carton bills at 15.07 kg vs 8.87 kg actual. Carton fix → saves ~$1.54/u. &nbsp;|&nbsp; Seamoss Amazon: FBA outward ($5.45) unusually high vs FBT ($2.45) — grow FBT not Amazon.</div>
 
 <!-- Channel Detail Section -->
 <div class="sh" style="margin-top:18px;background:#1a1a2e">Jun 1–14 Channel Detail — Per-Unit Cost & Packaging</div>
