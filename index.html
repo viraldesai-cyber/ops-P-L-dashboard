@@ -1175,7 +1175,141 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 
 <!-- ===================== TAB 8: SKU SUMMARY ===================== -->
 <div id="tab-skusum" class="tab-pane">
-<div class="sh">All-SKU Ops Cost — March / April / May / Jun 1–14, 2026</div>
+
+<!-- TABLE 1: COST CONCENTRATION -->
+<div class="sh">SKU Ops Cost Concentration — % of Total Portfolio Ops Cost</div>
+<div class="ib">Ops Cost $ = Inward + Duty + Outward per SKU. % = that SKU's share of total portfolio ops cost pool. Shows <em>where the absolute dollars are</em> — a 27% ops% on a small SKU matters less than a 17% ops% on BB Roll On (30% of all costs). Portfolio ops%: March 29.2% → April 26.7% → May 23.7% → Jun 1–14 23.9% (14 days).</div>
+<table>
+  <thead>
+    <tr style="background:#1a1a2e;color:#fff">
+      <th rowspan="2" style="min-width:180px">SKU</th>
+      <th colspan="2" class="c">March</th>
+      <th colspan="2" class="c">April</th>
+      <th colspan="2" class="c">May (Full)</th>
+      <th colspan="2" class="c" style="background:#0B6B45">Jun 1–14</th>
+      <th rowspan="2" class="c">Cost Share<br>Trend</th>
+    </tr>
+    <tr style="background:#2d2d4e;color:#fff">
+      <th class="r">Ops Cost $</th><th class="c">% of Total</th>
+      <th class="r">Ops Cost $</th><th class="c">% of Total</th>
+      <th class="r">Ops Cost $</th><th class="c">% of Total</th>
+      <th class="r" style="background:#0B6B45">Ops Cost $</th><th class="c" style="background:#0B6B45">% of Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="sub" style="font-style:normal"><td><strong>Portfolio Total</strong></td><td class="r"><b>$888,868</b></td><td class="c"><b>100%</b></td><td class="r"><b>$707,002</b></td><td class="c"><b>100%</b></td><td class="r"><b>$587,452</b></td><td class="c"><b>100%</b></td><td class="r" style="background:#D0ECE7"><b>$265,815</b></td><td class="c" style="background:#D0ECE7"><b>100%</b></td><td class="c">↓ improving</td></tr>
+    <tr class="sec"><td colspan="10">★ TOP COST DRIVERS (&gt;5% of pool)</td></tr>
+    <tr>
+      <td>BB Roll On &nbsp;<span class="badge bg-g">Leader</span></td>
+      <td class="r">$268,748</td><td class="c"><div style="display:flex;align-items:center;gap:4px"><div style="background:#1a1a2e;height:8px;width:calc(30.2% * 1.5px)"></div>30.2%</div></td>
+      <td class="r">$189,261</td><td class="c">26.8%</td>
+      <td class="r">$181,070</td><td class="c">30.8%</td>
+      <td class="r" style="background:#D0ECE7">$80,965</td><td class="c" style="background:#D0ECE7">30.5%</td>
+      <td class="c">→ dominant, flat</td>
+    </tr>
+    <tr class="even">
+      <td>Alpha 60N &nbsp;<span class="badge bg-a">Priority</span></td>
+      <td class="r">$256,869</td><td class="c c-r">28.9%</td>
+      <td class="r">$188,544</td><td class="c c-r">26.7%</td>
+      <td class="r">$133,015</td><td class="c c-a">22.6%</td>
+      <td class="r" style="background:#D0ECE7">$58,066</td><td class="c c-g" style="background:#D0ECE7">21.8%</td>
+      <td class="c c-g">↓ share shrinking ✓</td>
+    </tr>
+    <tr>
+      <td>MagAshwa RL &nbsp;<span class="badge bg-r">Inward</span></td>
+      <td class="r">$110,709</td><td class="c c-a">12.5%</td>
+      <td class="r">$126,122</td><td class="c c-r">17.8%</td>
+      <td class="r">$85,265</td><td class="c c-a">14.5%</td>
+      <td class="r" style="background:#D0ECE7">$52,168</td><td class="c c-r" style="background:#D0ECE7">19.6%</td>
+      <td class="c c-r">↑ share rising ⚠</td>
+    </tr>
+    <tr class="even">
+      <td>Alpha 120N</td>
+      <td class="r">$81,994</td><td class="c c-a">9.2%</td>
+      <td class="r">$66,407</td><td class="c c-a">9.4%</td>
+      <td class="r">$75,974</td><td class="c c-a">12.9%</td>
+      <td class="r" style="background:#D0ECE7">$30,280</td><td class="c c-a" style="background:#D0ECE7">11.4%</td>
+      <td class="c">~ near flat</td>
+    </tr>
+    <tr>
+      <td>Shilajit 60N</td>
+      <td class="r">$49,249</td><td class="c">5.5%</td>
+      <td class="r">$42,685</td><td class="c">6.0%</td>
+      <td class="r">$39,334</td><td class="c">6.7%</td>
+      <td class="r" style="background:#D0ECE7">$13,080</td><td class="c" style="background:#D0ECE7">4.9%</td>
+      <td class="c c-g">↓ share shrinking</td>
+    </tr>
+    <tr class="sec"><td colspan="10">▸ SECONDARY DRIVERS (1–5% of pool)</td></tr>
+    <tr class="even">
+      <td>Shilajit 120N</td>
+      <td class="r">$48,292</td><td class="c">5.4%</td>
+      <td class="r">$33,073</td><td class="c">4.7%</td>
+      <td class="r">$25,510</td><td class="c">4.3%</td>
+      <td class="r" style="background:#D0ECE7">$11,604</td><td class="c" style="background:#D0ECE7">4.4%</td>
+      <td class="c c-g">↓ improving</td>
+    </tr>
+    <tr>
+      <td>Blackseed 60N</td>
+      <td class="r">$31,054</td><td class="c">3.5%</td>
+      <td class="r">$28,890</td><td class="c">4.1%</td>
+      <td class="r">$19,820</td><td class="c">3.4%</td>
+      <td class="r" style="background:#D0ECE7">$9,678</td><td class="c" style="background:#D0ECE7">3.6%</td>
+      <td class="c">~ flat</td>
+    </tr>
+    <tr class="even">
+      <td>HDR 50ml</td>
+      <td class="r">$19,795</td><td class="c">2.2%</td>
+      <td class="r">$20,301</td><td class="c">2.9%</td>
+      <td class="r">$12,578</td><td class="c">2.1%</td>
+      <td class="r" style="background:#D0ECE7">$5,770</td><td class="c" style="background:#D0ECE7">2.2%</td>
+      <td class="c">~ flat, low priority</td>
+    </tr>
+    <tr>
+      <td>Sea Moss 120N</td>
+      <td class="r">$5,469</td><td class="c">0.6%</td>
+      <td class="r">$3,503</td><td class="c">0.5%</td>
+      <td class="r">$3,624</td><td class="c">0.6%</td>
+      <td class="r" style="background:#D0ECE7">$1,339</td><td class="c" style="background:#D0ECE7">0.5%</td>
+      <td class="c">~ negligible</td>
+    </tr>
+    <tr class="even">
+      <td>Turmeric 60N</td>
+      <td class="r">$3,249</td><td class="c">0.4%</td>
+      <td class="r">$2,517</td><td class="c">0.4%</td>
+      <td class="r">$3,161</td><td class="c">0.5%</td>
+      <td class="r" style="background:#D0ECE7">$879</td><td class="c" style="background:#D0ECE7">0.3%</td>
+      <td class="c">~ negligible</td>
+    </tr>
+    <tr>
+      <td>Biotin 60N</td>
+      <td class="r">$2,015</td><td class="c">0.2%</td>
+      <td class="r">$1,365</td><td class="c">0.2%</td>
+      <td class="r">$1,472</td><td class="c">0.3%</td>
+      <td class="r" style="background:#D0ECE7">$757</td><td class="c" style="background:#D0ECE7">0.3%</td>
+      <td class="c">~ negligible</td>
+    </tr>
+    <tr class="even">
+      <td>HDR 25ml</td>
+      <td class="r">$2,762</td><td class="c">0.3%</td>
+      <td class="r">$1,652</td><td class="c">0.2%</td>
+      <td class="r">$1,535</td><td class="c">0.3%</td>
+      <td class="r" style="background:#D0ECE7">$525</td><td class="c" style="background:#D0ECE7">0.2%</td>
+      <td class="c c-r">↑ ops% worsening</td>
+    </tr>
+    <tr>
+      <td>Others (Shilajit+Mush, Choco, DHA, AH&amp;BH)</td>
+      <td class="r">$4,264</td><td class="c">0.5%</td>
+      <td class="r">$1,984</td><td class="c">0.3%</td>
+      <td class="r">$4,544</td><td class="c">0.8%</td>
+      <td class="r" style="background:#D0ECE7">$570</td><td class="c" style="background:#D0ECE7">0.2%</td>
+      <td class="c">~ negligible</td>
+    </tr>
+  </tbody>
+</table>
+<div class="ib"><strong>Read this as:</strong> Alpha 60N was 28.9% of all ops costs in March — reducing its ops% from 34% → 27% freed up ~$16K/month. MagAshwa RL's share is rising (12.5% → 19.6%) because volume is growing faster than cost is improving. BB Roll On is the single biggest ops cost pool (30%) — even small % improvements on it yield large absolute savings.</div>
+
+<!-- TABLE 2: OPS % TREND -->
+<div class="sh" style="margin-top:16px">All-SKU Ops % vs Own Revenue — Month-on-Month Trend</div>
 <div class="ib">Ops % = (Inward + Outward + Duty) ÷ Gross Revenue &nbsp;|&nbsp; <strong>Target: &lt;21%</strong> &nbsp;|&nbsp; Storage excluded (added at portfolio: 0.7% May) &nbsp;|&nbsp; Vetted by finance</div>
 <table>
   <thead>
