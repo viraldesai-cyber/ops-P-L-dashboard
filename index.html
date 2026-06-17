@@ -1179,215 +1179,25 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 <div id="tab-skusum" class="tab-pane">
 
 <!-- TABLE 1: COST CONCENTRATION -->
-<div class="sh">SKU Ops Cost Concentration — % of Total Portfolio Ops Cost</div>
-<div class="ib">Each SKU shows 4 rows: <strong>Total Ops</strong> (= Inward+Outward+Duty) with % of portfolio pool · <span style="color:#2E7D32;font-weight:600">Inward</span> · <span style="color:#1565C0;font-weight:600">Outward</span> · <span style="color:#757575">Duty</span>. MagAshwa Inward flagged red — volumetric weight penalty. Portfolio ops%: March 29.2% → April 26.7% → May 23.7% → Jun 1–14 23.9%.</div>
-<style>
-  .lg-sku{background:#1a1a2e;color:#fff;font-weight:700;font-size:0.83rem}
-  .lg-sku2{background:#37474F;color:#fff;font-weight:700;font-size:0.83rem}
-  .lg-in{background:#E8F5E9!important;font-size:0.81rem;color:#1B5E20}
-  .lg-in td:nth-child(2){font-weight:600}
-  .lg-out{background:#E3F2FD!important;font-size:0.81rem;color:#1565C0}
-  .lg-out td:nth-child(2){font-weight:600}
-  .lg-duty{background:#F5F5F5!important;font-size:0.81rem;color:#757575;border-bottom:2px solid #ddd}
-  .lg-mag-in{background:#FFEBEE!important;font-size:0.81rem;color:#B71C1C;font-weight:700}
-  .lg-mag-in td:nth-child(2){font-weight:700}
-</style>
-<table>
-  <colgroup>
-    <col style="width:155px"><col style="width:68px">
-    <col style="width:95px"><col style="width:95px"><col style="width:95px">
-    <col style="width:95px"><col>
-  </colgroup>
+<div class="sh">SKU Ops Cost — Month-on-Month by Cost Leg</div>
+<div class="ib">Ops Cost $ = Inward + Duty + Outward. Ops% = Ops Cost / Total Sale. In% and Out% shown as % of SKU revenue. <span style="color:#888">✦ Total Sale estimated from inward% assumption — use for directional comparison only.</span> MagAshwa Inward % is 18% (vol. wt. penalty); all other SKUs 2–3%.</div>
+<div style="overflow-x:auto">
+<table style="font-size:0.78rem;min-width:1100px">
+  <colgroup><col style="width:135px"></colgroup>
   <thead>
-    <tr style="background:#1a1a2e;color:#fff">
-      <th style="text-align:left">SKU</th>
-      <th class="c">Leg</th>
-      <th class="r">March</th>
-      <th class="r">April</th>
-      <th class="r">May (Full)</th>
-      <th class="r" style="background:#0B6B45">Jun 1–14</th>
-      <th class="c">Trend</th>
-    </tr>
+    <tr style="background:#1a1a2e;color:#fff"><th rowspan="2" style="min-width:140px;text-align:left">SKU</th><th colspan="5" class="c">March</th><th colspan="5" class="c">April</th><th colspan="5" class="c">May (Full)</th><th colspan="5" class="c" style="background:#0B6B45">Jun 1–14</th></tr>
+    <tr style="background:#2d2d4e;color:#ddd"><th class="r" style="font-size:0.72rem;padding:4px 5px">Total Sale ✦</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Ops Cost $</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Ops %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">In %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Out %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Total Sale ✦</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Ops Cost $</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Ops %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">In %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Out %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Total Sale ✦</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Ops Cost $</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Ops %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">In %</th><th class="r" style="font-size:0.72rem;padding:4px 5px">Out %</th><th class="r" style="background:#0B6B45;font-size:0.72rem;padding:4px 5px">Total Sale ✦</th><th class="r" style="background:#0B6B45;font-size:0.72rem;padding:4px 5px">Ops Cost $</th><th class="r" style="background:#0B6B45;font-size:0.72rem;padding:4px 5px">Ops %</th><th class="r" style="background:#0B6B45;font-size:0.72rem;padding:4px 5px">In %</th><th class="r" style="background:#0B6B45;font-size:0.72rem;padding:4px 5px">Out %</th></tr>
   </thead>
   <tbody>
-    <tr class="sub" style="font-style:normal">
-      <td><strong>Portfolio Total</strong></td><td style="font-size:0.77rem;color:#888">All</td>
-      <td class="r"><b>$888,868</b></td><td class="r"><b>$707,002</b></td>
-      <td class="r"><b>$587,452</b></td><td class="r j14"><b>$265,815</b></td>
-      <td class="c">↓ improving</td>
-    </tr>
-    <tr class="sec"><td colspan="7">★ TOP COST DRIVERS (&gt;5% of pool)</td></tr>
-
-    <tr class="lg-sku">
-      <td>BB Roll On &nbsp;<span class="badge bg-g">Leader</span></td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$268,748<br><span style="color:#888;font-size:0.70rem">30.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">22.5% rev</b></span></td>
-      <td class="r">$189,261<br><span style="color:#888;font-size:0.70rem">26.8% pool&nbsp;·&nbsp;<b style="color:#546E7A">18.6% rev</b></span></td>
-      <td class="r">$181,070<br><span style="color:#888;font-size:0.70rem">30.8% pool&nbsp;·&nbsp;<b style="color:#546E7A">17.2% rev</b></span></td>
-      <td class="r j14">$80,965<br><span style="color:#888;font-size:0.70rem">30.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">17.3% rev</b></span></td>
-      <td class="c" style="color:#aaa;font-size:0.8rem">→ dominant, flat</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$25,083</td><td class="r">$21,368</td><td class="r">$22,107</td><td class="r j14">$9,828</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$219,776</td><td class="r">$147,542</td><td class="r">$137,908</td><td class="r j14">$61,777</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$23,889</td><td class="r">$20,351</td><td class="r">$21,055</td><td class="r j14">$9,360</td><td></td></tr>
-
-    <tr class="lg-sku2">
-      <td>Alpha 60N &nbsp;<span class="badge bg-a">Priority</span></td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$256,869<br><span style="color:#888;font-size:0.70rem">28.9% pool&nbsp;·&nbsp;<b style="color:#546E7A">34.4% rev</b></span></td>
-      <td class="r">$188,544<br><span style="color:#888;font-size:0.70rem">26.7% pool&nbsp;·&nbsp;<b style="color:#546E7A">30.5% rev</b></span></td>
-      <td class="r">$133,015<br><span style="color:#888;font-size:0.70rem">22.6% pool&nbsp;·&nbsp;<b style="color:#546E7A">27.8% rev</b></span></td>
-      <td class="r j14">$58,066<br><span style="color:#888;font-size:0.70rem">21.8% pool&nbsp;·&nbsp;<b style="color:#546E7A">27.0% rev</b></span></td>
-      <td class="c c-g" style="font-size:0.8rem">↓ shrinking ✓</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$18,668</td><td class="r">$15,454</td><td class="r">$11,962</td><td class="r j14">$5,376</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$223,267</td><td class="r">$160,726</td><td class="r">$111,484</td><td class="r j14">$48,389</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$14,934</td><td class="r">$12,364</td><td class="r">$9,569</td><td class="r j14">$4,301</td><td></td></tr>
-
-    <tr style="background:#7B1A1A;color:#fff;font-weight:700;font-size:0.83rem">
-      <td>MagAshwa RL &nbsp;<span class="badge bg-r">Inward</span></td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$110,709<br><span style="color:#888;font-size:0.70rem">12.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">52.6% rev</b></span></td>
-      <td class="r c-r">$126,122<br><span style="color:#888;font-size:0.70rem">17.8% pool&nbsp;·&nbsp;<b style="color:#546E7A">48.9% rev</b></span></td>
-      <td class="r">$85,265<br><span style="color:#888;font-size:0.70rem">14.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">39.8% rev</b></span></td>
-      <td class="r j14 c-r">$52,168<br><span style="color:#888;font-size:0.70rem">19.6% pool&nbsp;·&nbsp;<b style="color:#546E7A">36.7% rev</b></span></td>
-      <td class="c c-r" style="font-size:0.8rem">↑ rising ⚠</td>
-    </tr>
-    <tr class="lg-mag-in"><td></td><td>Inward ⚠</td><td class="r">$37,885</td><td class="r">$46,425</td><td class="r">$38,562</td><td class="r j14">$25,586</td><td class="c" style="font-size:0.75rem;color:#C62828">vol. wt penalty</td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$68,615</td><td class="r">$74,539</td><td class="r">$42,418</td><td class="r j14">$23,739</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$4,209</td><td class="r">$5,158</td><td class="r">$4,285</td><td class="r j14">$2,843</td><td></td></tr>
-
-    <tr class="lg-sku">
-      <td>Alpha 120N</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$81,994<br><span style="color:#888;font-size:0.70rem">9.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">27.1% rev</b></span></td>
-      <td class="r">$66,407<br><span style="color:#888;font-size:0.70rem">9.4% pool&nbsp;·&nbsp;<b style="color:#546E7A">26.4% rev</b></span></td>
-      <td class="r">$75,974<br><span style="color:#888;font-size:0.70rem">12.9% pool&nbsp;·&nbsp;<b style="color:#546E7A">23.7% rev</b></span></td>
-      <td class="r j14">$30,280<br><span style="color:#888;font-size:0.70rem">11.4% pool&nbsp;·&nbsp;<b style="color:#546E7A">23.0% rev</b></span></td>
-      <td class="c" style="color:#aaa;font-size:0.8rem">~ near flat</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$8,472</td><td class="r">$7,043</td><td class="r">$8,976</td><td class="r j14">$3,686</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$67,471</td><td class="r">$54,333</td><td class="r">$60,587</td><td class="r j14">$23,961</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$6,051</td><td class="r">$5,031</td><td class="r">$6,411</td><td class="r j14">$2,633</td><td></td></tr>
-
-    <tr class="lg-sku2">
-      <td>Shilajit 60N</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$49,249<br><span style="color:#888;font-size:0.70rem">5.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">25.0% rev</b></span></td>
-      <td class="r">$42,685<br><span style="color:#888;font-size:0.70rem">6.0% pool&nbsp;·&nbsp;<b style="color:#546E7A">23.0% rev</b></span></td>
-      <td class="r">$39,334<br><span style="color:#888;font-size:0.70rem">6.7% pool&nbsp;·&nbsp;<b style="color:#546E7A">22.0% rev</b></span></td>
-      <td class="r j14">$13,080<br><span style="color:#888;font-size:0.70rem">4.9% pool&nbsp;·&nbsp;<b style="color:#546E7A">21.0% rev</b></span></td>
-      <td class="c c-g" style="font-size:0.8rem">↓ shrinking</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$4,334</td><td class="r">$4,083</td><td class="r">$3,933</td><td class="r j14">$1,370</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$40,975</td><td class="r">$34,890</td><td class="r">$31,825</td><td class="r j14">$10,464</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$3,940</td><td class="r">$3,712</td><td class="r">$3,576</td><td class="r j14">$1,246</td><td></td></tr>
-
-    <tr class="sec"><td colspan="7">▸ SECONDARY DRIVERS (1–5% of pool)</td></tr>
-
-    <tr class="lg-sku">
-      <td>Shilajit 120N</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$48,292<br><span style="color:#888;font-size:0.70rem">5.4% pool&nbsp;·&nbsp;<b style="color:#546E7A">27.0% rev</b></span></td>
-      <td class="r">$33,073<br><span style="color:#888;font-size:0.70rem">4.7% pool&nbsp;·&nbsp;<b style="color:#546E7A">25.0% rev</b></span></td>
-      <td class="r">$25,510<br><span style="color:#888;font-size:0.70rem">4.3% pool&nbsp;·&nbsp;<b style="color:#546E7A">24.0% rev</b></span></td>
-      <td class="r j14">$11,604<br><span style="color:#888;font-size:0.70rem">4.4% pool&nbsp;·&nbsp;<b style="color:#546E7A">23.0% rev</b></span></td>
-      <td class="c c-g" style="font-size:0.8rem">↓ improving</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$4,471</td><td class="r">$3,307</td><td class="r">$2,657</td><td class="r j14">$1,261</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$40,244</td><td class="r">$27,120</td><td class="r">$20,727</td><td class="r j14">$9,334</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$3,577</td><td class="r">$2,646</td><td class="r">$2,126</td><td class="r j14">$1,009</td><td></td></tr>
-
-    <tr class="lg-sku2">
-      <td>Blackseed 60N</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$31,054<br><span style="color:#888;font-size:0.70rem">3.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">35.0% rev</b></span></td>
-      <td class="r">$28,890<br><span style="color:#888;font-size:0.70rem">4.1% pool&nbsp;·&nbsp;<b style="color:#546E7A">34.0% rev</b></span></td>
-      <td class="r">$19,820<br><span style="color:#888;font-size:0.70rem">3.4% pool&nbsp;·&nbsp;<b style="color:#546E7A">33.0% rev</b></span></td>
-      <td class="r j14">$9,678<br><span style="color:#888;font-size:0.70rem">3.6% pool&nbsp;·&nbsp;<b style="color:#546E7A">32.0% rev</b></span></td>
-      <td class="c" style="font-size:0.8rem">~ flat</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$2,218</td><td class="r">$2,124</td><td class="r">$1,502</td><td class="r j14">$756</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$27,061</td><td class="r">$25,067</td><td class="r">$17,117</td><td class="r j14">$8,317</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$1,775</td><td class="r">$1,699</td><td class="r">$1,201</td><td class="r j14">$605</td><td></td></tr>
-
-    <tr class="lg-sku">
-      <td>BB Roll On 50ml</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$19,795<br><span style="color:#888;font-size:0.70rem">2.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">14.0% rev</b></span></td>
-      <td class="r">$20,301<br><span style="color:#888;font-size:0.70rem">2.9% pool&nbsp;·&nbsp;<b style="color:#546E7A">13.5% rev</b></span></td>
-      <td class="r">$12,578<br><span style="color:#888;font-size:0.70rem">2.1% pool&nbsp;·&nbsp;<b style="color:#546E7A">12.5% rev</b></span></td>
-      <td class="r j14">$5,770<br><span style="color:#888;font-size:0.70rem">2.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">12.5% rev</b></span></td>
-      <td class="c" style="font-size:0.8rem">~ flat</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$3,535</td><td class="r">$3,759</td><td class="r">$2,516</td><td class="r j14">$1,154</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$13,432</td><td class="r">$13,534</td><td class="r">$8,050</td><td class="r j14">$3,693</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$2,828</td><td class="r">$3,008</td><td class="r">$2,012</td><td class="r j14">$923</td><td></td></tr>
-
-    <tr class="lg-sku2">
-      <td>Sea Moss 120N</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$5,469<br><span style="color:#888;font-size:0.70rem">0.6% pool&nbsp;·&nbsp;<b style="color:#546E7A">28.0% rev</b></span></td>
-      <td class="r">$3,503<br><span style="color:#888;font-size:0.70rem">0.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">27.0% rev</b></span></td>
-      <td class="r">$3,624<br><span style="color:#888;font-size:0.70rem">0.6% pool&nbsp;·&nbsp;<b style="color:#546E7A">28.0% rev</b></span></td>
-      <td class="r j14">$1,339<br><span style="color:#888;font-size:0.70rem">0.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">27.0% rev</b></span></td>
-      <td class="c" style="font-size:0.8rem">~ negligible</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$488</td><td class="r">$324</td><td class="r">$324</td><td class="r j14">$124</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$4,590</td><td class="r">$2,920</td><td class="r">$3,041</td><td class="r j14">$1,116</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$391</td><td class="r">$259</td><td class="r">$259</td><td class="r j14">$99</td><td></td></tr>
-
-    <tr class="lg-sku">
-      <td>Turmeric 60N</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$3,249<br><span style="color:#888;font-size:0.70rem">0.4% pool&nbsp;·&nbsp;<b style="color:#546E7A">38.0% rev</b></span></td>
-      <td class="r">$2,517<br><span style="color:#888;font-size:0.70rem">0.4% pool&nbsp;·&nbsp;<b style="color:#546E7A">37.0% rev</b></span></td>
-      <td class="r">$3,161<br><span style="color:#888;font-size:0.70rem">0.5% pool&nbsp;·&nbsp;<b style="color:#546E7A">38.0% rev</b></span></td>
-      <td class="r j14">$879<br><span style="color:#888;font-size:0.70rem">0.3% pool&nbsp;·&nbsp;<b style="color:#546E7A">37.3% rev</b></span></td>
-      <td class="c" style="font-size:0.8rem">~ negligible</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$214</td><td class="r">$170</td><td class="r">$208</td><td class="r j14">$59</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$2,864</td><td class="r">$2,211</td><td class="r">$2,787</td><td class="r j14">$772</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$171</td><td class="r">$136</td><td class="r">$166</td><td class="r j14">$48</td><td></td></tr>
-
-    <tr class="lg-sku2">
-      <td>Biotin 60N</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$2,015<br><span style="color:#888;font-size:0.70rem">0.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">35.0% rev</b></span></td>
-      <td class="r">$1,365<br><span style="color:#888;font-size:0.70rem">0.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">34.1% rev</b></span></td>
-      <td class="r">$1,472<br><span style="color:#888;font-size:0.70rem">0.3% pool&nbsp;·&nbsp;<b style="color:#546E7A">34.1% rev</b></span></td>
-      <td class="r j14">$757<br><span style="color:#888;font-size:0.70rem">0.3% pool&nbsp;·&nbsp;<b style="color:#546E7A">33.8% rev</b></span></td>
-      <td class="c" style="font-size:0.8rem">~ negligible</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$144</td><td class="r">$100</td><td class="r">$108</td><td class="r j14">$56</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$1,756</td><td class="r">$1,185</td><td class="r">$1,277</td><td class="r j14">$656</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$115</td><td class="r">$80</td><td class="r">$87</td><td class="r j14">$45</td><td></td></tr>
-
-    <tr class="lg-sku">
-      <td>BB HGS Roll On 25ml</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$2,762<br><span style="color:#888;font-size:0.70rem">0.3% pool&nbsp;·&nbsp;<b style="color:#546E7A">14.0% rev</b></span></td>
-      <td class="r">$1,652<br><span style="color:#888;font-size:0.70rem">0.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">17.7% rev</b></span></td>
-      <td class="r">$1,535<br><span style="color:#888;font-size:0.70rem">0.3% pool&nbsp;·&nbsp;<b style="color:#546E7A">26.6% rev</b></span></td>
-      <td class="r j14">$525<br><span style="color:#888;font-size:0.70rem">0.2% pool&nbsp;·&nbsp;<b style="color:#546E7A">28.6% rev</b></span></td>
-      <td class="c c-r" style="font-size:0.8rem">↑ ops% worsening</td>
-    </tr>
-    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$592</td><td class="r">$280</td><td class="r">$173</td><td class="r j14">$55</td><td></td></tr>
-    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$1,775</td><td class="r">$1,185</td><td class="r">$1,247</td><td class="r j14">$433</td><td></td></tr>
-    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$394</td><td class="r">$187</td><td class="r">$115</td><td class="r j14">$37</td><td></td></tr>
-
-    <tr class="lg-sku2">
-      <td>Others</td>
-      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
-      <td class="r">$4,264 <span style="color:#888;font-size:0.72rem">0.5%</span></td>
-      <td class="r">$1,984 <span style="color:#888;font-size:0.72rem">0.3%</span></td>
-      <td class="r">$4,544 <span style="color:#888;font-size:0.72rem">0.8%</span></td>
-      <td class="r j14">$570 <span style="color:#888;font-size:0.72rem">0.2%</span></td>
-      <td class="c" style="font-size:0.8rem">~ negligible</td>
-    </tr>
+    <tr class="sub"><td><b>Portfolio Total</b></td><td class="r bold">$3.04M</td><td class="r bold">$888,868</td><td class="r bold">29.2%</td><td class="r ">—</td><td class="r ">—</td><td class="r bold">$2.65M</td><td class="r bold">$707,002</td><td class="r bold">26.7%</td><td class="r ">—</td><td class="r ">—</td><td class="r bold">$2.48M</td><td class="r bold">$587,452</td><td class="r bold">23.7%</td><td class="r ">—</td><td class="r ">—</td><td class="r j14 bold">$1.11M</td><td class="r j14 bold">$265,815</td><td class="r j14 bold">23.9%</td><td class="r j14">—</td><td class="r j14">—</td></tr>
+    <tr class="sec"><td colspan="21">★ TOP COST DRIVERS</td></tr>
+    <tr><td><b>BB Roll On 25ml</b></td><td class="r ">$1.19M</td><td class="r ">$268,748</td><td class="r ">22.5%</td><td class="r ">2.1%</td><td class="r ">18.4%</td><td class="r ">$1.02M</td><td class="r ">$189,261</td><td class="r ">18.6%</td><td class="r ">2.1%</td><td class="r ">14.5%</td><td class="r ">$1.05M</td><td class="r ">$181,070</td><td class="r ">17.2%</td><td class="r ">2.1%</td><td class="r ">13.1%</td><td class="r j14">$468K</td><td class="r j14">$80,965</td><td class="r j14">17.3%</td><td class="r j14">2.1%</td><td class="r j14">13.2%</td></tr><tr><td><b>Alpha 60N</b></td><td class="r ">$747K</td><td class="r ">$256,869</td><td class="r ">34.4%</td><td class="r ">2.5%</td><td class="r ">29.9%</td><td class="r ">$618K</td><td class="r ">$188,544</td><td class="r ">30.5%</td><td class="r ">2.5%</td><td class="r ">26.0%</td><td class="r ">$478K</td><td class="r ">$133,015</td><td class="r ">27.8%</td><td class="r ">2.5%</td><td class="r ">23.3%</td><td class="r j14">$215K</td><td class="r j14">$58,066</td><td class="r j14">27.0%</td><td class="r j14">2.5%</td><td class="r j14">22.5%</td></tr><tr><td style="background:#FFF3E0"><b>MagAshwa RL</b></td><td class="r ">$210K</td><td class="r ">$110,709</td><td class="r c-r">52.6%</td><td class="r c-r">18.0%</td><td class="r ">32.6%</td><td class="r ">$258K</td><td class="r ">$126,122</td><td class="r c-r">48.9%</td><td class="r c-r">18.0%</td><td class="r ">28.9%</td><td class="r ">$214K</td><td class="r ">$85,265</td><td class="r ">39.8%</td><td class="r c-r">18.0%</td><td class="r ">19.8%</td><td class="r j14">$142K</td><td class="r j14">$52,168</td><td class="r j14">36.7%</td><td class="r j14 c-r">18.0%</td><td class="r j14">16.7%</td></tr><tr><td><b>Alpha 120N</b></td><td class="r ">$303K</td><td class="r ">$81,994</td><td class="r ">27.1%</td><td class="r ">2.8%</td><td class="r ">22.3%</td><td class="r ">$252K</td><td class="r ">$66,407</td><td class="r ">26.4%</td><td class="r ">2.8%</td><td class="r ">21.6%</td><td class="r ">$321K</td><td class="r ">$75,974</td><td class="r ">23.7%</td><td class="r ">2.8%</td><td class="r ">18.9%</td><td class="r j14">$132K</td><td class="r j14">$30,280</td><td class="r j14">23.0%</td><td class="r j14">2.8%</td><td class="r j14">18.2%</td></tr><tr><td><b>Shilajit 60N</b></td><td class="r ">$197K</td><td class="r ">$49,249</td><td class="r ">25.0%</td><td class="r ">2.2%</td><td class="r ">20.8%</td><td class="r ">$186K</td><td class="r ">$42,685</td><td class="r ">23.0%</td><td class="r ">2.2%</td><td class="r ">18.8%</td><td class="r ">$179K</td><td class="r ">$39,334</td><td class="r ">22.0%</td><td class="r ">2.2%</td><td class="r ">17.8%</td><td class="r j14">$62K</td><td class="r j14">$13,080</td><td class="r j14">21.0%</td><td class="r j14">2.2%</td><td class="r j14">16.8%</td></tr>
+    <tr class="sec"><td colspan="21">▸ SECONDARY DRIVERS</td></tr>
+    <tr><td><b>Shilajit 120N</b></td><td class="r ">$179K</td><td class="r ">$48,292</td><td class="r ">27.0%</td><td class="r ">2.5%</td><td class="r ">22.5%</td><td class="r ">$132K</td><td class="r ">$33,073</td><td class="r ">25.0%</td><td class="r ">2.5%</td><td class="r ">20.5%</td><td class="r ">$106K</td><td class="r ">$25,510</td><td class="r ">24.0%</td><td class="r ">2.5%</td><td class="r ">19.5%</td><td class="r j14">$50K</td><td class="r j14">$11,604</td><td class="r j14">23.0%</td><td class="r j14">2.5%</td><td class="r j14">18.5%</td></tr><tr><td><b>Blackseed 60N</b></td><td class="r ">$89K</td><td class="r ">$31,054</td><td class="r ">35.0%</td><td class="r ">2.5%</td><td class="r ">30.5%</td><td class="r ">$85K</td><td class="r ">$28,890</td><td class="r ">34.0%</td><td class="r ">2.5%</td><td class="r ">29.5%</td><td class="r ">$60K</td><td class="r ">$19,820</td><td class="r ">33.0%</td><td class="r ">2.5%</td><td class="r ">28.5%</td><td class="r j14">$30K</td><td class="r j14">$9,678</td><td class="r j14">32.0%</td><td class="r j14">2.5%</td><td class="r j14">27.5%</td></tr><tr><td><b>BB Roll On 50ml</b></td><td class="r ">$141K</td><td class="r ">$19,795</td><td class="r ">14.0%</td><td class="r ">2.5%</td><td class="r ">9.5%</td><td class="r ">$150K</td><td class="r ">$20,301</td><td class="r ">13.5%</td><td class="r ">2.5%</td><td class="r ">9.0%</td><td class="r ">$101K</td><td class="r ">$12,578</td><td class="r ">12.5%</td><td class="r ">2.5%</td><td class="r ">8.0%</td><td class="r j14">$46K</td><td class="r j14">$5,770</td><td class="r j14">12.5%</td><td class="r j14">2.5%</td><td class="r j14">8.0%</td></tr><tr><td><b>Sea Moss 120N</b></td><td class="r ">$20K</td><td class="r ">$5,469</td><td class="r ">28.0%</td><td class="r ">2.5%</td><td class="r ">23.5%</td><td class="r ">$13K</td><td class="r ">$3,503</td><td class="r ">27.0%</td><td class="r ">2.5%</td><td class="r ">22.5%</td><td class="r ">$13K</td><td class="r ">$3,624</td><td class="r ">28.0%</td><td class="r ">2.5%</td><td class="r ">23.5%</td><td class="r j14">$5K</td><td class="r j14">$1,339</td><td class="r j14">27.0%</td><td class="r j14">2.5%</td><td class="r j14">22.5%</td></tr><tr><td><b>Turmeric 60N</b></td><td class="r ">$9K</td><td class="r ">$3,249</td><td class="r ">38.0%</td><td class="r ">2.5%</td><td class="r ">33.5%</td><td class="r ">$7K</td><td class="r ">$2,517</td><td class="r ">37.0%</td><td class="r ">2.5%</td><td class="r ">32.5%</td><td class="r ">$8K</td><td class="r ">$3,161</td><td class="r ">38.0%</td><td class="r ">2.5%</td><td class="r ">33.5%</td><td class="r j14">$2K</td><td class="r j14">$879</td><td class="r j14">37.3%</td><td class="r j14">2.5%</td><td class="r j14">32.7%</td></tr><tr><td><b>Biotin 60N</b></td><td class="r ">$6K</td><td class="r ">$2,015</td><td class="r ">35.0%</td><td class="r ">2.5%</td><td class="r ">30.5%</td><td class="r ">$4K</td><td class="r ">$1,365</td><td class="r ">34.1%</td><td class="r ">2.5%</td><td class="r ">29.6%</td><td class="r ">$4K</td><td class="r ">$1,472</td><td class="r ">34.1%</td><td class="r ">2.5%</td><td class="r ">29.6%</td><td class="r j14">$2K</td><td class="r j14">$757</td><td class="r j14">33.8%</td><td class="r j14">2.5%</td><td class="r j14">29.3%</td></tr><tr><td><b>BB HGS Roll On</b></td><td class="r ">$20K</td><td class="r ">$2,762</td><td class="r ">14.0%</td><td class="r ">3.0%</td><td class="r ">9.0%</td><td class="r ">$9K</td><td class="r ">$1,652</td><td class="r ">17.7%</td><td class="r ">3.0%</td><td class="r ">12.7%</td><td class="r ">$6K</td><td class="r ">$1,535</td><td class="r ">26.6%</td><td class="r ">3.0%</td><td class="r ">21.6%</td><td class="r j14">$2K</td><td class="r j14">$525</td><td class="r j14">28.6%</td><td class="r j14">3.0%</td><td class="r j14">23.6%</td></tr>
   </tbody>
 </table>
-<div class="ib"><strong>Read this as:</strong> Alpha 60N was 28.9% of all ops costs in March — reducing its ops% from 34% → 27% freed up ~$16K/month. MagAshwa RL's share is rising (12.5% → 19.6%) because volume is growing faster than cost is improving. BB Roll On is the single biggest ops cost pool (30%) — even small % improvements on it yield large absolute savings.</div>
+</div>
+<div class="ib"><strong>Key reads:</strong> BB Roll On 25ml drives 30% of all ops cost but Ops% has improved 22.5% → 17.2% (scale). Alpha 60N Ops% 34% → 27% as D2C mix grew. MagAshwa RL Ops% was 52.6% in March — carton fix + Xindus targets &lt;25% by Aug. Blackseed/Turmeric/Biotin remain high Ops% (32–38%) due to low scale.</div>
 
 <!-- TABLE 2: OPS % TREND -->
 <div class="sh" style="margin-top:16px">All-SKU Ops % vs Own Revenue — Month-on-Month Trend</div>
