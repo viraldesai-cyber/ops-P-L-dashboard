@@ -155,6 +155,8 @@ h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
   <button class="tab-btn" onclick="showTab('levers',this)">🎯 June Levers</button>
   <button class="tab-btn" onclick="showTab('skusum',this)">📋 SKU Summary</button>
   <button class="tab-btn" onclick="showTab('skureco',this)">💡 SKU Reco</button>
+  <button class="tab-btn" onclick="showTab('maglevers',this)">🔩 MagAshwa Levers</button>
+  <button class="tab-btn" onclick="showTab('multiunit',this)">📦 Multi-Unit</button>
 </div>
 
 <!-- ===================== TAB 1: SUMMARY ===================== -->
@@ -1906,6 +1908,12 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 </table>
 
 
+<div class="ib" style="margin-top:14px">¹ Savings at target assume May revenue stays flat. ² Source: OPS P&amp;L CSVs March-26, April-26, OPS USA PNL 1–31 May26. Vetted by finance.</div>
+</div>
+
+<div id="tab-maglevers" class="tab-pane">
+<div class="sh" style="background:#2E1503;font-size:1.05rem">MagAshwa — Ops Cost Lever Analysis</div>
+<div class="ib amber">Root cause: 62×45×27 cm carton → volumetric weight 15.07 kg vs 8.87 kg actual → 70% overcharge on every inward shipment. All savings at ~5,520 units/mo run-rate. Lever 1 must be done before Lever 2.</div>
 <!-- MagAshwa Lever Analysis -->
 <div class="sh" style="background:#7B1A1A;margin-top:18px">MagAshwa — Ops Cost Lever Analysis &nbsp;<span class="badge bg-r">Priority: Carton Fix First</span></div>
 <div class="ib">Root cause: 62×45×27 cm carton → volumetric weight 15.07 kg vs 8.87 kg actual → air freight billed at 70% overcharge. All savings calculated at Jun 1–14 run-rate (~5,520 units/mo).</div>
@@ -1957,7 +1965,12 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
     </tr>
   </tbody>
 </table>
+<div class="ib" style="margin-top:14px">¹ Monthly saving at Jun 1–14 run-rate. Carton fix: 62×45×27 → 45×35×27 cm; vol wt 15.07 → 10.94 kg (below actual 8.87 kg). Xindus adds ~15% rate reduction. Pack of 2 ops% shown post carton fix — current single-unit FBT ops% = 33.2%.</div>
+</div>
 
+<div id="tab-multiunit" class="tab-pane">
+<div class="sh" style="background:#1565C0;font-size:1.05rem">Multi-Unit Strategy — Pack Economics &amp; Priority SKUs</div>
+<div class="ib">Selling prices from FBT catalogue. Pack COGS from SKU_avg_Shipment_COGS.xlsx where available. Outward = shared shipment estimate. Net% = (SP − COGS − Inward − Outward) ÷ SP pre platform fee. MagAshwa shown <strong>post carton fix</strong> (Inward $3.03/u vs $5.10 current).</div>
 <!-- Multi-Unit Strategy -->
 <div class="sh" style="background:#1565C0;margin-top:18px">Multi-Unit Strategy — Pack Economics &amp; Priority SKUs</div>
 <div class="ib">Selling prices from FBT catalogue. Pack COGS from SKU_avg_Shipment_COGS.xlsx (where available). Outward for packs estimated at ~1.1–1.2× single (shared shipment). Net% = (SP − COGS − Inward − Outward) ÷ SP. MagAshwa figures shown post carton fix.</div>
@@ -2075,7 +2088,6 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   </tbody>
 </table>
 <div class="ib">¹ Pack COGS: 2-pack BB Roll On ($1.69) and MagAshwa ($4.44) from COGS file; Alpha 120s 2-pack ($5.71) from COGS file. Others estimated at n × single COGS. &nbsp;|&nbsp; Outward for packs: shared shipment estimate — 2-pack ≈ 1.05× single, 4-pack ≈ 1.4×, 6-pack ≈ 1.6×. &nbsp;|&nbsp; MagAshwa shown post carton fix (Inward $3.03/u vs $5.10 current). Pack of 2 is the best immediate lever — ops% 33.2% → 19.0%.</div>
-<div class="ib" style="margin-top:14px">¹ Savings at target assume May revenue stays flat. ² Source: OPS P&amp;L CSVs March-26, April-26, OPS USA PNL 1–31 May26. Vetted by finance.</div>
 </div>
 
 </div><!-- .wrapper -->
