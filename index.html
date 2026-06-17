@@ -1180,131 +1180,210 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 
 <!-- TABLE 1: COST CONCENTRATION -->
 <div class="sh">SKU Ops Cost Concentration — % of Total Portfolio Ops Cost</div>
-<div class="ib">Ops Cost $ = Inward + Duty + Outward per SKU. % = that SKU's share of total portfolio ops cost pool. Shows <em>where the absolute dollars are</em> — a 27% ops% on a small SKU matters less than a 17% ops% on BB Roll On (30% of all costs). Portfolio ops%: March 29.2% → April 26.7% → May 23.7% → Jun 1–14 23.9% (14 days).</div>
+<div class="ib">Each SKU shows 4 rows: <strong>Total Ops</strong> (= Inward+Outward+Duty) with % of portfolio pool · <span style="color:#2E7D32;font-weight:600">Inward</span> · <span style="color:#1565C0;font-weight:600">Outward</span> · <span style="color:#757575">Duty</span>. MagAshwa Inward flagged red — volumetric weight penalty. Portfolio ops%: March 29.2% → April 26.7% → May 23.7% → Jun 1–14 23.9%.</div>
+<style>
+  .lg-sku{background:#1a1a2e;color:#fff;font-weight:700;font-size:0.83rem}
+  .lg-sku2{background:#37474F;color:#fff;font-weight:700;font-size:0.83rem}
+  .lg-in{background:#E8F5E9!important;font-size:0.81rem;color:#1B5E20}
+  .lg-in td:nth-child(2){font-weight:600}
+  .lg-out{background:#E3F2FD!important;font-size:0.81rem;color:#1565C0}
+  .lg-out td:nth-child(2){font-weight:600}
+  .lg-duty{background:#F5F5F5!important;font-size:0.81rem;color:#757575;border-bottom:2px solid #ddd}
+  .lg-mag-in{background:#FFEBEE!important;font-size:0.81rem;color:#B71C1C;font-weight:700}
+  .lg-mag-in td:nth-child(2){font-weight:700}
+</style>
 <table>
+  <colgroup>
+    <col style="width:155px"><col style="width:68px">
+    <col style="width:95px"><col style="width:95px"><col style="width:95px">
+    <col style="width:95px"><col>
+  </colgroup>
   <thead>
     <tr style="background:#1a1a2e;color:#fff">
-      <th rowspan="2" style="min-width:180px">SKU</th>
-      <th colspan="2" class="c">March</th>
-      <th colspan="2" class="c">April</th>
-      <th colspan="2" class="c">May (Full)</th>
-      <th colspan="2" class="c" style="background:#0B6B45">Jun 1–14</th>
-      <th rowspan="2" class="c">Cost Share<br>Trend</th>
-    </tr>
-    <tr style="background:#2d2d4e;color:#fff">
-      <th class="r">Ops Cost $</th><th class="c">% of Total</th>
-      <th class="r">Ops Cost $</th><th class="c">% of Total</th>
-      <th class="r">Ops Cost $</th><th class="c">% of Total</th>
-      <th class="r" style="background:#0B6B45">Ops Cost $</th><th class="c" style="background:#0B6B45">% of Total</th>
+      <th style="text-align:left">SKU</th>
+      <th class="c">Leg</th>
+      <th class="r">March</th>
+      <th class="r">April</th>
+      <th class="r">May (Full)</th>
+      <th class="r" style="background:#0B6B45">Jun 1–14</th>
+      <th class="c">Trend</th>
     </tr>
   </thead>
   <tbody>
-    <tr class="sub" style="font-style:normal"><td><strong>Portfolio Total</strong></td><td class="r"><b>$888,868</b></td><td class="c"><b>100%</b></td><td class="r"><b>$707,002</b></td><td class="c"><b>100%</b></td><td class="r"><b>$587,452</b></td><td class="c"><b>100%</b></td><td class="r" style="background:#D0ECE7"><b>$265,815</b></td><td class="c" style="background:#D0ECE7"><b>100%</b></td><td class="c">↓ improving</td></tr>
-    <tr class="sec"><td colspan="10">★ TOP COST DRIVERS (&gt;5% of pool)</td></tr>
-    <tr>
+    <tr class="sub" style="font-style:normal">
+      <td><strong>Portfolio Total</strong></td><td style="font-size:0.77rem;color:#888">All</td>
+      <td class="r"><b>$888,868</b></td><td class="r"><b>$707,002</b></td>
+      <td class="r"><b>$587,452</b></td><td class="r j14"><b>$265,815</b></td>
+      <td class="c">↓ improving</td>
+    </tr>
+    <tr class="sec"><td colspan="7">★ TOP COST DRIVERS (&gt;5% of pool)</td></tr>
+
+    <tr class="lg-sku">
       <td>BB Roll On &nbsp;<span class="badge bg-g">Leader</span></td>
-      <td class="r">$268,748</td><td class="c"><div style="display:flex;align-items:center;gap:4px"><div style="background:#1a1a2e;height:8px;width:calc(30.2% * 1.5px)"></div>30.2%</div></td>
-      <td class="r">$189,261</td><td class="c">26.8%</td>
-      <td class="r">$181,070</td><td class="c">30.8%</td>
-      <td class="r" style="background:#D0ECE7">$80,965</td><td class="c" style="background:#D0ECE7">30.5%</td>
-      <td class="c">→ dominant, flat</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$268,748 <span style="color:#888;font-size:0.72rem">30.2%</span></td>
+      <td class="r">$189,261 <span style="color:#888;font-size:0.72rem">26.8%</span></td>
+      <td class="r">$181,070 <span style="color:#888;font-size:0.72rem">30.8%</span></td>
+      <td class="r j14">$80,965 <span style="color:#888;font-size:0.72rem">30.5%</span></td>
+      <td class="c" style="color:#aaa;font-size:0.8rem">→ dominant, flat</td>
     </tr>
-    <tr class="even">
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$25,083</td><td class="r">$21,368</td><td class="r">$22,107</td><td class="r j14">$9,828</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$219,776</td><td class="r">$147,542</td><td class="r">$137,908</td><td class="r j14">$61,777</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$23,889</td><td class="r">$20,351</td><td class="r">$21,055</td><td class="r j14">$9,360</td><td></td></tr>
+
+    <tr class="lg-sku2">
       <td>Alpha 60N &nbsp;<span class="badge bg-a">Priority</span></td>
-      <td class="r">$256,869</td><td class="c c-r">28.9%</td>
-      <td class="r">$188,544</td><td class="c c-r">26.7%</td>
-      <td class="r">$133,015</td><td class="c c-a">22.6%</td>
-      <td class="r" style="background:#D0ECE7">$58,066</td><td class="c c-g" style="background:#D0ECE7">21.8%</td>
-      <td class="c c-g">↓ share shrinking ✓</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$256,869 <span style="color:#888;font-size:0.72rem">28.9%</span></td>
+      <td class="r">$188,544 <span style="color:#888;font-size:0.72rem">26.7%</span></td>
+      <td class="r">$133,015 <span style="color:#888;font-size:0.72rem">22.6%</span></td>
+      <td class="r j14">$58,066 <span style="color:#888;font-size:0.72rem">21.8%</span></td>
+      <td class="c c-g" style="font-size:0.8rem">↓ shrinking ✓</td>
     </tr>
-    <tr>
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$18,668</td><td class="r">$15,454</td><td class="r">$11,962</td><td class="r j14">$5,376</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$223,267</td><td class="r">$160,726</td><td class="r">$111,484</td><td class="r j14">$48,389</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$14,934</td><td class="r">$12,364</td><td class="r">$9,569</td><td class="r j14">$4,301</td><td></td></tr>
+
+    <tr style="background:#7B1A1A;color:#fff;font-weight:700;font-size:0.83rem">
       <td>MagAshwa RL &nbsp;<span class="badge bg-r">Inward</span></td>
-      <td class="r">$110,709</td><td class="c c-a">12.5%</td>
-      <td class="r">$126,122</td><td class="c c-r">17.8%</td>
-      <td class="r">$85,265</td><td class="c c-a">14.5%</td>
-      <td class="r" style="background:#D0ECE7">$52,168</td><td class="c c-r" style="background:#D0ECE7">19.6%</td>
-      <td class="c c-r">↑ share rising ⚠</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$110,709 <span style="color:#888;font-size:0.72rem">12.5%</span></td>
+      <td class="r c-r">$126,122 <span style="color:#888;font-size:0.72rem">17.8%</span></td>
+      <td class="r">$85,265 <span style="color:#888;font-size:0.72rem">14.5%</span></td>
+      <td class="r j14 c-r">$52,168 <span style="color:#888;font-size:0.72rem">19.6%</span></td>
+      <td class="c c-r" style="font-size:0.8rem">↑ rising ⚠</td>
     </tr>
-    <tr class="even">
+    <tr class="lg-mag-in"><td></td><td>Inward ⚠</td><td class="r">$37,885</td><td class="r">$46,425</td><td class="r">$38,562</td><td class="r j14">$25,586</td><td class="c" style="font-size:0.75rem;color:#C62828">vol. wt penalty</td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$68,615</td><td class="r">$74,539</td><td class="r">$42,418</td><td class="r j14">$23,739</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$4,209</td><td class="r">$5,158</td><td class="r">$4,285</td><td class="r j14">$2,843</td><td></td></tr>
+
+    <tr class="lg-sku">
       <td>Alpha 120N</td>
-      <td class="r">$81,994</td><td class="c c-a">9.2%</td>
-      <td class="r">$66,407</td><td class="c c-a">9.4%</td>
-      <td class="r">$75,974</td><td class="c c-a">12.9%</td>
-      <td class="r" style="background:#D0ECE7">$30,280</td><td class="c c-a" style="background:#D0ECE7">11.4%</td>
-      <td class="c">~ near flat</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$81,994 <span style="color:#888;font-size:0.72rem">9.2%</span></td>
+      <td class="r">$66,407 <span style="color:#888;font-size:0.72rem">9.4%</span></td>
+      <td class="r">$75,974 <span style="color:#888;font-size:0.72rem">12.9%</span></td>
+      <td class="r j14">$30,280 <span style="color:#888;font-size:0.72rem">11.4%</span></td>
+      <td class="c" style="color:#aaa;font-size:0.8rem">~ near flat</td>
     </tr>
-    <tr>
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$8,472</td><td class="r">$7,043</td><td class="r">$8,976</td><td class="r j14">$3,686</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$67,471</td><td class="r">$54,333</td><td class="r">$60,587</td><td class="r j14">$23,961</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$6,051</td><td class="r">$5,031</td><td class="r">$6,411</td><td class="r j14">$2,633</td><td></td></tr>
+
+    <tr class="lg-sku2">
       <td>Shilajit 60N</td>
-      <td class="r">$49,249</td><td class="c">5.5%</td>
-      <td class="r">$42,685</td><td class="c">6.0%</td>
-      <td class="r">$39,334</td><td class="c">6.7%</td>
-      <td class="r" style="background:#D0ECE7">$13,080</td><td class="c" style="background:#D0ECE7">4.9%</td>
-      <td class="c c-g">↓ share shrinking</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$49,249 <span style="color:#888;font-size:0.72rem">5.5%</span></td>
+      <td class="r">$42,685 <span style="color:#888;font-size:0.72rem">6.0%</span></td>
+      <td class="r">$39,334 <span style="color:#888;font-size:0.72rem">6.7%</span></td>
+      <td class="r j14">$13,080 <span style="color:#888;font-size:0.72rem">4.9%</span></td>
+      <td class="c c-g" style="font-size:0.8rem">↓ shrinking</td>
     </tr>
-    <tr class="sec"><td colspan="10">▸ SECONDARY DRIVERS (1–5% of pool)</td></tr>
-    <tr class="even">
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$4,334</td><td class="r">$4,083</td><td class="r">$3,933</td><td class="r j14">$1,370</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$40,975</td><td class="r">$34,890</td><td class="r">$31,825</td><td class="r j14">$10,464</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$3,940</td><td class="r">$3,712</td><td class="r">$3,576</td><td class="r j14">$1,246</td><td></td></tr>
+
+    <tr class="sec"><td colspan="7">▸ SECONDARY DRIVERS (1–5% of pool)</td></tr>
+
+    <tr class="lg-sku">
       <td>Shilajit 120N</td>
-      <td class="r">$48,292</td><td class="c">5.4%</td>
-      <td class="r">$33,073</td><td class="c">4.7%</td>
-      <td class="r">$25,510</td><td class="c">4.3%</td>
-      <td class="r" style="background:#D0ECE7">$11,604</td><td class="c" style="background:#D0ECE7">4.4%</td>
-      <td class="c c-g">↓ improving</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$48,292 <span style="color:#888;font-size:0.72rem">5.4%</span></td>
+      <td class="r">$33,073 <span style="color:#888;font-size:0.72rem">4.7%</span></td>
+      <td class="r">$25,510 <span style="color:#888;font-size:0.72rem">4.3%</span></td>
+      <td class="r j14">$11,604 <span style="color:#888;font-size:0.72rem">4.4%</span></td>
+      <td class="c c-g" style="font-size:0.8rem">↓ improving</td>
     </tr>
-    <tr>
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$4,471</td><td class="r">$3,307</td><td class="r">$2,657</td><td class="r j14">$1,261</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$40,244</td><td class="r">$27,120</td><td class="r">$20,727</td><td class="r j14">$9,334</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$3,577</td><td class="r">$2,646</td><td class="r">$2,126</td><td class="r j14">$1,009</td><td></td></tr>
+
+    <tr class="lg-sku2">
       <td>Blackseed 60N</td>
-      <td class="r">$31,054</td><td class="c">3.5%</td>
-      <td class="r">$28,890</td><td class="c">4.1%</td>
-      <td class="r">$19,820</td><td class="c">3.4%</td>
-      <td class="r" style="background:#D0ECE7">$9,678</td><td class="c" style="background:#D0ECE7">3.6%</td>
-      <td class="c">~ flat</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$31,054 <span style="color:#888;font-size:0.72rem">3.5%</span></td>
+      <td class="r">$28,890 <span style="color:#888;font-size:0.72rem">4.1%</span></td>
+      <td class="r">$19,820 <span style="color:#888;font-size:0.72rem">3.4%</span></td>
+      <td class="r j14">$9,678 <span style="color:#888;font-size:0.72rem">3.6%</span></td>
+      <td class="c" style="font-size:0.8rem">~ flat</td>
     </tr>
-    <tr class="even">
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$2,218</td><td class="r">$2,124</td><td class="r">$1,502</td><td class="r j14">$756</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$27,061</td><td class="r">$25,067</td><td class="r">$17,117</td><td class="r j14">$8,317</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$1,775</td><td class="r">$1,699</td><td class="r">$1,201</td><td class="r j14">$605</td><td></td></tr>
+
+    <tr class="lg-sku">
       <td>BB Roll On 50ml</td>
-      <td class="r">$19,795</td><td class="c">2.2%</td>
-      <td class="r">$20,301</td><td class="c">2.9%</td>
-      <td class="r">$12,578</td><td class="c">2.1%</td>
-      <td class="r" style="background:#D0ECE7">$5,770</td><td class="c" style="background:#D0ECE7">2.2%</td>
-      <td class="c">~ flat, low priority</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$19,795 <span style="color:#888;font-size:0.72rem">2.2%</span></td>
+      <td class="r">$20,301 <span style="color:#888;font-size:0.72rem">2.9%</span></td>
+      <td class="r">$12,578 <span style="color:#888;font-size:0.72rem">2.1%</span></td>
+      <td class="r j14">$5,770 <span style="color:#888;font-size:0.72rem">2.2%</span></td>
+      <td class="c" style="font-size:0.8rem">~ flat</td>
     </tr>
-    <tr>
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$3,535</td><td class="r">$3,759</td><td class="r">$2,516</td><td class="r j14">$1,154</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$13,432</td><td class="r">$13,534</td><td class="r">$8,050</td><td class="r j14">$3,693</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$2,828</td><td class="r">$3,008</td><td class="r">$2,012</td><td class="r j14">$923</td><td></td></tr>
+
+    <tr class="lg-sku2">
       <td>Sea Moss 120N</td>
-      <td class="r">$5,469</td><td class="c">0.6%</td>
-      <td class="r">$3,503</td><td class="c">0.5%</td>
-      <td class="r">$3,624</td><td class="c">0.6%</td>
-      <td class="r" style="background:#D0ECE7">$1,339</td><td class="c" style="background:#D0ECE7">0.5%</td>
-      <td class="c">~ negligible</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$5,469 <span style="color:#888;font-size:0.72rem">0.6%</span></td>
+      <td class="r">$3,503 <span style="color:#888;font-size:0.72rem">0.5%</span></td>
+      <td class="r">$3,624 <span style="color:#888;font-size:0.72rem">0.6%</span></td>
+      <td class="r j14">$1,339 <span style="color:#888;font-size:0.72rem">0.5%</span></td>
+      <td class="c" style="font-size:0.8rem">~ negligible</td>
     </tr>
-    <tr class="even">
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$488</td><td class="r">$324</td><td class="r">$324</td><td class="r j14">$124</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$4,590</td><td class="r">$2,920</td><td class="r">$3,041</td><td class="r j14">$1,116</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$391</td><td class="r">$259</td><td class="r">$259</td><td class="r j14">$99</td><td></td></tr>
+
+    <tr class="lg-sku">
       <td>Turmeric 60N</td>
-      <td class="r">$3,249</td><td class="c">0.4%</td>
-      <td class="r">$2,517</td><td class="c">0.4%</td>
-      <td class="r">$3,161</td><td class="c">0.5%</td>
-      <td class="r" style="background:#D0ECE7">$879</td><td class="c" style="background:#D0ECE7">0.3%</td>
-      <td class="c">~ negligible</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$3,249 <span style="color:#888;font-size:0.72rem">0.4%</span></td>
+      <td class="r">$2,517 <span style="color:#888;font-size:0.72rem">0.4%</span></td>
+      <td class="r">$3,161 <span style="color:#888;font-size:0.72rem">0.5%</span></td>
+      <td class="r j14">$879 <span style="color:#888;font-size:0.72rem">0.3%</span></td>
+      <td class="c" style="font-size:0.8rem">~ negligible</td>
     </tr>
-    <tr>
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$214</td><td class="r">$170</td><td class="r">$208</td><td class="r j14">$59</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$2,864</td><td class="r">$2,211</td><td class="r">$2,787</td><td class="r j14">$772</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$171</td><td class="r">$136</td><td class="r">$166</td><td class="r j14">$48</td><td></td></tr>
+
+    <tr class="lg-sku2">
       <td>Biotin 60N</td>
-      <td class="r">$2,015</td><td class="c">0.2%</td>
-      <td class="r">$1,365</td><td class="c">0.2%</td>
-      <td class="r">$1,472</td><td class="c">0.3%</td>
-      <td class="r" style="background:#D0ECE7">$757</td><td class="c" style="background:#D0ECE7">0.3%</td>
-      <td class="c">~ negligible</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$2,015 <span style="color:#888;font-size:0.72rem">0.2%</span></td>
+      <td class="r">$1,365 <span style="color:#888;font-size:0.72rem">0.2%</span></td>
+      <td class="r">$1,472 <span style="color:#888;font-size:0.72rem">0.3%</span></td>
+      <td class="r j14">$757 <span style="color:#888;font-size:0.72rem">0.3%</span></td>
+      <td class="c" style="font-size:0.8rem">~ negligible</td>
     </tr>
-    <tr class="even">
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$144</td><td class="r">$100</td><td class="r">$108</td><td class="r j14">$56</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$1,756</td><td class="r">$1,185</td><td class="r">$1,277</td><td class="r j14">$656</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$115</td><td class="r">$80</td><td class="r">$87</td><td class="r j14">$45</td><td></td></tr>
+
+    <tr class="lg-sku">
       <td>BB HGS Roll On 25ml</td>
-      <td class="r">$2,762</td><td class="c">0.3%</td>
-      <td class="r">$1,652</td><td class="c">0.2%</td>
-      <td class="r">$1,535</td><td class="c">0.3%</td>
-      <td class="r" style="background:#D0ECE7">$525</td><td class="c" style="background:#D0ECE7">0.2%</td>
-      <td class="c c-r">↑ ops% worsening</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$2,762 <span style="color:#888;font-size:0.72rem">0.3%</span></td>
+      <td class="r">$1,652 <span style="color:#888;font-size:0.72rem">0.2%</span></td>
+      <td class="r">$1,535 <span style="color:#888;font-size:0.72rem">0.3%</span></td>
+      <td class="r j14">$525 <span style="color:#888;font-size:0.72rem">0.2%</span></td>
+      <td class="c c-r" style="font-size:0.8rem">↑ ops% worsening</td>
     </tr>
-    <tr>
-      <td>Others (Shilajit+Mush, Choco, DHA, AH&amp;BH)</td>
-      <td class="r">$4,264</td><td class="c">0.5%</td>
-      <td class="r">$1,984</td><td class="c">0.3%</td>
-      <td class="r">$4,544</td><td class="c">0.8%</td>
-      <td class="r" style="background:#D0ECE7">$570</td><td class="c" style="background:#D0ECE7">0.2%</td>
-      <td class="c">~ negligible</td>
+    <tr class="lg-in"><td></td><td>Inward</td><td class="r">$592</td><td class="r">$280</td><td class="r">$173</td><td class="r j14">$55</td><td></td></tr>
+    <tr class="lg-out"><td></td><td>Outward</td><td class="r">$1,775</td><td class="r">$1,185</td><td class="r">$1,247</td><td class="r j14">$433</td><td></td></tr>
+    <tr class="lg-duty"><td></td><td>Duty</td><td class="r">$394</td><td class="r">$187</td><td class="r">$115</td><td class="r j14">$37</td><td></td></tr>
+
+    <tr class="lg-sku2">
+      <td>Others</td>
+      <td class="c" style="color:#ccc;font-size:0.77rem">Total Ops</td>
+      <td class="r">$4,264 <span style="color:#888;font-size:0.72rem">0.5%</span></td>
+      <td class="r">$1,984 <span style="color:#888;font-size:0.72rem">0.3%</span></td>
+      <td class="r">$4,544 <span style="color:#888;font-size:0.72rem">0.8%</span></td>
+      <td class="r j14">$570 <span style="color:#888;font-size:0.72rem">0.2%</span></td>
+      <td class="c" style="font-size:0.8rem">~ negligible</td>
     </tr>
   </tbody>
 </table>
