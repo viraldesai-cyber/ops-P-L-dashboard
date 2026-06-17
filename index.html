@@ -1356,6 +1356,93 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   </tbody>
 </table>
 <div class="ib"><strong>Color guide:</strong> <span class="c-g">Green = &lt;25%</span> &nbsp;|&nbsp; <span class="c-a">Amber = 25–35%</span> &nbsp;|&nbsp; <span class="c-r">Red = &gt;35%</span> &nbsp;|&nbsp; Source: OPS P&amp;L CSVs March-26, April-26, OPS USA PNL 1–31 May26. Vetted by finance.</div>
+
+<!-- Channel Detail Section -->
+<div class="sh" style="margin-top:18px;background:#1a1a2e">Jun 1–14 Channel Detail — Per-Unit Cost & Packaging</div>
+<div class="ib">In/unit and Out/unit = absolute dollar cost per unit sold, by fulfillment channel. Packaging data from Uniware master. Vol note = volumetric weight penalty on inward air freight (charged = max of actual vs L×W×H÷5000).</div>
+<style>
+  .ch-amz{background:#EAF4FB!important} .ch-tt{background:#FFF3E0!important} .ch-d2c{background:#F0FFF4!important}
+  .ch-tot{background:#E8EAF6!important;font-weight:700}
+  .ch-sku-hdr{background:#37474F;color:#fff;font-weight:700;padding:6px 10px;font-size:0.83rem}
+  .pkg-col{background:#FAFAFA;color:#555;font-size:0.78rem}
+  .vol-warn{color:#C0392B;font-weight:700}
+  .vol-ok{color:#2e7d32}
+</style>
+<table>
+  <thead>
+    <tr style="background:#1a1a2e;color:#fff">
+      <th style="width:110px">SKU</th>
+      <th style="width:80px">Channel</th>
+      <th class="r">Revenue</th>
+      <th class="r">Units</th>
+      <th class="r">ASP</th>
+      <th class="r" style="background:#1a3a2e">In/unit</th>
+      <th class="r" style="background:#1a3a2e">Out/unit</th>
+      <th class="c" style="background:#1a3a2e">In%</th>
+      <th class="c">Out%</th>
+      <th class="c">Total%</th>
+      <th class="c pkg-col">Units/Box</th>
+      <th class="c pkg-col">Dim (cm)</th>
+      <th class="c pkg-col">kg/unit</th>
+      <th class="c pkg-col">Vol note</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- BB ROLL ON -->
+    <tr><td colspan="14" class="ch-sku-hdr">BB Density Roll On &nbsp;— Packaging: 48/box · 42×32×17 cm · 0.14 kg/unit actual · Vol=2.9 kg → actual heavier ✓</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$112,375</td><td class="r">3,875</td><td class="r">$29.00</td><td class="r c-g">$0.49</td><td class="r c-g">$3.45</td><td class="c c-g">1.7%</td><td class="c">11.9%</td><td class="c c-g">14.0%</td><td class="c pkg-col">48</td><td class="c pkg-col">42×32×17</td><td class="c pkg-col">0.14</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$356,602</td><td class="r">15,147</td><td class="r">$23.54</td><td class="r c-g">$0.47</td><td class="r c-g">$3.71</td><td class="c c-g">2.0%</td><td class="c">15.7%</td><td class="c c-g">18.3%</td><td class="c pkg-col">48</td><td class="c pkg-col">42×32×17</td><td class="c pkg-col">0.14</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tot"><td></td><td>TOTAL</td><td class="r">$468,976</td><td class="r">19,022</td><td class="r">$24.65</td><td class="r c-g">$0.48</td><td class="r c-g">$3.65</td><td class="c c-g">1.9%</td><td class="c">14.8%</td><td class="c c-g">17.3%</td><td class="c pkg-col" colspan="4">Best-in-class. No packaging action needed.</td></tr>
+
+    <!-- ALPHA 60N -->
+    <tr><td colspan="14" class="ch-sku-hdr">Alpha 60N &nbsp;— Packaging: 40/box · 53.5×42.5×34.5 cm · 0.413 kg/unit actual · Vol=15.7 kg → actual heavier ✓</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$139,555</td><td class="r">4,539</td><td class="r">$30.75</td><td class="r c-a">$2.54</td><td class="r c-a">$4.51</td><td class="c c-g">8.3%</td><td class="c">14.7%</td><td class="c c-g">24.0%</td><td class="c pkg-col">40</td><td class="c pkg-col">53.5×42.5×34.5</td><td class="c pkg-col">0.413</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$75,590</td><td class="r">3,472</td><td class="r">$21.77</td><td class="r c-a">$2.50</td><td class="r c-a">$4.19</td><td class="c c-a">11.5%</td><td class="c">19.2%</td><td class="c c-a">32.1%</td><td class="c pkg-col">40</td><td class="c pkg-col">53.5×42.5×34.5</td><td class="c pkg-col">0.413</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-d2c"><td></td><td>D2C RL</td><td class="r">$1,176</td><td class="r">41</td><td class="r">$28.67</td><td class="r c-a">$2.54</td><td class="r c-a">$4.96</td><td class="c c-g">8.9%</td><td class="c">17.3%</td><td class="c c-a">27.3%</td><td class="c pkg-col">40</td><td class="c pkg-col">—</td><td class="c pkg-col">0.413</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tot"><td></td><td>TOTAL</td><td class="r">$216,320</td><td class="r">8,052</td><td class="r">$26.87</td><td class="r c-a">$2.52</td><td class="r c-a">$4.37</td><td class="c c-g">9.4%</td><td class="c">16.3%</td><td class="c c-a">26.8%</td><td class="c pkg-col" colspan="4">TikTok outward 19.2% vs Amazon 14.7% → FBT migration key lever. Amazon channel is more efficient.</td></tr>
+
+    <!-- MAGASHWA RL -->
+    <tr><td colspan="14" class="ch-sku-hdr" style="background:#8B0000">MagAshwa RL &nbsp;⚠️ — Packaging: 18/box · 62×45×27 cm · 0.493 kg/unit actual · Vol wt = 15.1 kg → VOLUMETRIC PENALTY: charged 0.84 kg/unit vs 0.49 actual (70% overcharge)</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$38,440</td><td class="r">1,132</td><td class="r">$33.96</td><td class="r c-r">$5.19</td><td class="r c-a">$4.67</td><td class="c c-r">15.3%</td><td class="c">13.7%</td><td class="c c-a">29.9%</td><td class="c pkg-col" style="background:#FFEBEE">18</td><td class="c pkg-col" style="background:#FFEBEE">62×45×27</td><td class="c pkg-col" style="background:#FFEBEE">0.493</td><td class="c pkg-col vol-warn">⚠ Vol=0.84 kg/u</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$56,042</td><td class="r">2,409</td><td class="r">$23.26</td><td class="r c-r">$5.04</td><td class="r c-a">$4.20</td><td class="c c-r">21.7%</td><td class="c">18.0%</td><td class="c c-r">40.9%</td><td class="c pkg-col" style="background:#FFEBEE">18</td><td class="c pkg-col" style="background:#FFEBEE">62×45×27</td><td class="c pkg-col" style="background:#FFEBEE">0.493</td><td class="c pkg-col vol-warn">⚠ Vol=0.84 kg/u</td></tr>
+    <tr class="ch-d2c"><td></td><td>D2C RL</td><td class="r">$47,589</td><td class="r">1,979</td><td class="r">$24.05</td><td class="r c-r">$5.19</td><td class="r c-g">$3.46</td><td class="c c-r">21.6%</td><td class="c c-g">14.4%</td><td class="c c-a">37.2%</td><td class="c pkg-col" style="background:#FFEBEE">18</td><td class="c pkg-col" style="background:#FFEBEE">62×45×27</td><td class="c pkg-col" style="background:#FFEBEE">0.493</td><td class="c pkg-col vol-warn">⚠ Vol=0.84 kg/u</td></tr>
+    <tr class="ch-tot" style="background:#FFCDD2!important"><td></td><td>TOTAL</td><td class="r">$142,071</td><td class="r">5,520</td><td class="r">$25.74</td><td class="r c-r">$5.12</td><td class="r c-a">$4.03</td><td class="c c-r">19.9%</td><td class="c">15.7%</td><td class="c c-r">36.7%</td><td class="c pkg-col" style="background:#FFCDD2" colspan="4">ROOT CAUSE: Volumetric penalty + not on Xindus. Fix carton dims → save ~$2.30/unit inward. ~$12,700/mo saving at current volume.</td></tr>
+
+    <!-- ALPHA 120N -->
+    <tr><td colspan="14" class="ch-sku-hdr">Alpha 120N &nbsp;— Packaging: 18/box · 63×35×27 cm · 0.596 kg/unit · Vol=11.9 kg → actual heavier ✓</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$84,416</td><td class="r">1,552</td><td class="r">$54.39</td><td class="r c-a">$3.98</td><td class="r c-r">$6.05</td><td class="c c-g">7.3%</td><td class="c">11.1%</td><td class="c c-g">21.4%</td><td class="c pkg-col">18</td><td class="c pkg-col">63×35×27</td><td class="c pkg-col">0.596</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$43,031</td><td class="r">1,145</td><td class="r">$37.58</td><td class="r c-a">$3.96</td><td class="r c-a">$4.94</td><td class="c c-a">10.5%</td><td class="c">13.1%</td><td class="c c-a">27.9%</td><td class="c pkg-col">18</td><td class="c pkg-col">63×35×27</td><td class="c pkg-col">0.596</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tot"><td></td><td>TOTAL</td><td class="r">$128,506</td><td class="r">2,716</td><td class="r">$47.31</td><td class="r c-a">$3.97</td><td class="r c-r">$5.57</td><td class="c c-g">8.4%</td><td class="c">11.8%</td><td class="c c-g">23.6%</td><td class="c pkg-col" colspan="4">Amazon out/unit $6.05 vs TikTok $4.94 → FBT saves $1.11/unit. 2-pack (RL Alpha 120N 2-pack exists: 9/box) would also reduce out/unit.</td></tr>
+
+    <!-- SHILAJIT 60N -->
+    <tr><td colspan="14" class="ch-sku-hdr">Shilajit 60N &nbsp;— Packaging: 40/box · 53.5×42.5×34.5 cm · 0.413 kg/unit · Vol=15.7 kg → actual heavier ✓</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$29,488</td><td class="r">1,024</td><td class="r">$28.80</td><td class="r c-a">$2.27</td><td class="r c-a">$4.45</td><td class="c c-g">7.9%</td><td class="c">15.5%</td><td class="c c-a">27.9%</td><td class="c pkg-col">40</td><td class="c pkg-col">53.5×42.5×34.5</td><td class="c pkg-col">0.413</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$13,062</td><td class="r">609</td><td class="r">$21.45</td><td class="r c-a">$2.24</td><td class="r c-a">$4.47</td><td class="c c-a">10.4%</td><td class="c">20.8%</td><td class="c c-r">37.2%</td><td class="c pkg-col">40</td><td class="c pkg-col">53.5×42.5×34.5</td><td class="c pkg-col">0.413</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tot"><td></td><td>TOTAL</td><td class="r">$42,549</td><td class="r">1,633</td><td class="r">$26.06</td><td class="r c-a">$2.26</td><td class="r c-a">$4.46</td><td class="c c-g">8.7%</td><td class="c">17.1%</td><td class="c c-a">30.7%</td><td class="c pkg-col" colspan="4">TikTok outward 20.8% (not FBT yet). FBT intake needed urgently — ~$1/unit saving on TikTok.</td></tr>
+
+    <!-- SHILAJIT 120N -->
+    <tr><td colspan="14" class="ch-sku-hdr">Shilajit 120N &nbsp;— Packaging: 18/box · 63×35×27 cm · 0.596 kg/unit · Vol=11.9 kg → actual heavier ✓</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$30,163</td><td class="r">739</td><td class="r">$40.82</td><td class="r c-a">$3.68</td><td class="r c-r">$5.85</td><td class="c c-g">9.0%</td><td class="c">14.3%</td><td class="c c-a">31.8%</td><td class="c pkg-col">18</td><td class="c pkg-col">63×35×27</td><td class="c pkg-col">0.596</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$6,514</td><td class="r">169</td><td class="r">$38.54</td><td class="r c-a">$3.66</td><td class="r c-a">$4.80</td><td class="c c-g">9.5%</td><td class="c">12.4%</td><td class="c c-a">30.8%</td><td class="c pkg-col">18</td><td class="c pkg-col">63×35×27</td><td class="c pkg-col">0.596</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tot"><td></td><td>TOTAL</td><td class="r">$36,677</td><td class="r">908</td><td class="r">$40.39</td><td class="r c-a">$3.68</td><td class="r c-r">$5.66</td><td class="c c-g">9.1%</td><td class="c">14.0%</td><td class="c c-a">31.6%</td><td class="c pkg-col" colspan="4">Amazon out/unit $5.85 high. FBT + HS code review (8.5% duty) are the two levers.</td></tr>
+
+    <!-- HDR 50ml -->
+    <tr><td colspan="14" class="ch-sku-hdr">HDR 50ml &nbsp;— Packaging: 48/box · 42×32×17 cm · 0.140 kg/unit · Vol=4.6 kg → actual heavier ✓</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$20,772</td><td class="r">614</td><td class="r">$33.83</td><td class="r c-g">$1.07</td><td class="r c-a">$3.92</td><td class="c c-g">3.2%</td><td class="c">11.6%</td><td class="c c-g">17.0%</td><td class="c pkg-col">48</td><td class="c pkg-col">42×32×17</td><td class="c pkg-col">0.140</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$15,822</td><td class="r">374</td><td class="r">$42.31</td><td class="r c-g">$1.06</td><td class="r c-a">$4.15</td><td class="c c-g">2.5%</td><td class="c">9.8%</td><td class="c c-g">14.1%</td><td class="c pkg-col">48</td><td class="c pkg-col">42×32×17</td><td class="c pkg-col">0.140</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tot"><td></td><td>TOTAL</td><td class="r">$36,595</td><td class="r">988</td><td class="r">$37.04</td><td class="r c-g">$1.06</td><td class="r c-a">$4.01</td><td class="c c-g">2.9%</td><td class="c">10.8%</td><td class="c c-g">15.8%</td><td class="c pkg-col" colspan="4">Packaging optimal. FBT mix increase is the only outward lever remaining.</td></tr>
+
+    <!-- BLACKSEED 60N -->
+    <tr><td colspan="14" class="ch-sku-hdr">Blackseed 60N &nbsp;— Packaging: 40/box · 53.5×42.5×34.5 cm · 0.413 kg/unit · Vol=15.7 kg → actual heavier ✓</td></tr>
+    <tr class="ch-amz"><td></td><td>Amazon</td><td class="r">$5,516</td><td class="r">241</td><td class="r">$22.89</td><td class="r c-a">$3.58</td><td class="r c-r">$5.45</td><td class="c c-a">15.6%</td><td class="c c-r">23.8%</td><td class="c c-r">42.1%</td><td class="c pkg-col">40</td><td class="c pkg-col">53.5×42.5×34.5</td><td class="c pkg-col">0.413</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tt"><td></td><td>TikTok</td><td class="r">$20,772</td><td class="r">1,118</td><td class="r">$18.58</td><td class="r c-a">$3.49</td><td class="r c-g">$2.45</td><td class="c c-a">18.8%</td><td class="c c-g">13.2%</td><td class="c c-a">35.2%</td><td class="c pkg-col">40</td><td class="c pkg-col">53.5×42.5×34.5</td><td class="c pkg-col">0.413</td><td class="c pkg-col vol-ok">✓ No penalty</td></tr>
+    <tr class="ch-tot" style="background:#FFCDD2!important"><td></td><td>TOTAL</td><td class="r">$26,441</td><td class="r">1,366</td><td class="r">$19.36</td><td class="r c-a">$3.51</td><td class="r c-a">$2.98</td><td class="c c-a">18.1%</td><td class="c">15.4%</td><td class="c c-a">36.6%</td><td class="c pkg-col" colspan="4">Amazon out/unit $5.45 vs TikTok $2.45 — 3× gap. Move ALL Blackseed volume to TikTok FBT. Inward also high (15-19%) — assess Xindus for Blackseed supply chain.</td></tr>
+
+  </tbody>
+</table>
+<div class="ib" style="margin-top:8px">¹ Vol note = 62×45×27 cm box for MagAshwa: Volumetric wt = 62×45×27÷5000 = 15.07 kg vs actual 8.87 kg → billed at 15.07 kg for 18 units = $0.84/unit charged vs $0.49 actual. For Alpha 60N 53.5×42.5×34.5: Vol = 15.7 kg vs actual 16.5 kg → actual heavier, no penalty. ² FBT = Fulfilled by TikTok (multi-unit bulk fulfillment). Amazon = FBA single-unit fulfillment.</div>
+
 </div>
 
 <!-- ===================== TAB 9: SKU RECOMMENDATIONS ===================== -->
@@ -1382,20 +1469,28 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 </table>
 
 <!-- MagAshwa RL -->
-<div class="sh" style="background:#7B3A00;margin-top:10px">MagAshwa (RL) &nbsp;<span class="badge bg-r">HIGH PRIORITY</span>&nbsp;&nbsp; May Rev $214K &nbsp;|&nbsp; Ops 39.8% → Target 25%</div>
+<div class="sh" style="background:#7B3A00;margin-top:10px">MagAshwa (RL) &nbsp;<span class="badge bg-r">HIGH PRIORITY</span>&nbsp;&nbsp; May Rev $214K &nbsp;|&nbsp; Ops 39.8% → Target 25% &nbsp;|&nbsp; Jun 1–14: 36.7%</div>
+<div class="ib" style="background:#FFF3E0;border-left:4px solid #E65100;margin-bottom:6px">
+  <strong>Root cause identified (Jun 1–14 analysis):</strong> Inward/unit = <strong>$5.12</strong> vs Alpha 60N $2.52 — 2× higher. Two compounding reasons:
+  (1) Carton charges on <strong>volumetric weight</strong>: 62×45×27 cm box = 15.1 kg volumetric vs 8.87 kg actual → freight billed at 0.84 kg/unit vs 0.49 actual = <strong>70% inward overcharge</strong>.
+  (2) Not on Xindus supply chain (RL brand separate contract). Alpha on Xindus at ~$2.50/unit inward.
+  Combined these two factors fully explain the 20% inward. Fix 1 alone = ~$2/unit saving; both together = ~$2.60/unit = <strong>~$14,400/mo at current volume.</strong>
+</div>
 <table>
   <thead><tr>
-    <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
+    <th style="width:160px">Lever</th><th style="width:80px">Leg</th>
     <th class="r">March</th><th class="r">April</th><th class="r">May</th>
     <th class="r" style="background:#0B6B45;color:#fff">Jun 1–14</th>
     <th class="c">June Target</th>
-    <th>Outward Logistics Action</th>
+    <th>Action / Detail</th>
   </tr></thead>
   <tbody>
-    <tr><td>Inward Renegotiation</td><td>Inward</td><td class="r c-r"><b>30.6%</b></td><td class="r c-r"><b>31.3%</b></td><td class="r c-r">21.2%</td><td class="r c-r" style="background:#D0ECE7">19.9%</td><td class="c c-g"><b>10.0%</b></td><td style="color:#555">—</td></tr>
-    <tr class="even"><td>FBT / Carrier</td><td>Outward</td><td class="r c-a">18.8%</td><td class="r c-a">16.1%</td><td class="r c-a">17.4%</td><td class="r c-a" style="background:#D0ECE7">15.7%</td><td class="c c-g"><b>14.0%</b></td><td>Assess RL SKU FBT eligibility — currently Amazon FBA only. FBT would save ~$0.60–0.80/unit. <strong>Raise with ops team this week.</strong></td></tr>
-    <tr><td>Duty</td><td>Duty</td><td class="r">3.2%</td><td class="r">1.5%</td><td class="r">1.2%</td><td class="r" style="background:#D0ECE7">1.2%</td><td class="c c-g"><b>1.0%</b></td><td style="color:#555">—</td></tr>
-    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">52.6%</td><td class="r">48.9%</td><td class="r">39.8%</td><td class="r c-r" style="background:#D0ECE7"><b>36.7%</b></td><td class="c"><b>25.0%</b></td><td>~$31K/month saving at target. Inward is the primary lever.</td></tr>
+    <tr><td>Xindus Migration</td><td>Inward</td><td class="r c-r"><b>30.6%</b></td><td class="r c-r"><b>31.3%</b></td><td class="r c-r">21.2%</td><td class="r c-r" style="background:#D0ECE7">19.9%</td><td class="c c-g"><b>10.0%</b></td><td><strong>P0 action.</strong> Move RL brand to Xindus inward rate. Alpha 60N (same 60-count gummy) pays $2.52/unit inward on Xindus vs MagAshwa's $5.12. Negotiate RL SKU inclusion in Xindus contract — could halve inward % immediately.</td></tr>
+    <tr class="even"><td>Carton Redesign</td><td>Inward</td><td class="r c-r">—</td><td class="r c-r">—</td><td class="r c-r">—</td><td class="r c-r" style="background:#D0ECE7">—</td><td class="c c-g"><b>0.84→0.49 kg/u</b></td><td><strong>Volumetric penalty fix.</strong> Current carton: 62×45×27 cm = 75,330 cm³. Volumetric wt = 15.07 kg vs actual 8.87 kg → air freight billed at 15.07 kg (70% overcharge). <strong>Target: reduce carton to ≤45×35×27 cm</strong> (54,675 cm³ → vol = 10.94 kg &lt; actual) = charged on actual. Saving: ~30% on inward freight per box. Alternatively, increase units/box from 18 → 24+ to dilute volumetric cost per unit.</td></tr>
+    <tr><td>FBT / Carrier</td><td>Outward</td><td class="r c-a">18.8%</td><td class="r c-a">16.1%</td><td class="r c-a">17.4%</td><td class="r c-a" style="background:#D0ECE7">15.7%</td><td class="c c-g"><b>14.0%</b></td><td>TikTok outward $4.20/unit (Jun 1–14). D2C RL ShipBob = $3.46/unit — cheapest outward channel. Assess FBT eligibility for RL brand (TikTok rules may restrict). <strong>Push D2C RL volume — ShipBob saves $0.74/unit vs TikTok.</strong></td></tr>
+    <tr class="even"><td>Multi-Pack Bundle</td><td>Outward</td><td class="r">—</td><td class="r">—</td><td class="r">—</td><td class="r" style="background:#D0ECE7">—</td><td class="c c-g"><b>~$3.00/unit</b></td><td><strong>New lever.</strong> RL Alpha 120N 2-pack already exists (MWRLUSAPRK.00014.B0_N, 9/box). Propose MagAshwa 2-pack (2× 60s per order): outward/unit would drop from $4.03 → ~$3.00–3.20 (two units share one fulfillment box). TikTok bundles also eligible for cofunding — reduces effective outward further.</td></tr>
+    <tr><td>Duty</td><td>Duty</td><td class="r">3.2%</td><td class="r">1.5%</td><td class="r">1.2%</td><td class="r" style="background:#D0ECE7">1.2%</td><td class="c c-g"><b>1.0%</b></td><td style="color:#555">Already improved significantly from March. Monitor — no immediate action.</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">52.6%</td><td class="r">48.9%</td><td class="r">39.8%</td><td class="r c-r" style="background:#D0ECE7"><b>36.7%</b></td><td class="c"><b>25.0%</b></td><td>Xindus + carton fix = ~14pp inward saving. Multi-pack = ~1.5pp outward saving. Combined target 25% is achievable. Monthly $ saving at target: ~$16,500 vs Jun 1–14 run-rate.</td></tr>
   </tbody>
 </table>
 
@@ -1436,7 +1531,7 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 </table>
 
 <!-- Alpha 120N -->
-<div class="sh" style="margin-top:10px">Alpha 120N &nbsp;<span class="badge bg-g">NEAR TARGET</span>&nbsp;&nbsp; May Rev $320K &nbsp;|&nbsp; Ops 23.7% → Target 21%</div>
+<div class="sh" style="margin-top:10px">Alpha 120N &nbsp;<span class="badge bg-g">NEAR TARGET</span>&nbsp;&nbsp; May Rev $320K &nbsp;|&nbsp; Ops 23.7% → Target 21% &nbsp;|&nbsp; Jun 1–14: 23.6%</div>
 <table>
   <thead><tr>
     <th style="width:140px">Lever</th><th style="width:80px">Leg</th>
@@ -1447,9 +1542,10 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   </tr></thead>
   <tbody>
     <tr><td>Xindus Migration</td><td>Inward</td><td class="r c-a">9.8%</td><td class="r">9.3%</td><td class="r">8.6%</td><td class="r" style="background:#D0ECE7">8.4%</td><td class="c c-g"><b>7.5%</b></td><td style="color:#555">—</td></tr>
-    <tr class="even"><td>FBT / Rate</td><td>Outward</td><td class="r">13.5%</td><td class="r">13.4%</td><td class="r c-g">11.7%</td><td class="r c-g" style="background:#D0ECE7">11.8%</td><td class="c c-g"><b>10.0%</b></td><td>Strong improvement underway. 120N benefits from FBT case-pack efficiency (larger bottles, lower carton count). <strong>Sustain current carrier mix — no new action required.</strong></td></tr>
+    <tr class="even"><td>FBT / Rate</td><td>Outward</td><td class="r">13.5%</td><td class="r">13.4%</td><td class="r c-g">11.7%</td><td class="r c-g" style="background:#D0ECE7">11.8%</td><td class="c c-g"><b>10.0%</b></td><td>Strong improvement underway. 120N benefits from FBT case-pack efficiency (larger bottles, lower carton count). <strong>Sustain current carrier mix — no new action required.</strong> Amazon out/unit = $6.05 vs TikTok FBT $4.94 → every 100 units shifted to FBT saves $111.</td></tr>
+    <tr><td>Multi-Pack Bundle</td><td>Outward</td><td class="r">—</td><td class="r">—</td><td class="r">—</td><td class="r" style="background:#D0ECE7">—</td><td class="c c-g"><b>~$4.50/u</b></td><td><strong>Packaging lever available.</strong> RL Alpha 120N 2-pack (MWRLUSAPRK.00014.B0_N, 9/box) already exists. If 2-pack mix increases to 30% of orders, out/unit blended drops from $5.57 → ~$4.80 (two bottles share one carrier shipment). Activate 2-pack on both Amazon and TikTok.</td></tr>
     <tr><td>Duty</td><td>Duty</td><td class="r">3.8%</td><td class="r">3.7%</td><td class="r">3.5%</td><td class="r" style="background:#D0ECE7">3.4%</td><td class="c c-g"><b>3.0%</b></td><td style="color:#555">—</td></tr>
-    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">27.1%</td><td class="r">26.4%</td><td class="r">23.7%</td><td class="r c-g" style="background:#D0ECE7"><b>23.6%</b></td><td class="c"><b>21.0%</b></td><td>~$8.6K/month saving at target. On track — sustain.</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">27.1%</td><td class="r">26.4%</td><td class="r">23.7%</td><td class="r c-g" style="background:#D0ECE7"><b>23.6%</b></td><td class="c"><b>21.0%</b></td><td>~$8.6K/month saving at target. On track — sustain. 2-pack activation adds another ~0.5pp to get to 21%.</td></tr>
   </tbody>
 </table>
 
@@ -1483,9 +1579,10 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
   </tr></thead>
   <tbody>
     <tr><td>Inward Rate</td><td>Inward</td><td class="r c-g">3.1%</td><td class="r c-g">3.0%</td><td class="r c-g">3.0%</td><td class="r c-g" style="background:#D0ECE7">2.9%</td><td class="c c-g"><b>3.0%</b></td><td style="color:#555">—</td></tr>
-    <tr class="even"><td>Carrier Rate</td><td>Outward</td><td class="r c-g">9.0%</td><td class="r c-a">12.6%</td><td class="r c-r"><b>21.5%</b></td><td class="r c-r" style="background:#D0ECE7"><b>23.5%</b></td><td class="c c-g"><b>9.0%</b></td><td>Carrier minimum charge triggered at 304 units — outward/unit hit $4.07 vs $2.09 in March. <strong>(1) Consolidate onto same carrier lane as HDR 50ml. (2) If vol &lt;350 units for 2 months, evaluate discontinuation.</strong></td></tr>
+    <tr class="even"><td>Carrier Rate</td><td>Outward</td><td class="r c-g">9.0%</td><td class="r c-a">12.6%</td><td class="r c-r"><b>21.5%</b></td><td class="r c-r" style="background:#D0ECE7"><b>23.5%</b></td><td class="c c-g"><b>9.0%</b></td><td>Carrier minimum charge triggered at 304 units — outward/unit hit $4.07, Jun 1–14 at $4.72 (only 92 units). <strong>(1) Consolidate onto same carrier lane as HDR 50ml. (2) Activate existing 2-pack (MWBWUSAHFK.00001.B0_N, 24/box) and 4-pack (MWBWUSAHFK.00002.B0_N, 12/box) — multi-unit orders share shipment, effective out/unit drops from $4.72 → ~$2.80. (3) If vol &lt;350/fortnight for 2 months, evaluate discontinuation.</strong></td></tr>
+    <tr><td>Multi-Pack Activation</td><td>Outward</td><td class="r">—</td><td class="r">—</td><td class="r">—</td><td class="r" style="background:#D0ECE7">—</td><td class="c c-g"><b>~$2.80/unit</b></td><td><strong>Quick win.</strong> 2-pack (24/box) and 4-pack (12/box) SKUs already exist in Uniware. Listing on Amazon + TikTok Shop at a small bundle discount drives multi-unit orders where 2–4 units ship together at effectively $2.50–2.80/unit vs $4.72 single-unit. Best short-term fix while evaluating viability.</td></tr>
     <tr><td>Duty</td><td>Duty</td><td class="r">1.9%</td><td class="r">2.1%</td><td class="r">2.1%</td><td class="r" style="background:#D0ECE7">2.1%</td><td class="c c-g"><b>2.0%</b></td><td style="color:#555">—</td></tr>
-    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">14.0%</td><td class="r">17.7%</td><td class="r">26.6%</td><td class="r c-r" style="background:#D0ECE7"><b>28.5%</b></td><td class="c"><b>14.0%</b></td><td>Outward consolidation is the only fix. No FBT savings possible at this volume.</td></tr>
+    <tr class="sub"><td>Total Ops</td><td>—</td><td class="r">14.0%</td><td class="r">17.7%</td><td class="r">26.6%</td><td class="r c-r" style="background:#D0ECE7"><b>28.5%</b></td><td class="c"><b>14.0%</b></td><td>Multi-pack activation is fastest fix. Carrier consolidation + 2-pack together can get outward from 23.5% → ~12%. Viability review in 4 weeks.</td></tr>
   </tbody>
 </table>
 
