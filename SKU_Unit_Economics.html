@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKU Unit Economics &amp; Projections — Multiplier AMJ</title>
+<style>
+  :root {
+    --ink: #1a1a2e; --muted: #666; --border: #dde2ea; --bg: #f5f7fa;
+    --green: #0B6B45; --red: #C0392B; --amber: #E65100; --blue: #1565C0;
+    --green-bg: #E8F5E9; --red-bg: #FFEBEE; --amber-bg: #FFF8E1; --blue-bg: #E3F2FD;
+    --teal: #D0ECE7; --teal-dark: #0B6B45;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--ink); font-size: 13px; }
+
+  .page-header { background: var(--ink); color: #fff; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .page-header h1 { font-size: 1.2rem; font-weight: 600; }
+  .page-header .sub { font-size: 0.78rem; color: #aac; margin-top: 2px; }
+  .badge-hdr { background: #2e7d32; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 600; }
+
+  .tabs { display: flex; background: #fff; border-bottom: 2px solid var(--border); padding: 0 16px; gap: 4px; }
+  .tab-btn { padding: 10px 16px; cursor: pointer; border: none; background: none; font-size: 0.82rem; font-weight: 500; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px; }
+  .tab-btn.active { color: var(--ink); border-bottom-color: #1a1a2e; font-weight: 700; }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-pane { display: none; padding: 20px 24px; }
+  .tab-pane.active { display: block; }
+
+  .section-title { font-size: 1.0rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; padding-bottom: 6px; border-bottom: 2px solid #e0e0e0; }
+  .info-bar { background: #fff; border-left: 4px solid var(--blue); padding: 8px 12px; margin-bottom: 12px; font-size: 0.8rem; color: #333; border-radius: 0 4px 4px 0; }
+  .info-bar.amber { border-color: var(--amber); }
+  .info-bar.green { border-color: var(--green); }
+  .info-bar.red { border-color: var(--red); }
+
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  thead { background: var(--ink); color: #fff; }
+  thead th { padding: 9px 10px; text-align: right; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  thead th:first-child { text-align: left; }
+  thead th.c { text-align: center; }
+  tbody tr:nth-child(even) { background: #fafbfd; }
+  tbody tr:hover { background: #f0f4ff; }
+  td { padding: 7px 10px; border-bottom: 1px solid #eef0f3; text-align: right; white-space: nowrap; }
+  td:first-child { text-align: left; font-weight: 500; }
+  td.c { text-align: center; }
+  td.l { text-align: left; }
+  .sub-row td { background: #F3F4F6; font-weight: 700; font-size: 0.87rem; }
+  .total-row td { background: #E8EAF6; font-weight: 700; border-top: 2px solid #9FA8DA; }
+
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+  .tag-g { background: var(--green-bg); color: #1B5E20; }
+  .tag-r { background: var(--red-bg); color: #7B0000; }
+  .tag-a { background: var(--amber-bg); color: #5D1F00; }
+  .tag-b { background: var(--blue-bg); color: #003080; }
+
+  .c-g { color: #1B5E20; }
+  .c-r { color: var(--red); }
+  .c-a { color: var(--amber); }
+  .bold { font-weight: 700; }
+  .r { text-align: right; }
+  .r-val { text-align: right; }
+
+  /* heat coloring for ops% */
+  .ops-lo { background: #E8F5E9 !important; color: #1B5E20; font-weight: 700; }
+  .ops-ok { background: #FFF9C4 !important; color: #555; }
+  .ops-hi { background: #FFCCBC !important; color: #8B2500; font-weight: 700; }
+  .ops-crit { background: #FFCDD2 !important; color: #7B0000; font-weight: 700; }
+
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .scenario-card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border-top: 4px solid var(--border); }
+  .scenario-card.current { border-top-color: #9e9e9e; }
+  .scenario-card.lever1 { border-top-color: #FF8F00; }
+  .scenario-card.lever2 { border-top-color: #2196F3; }
+  .scenario-card.combined { border-top-color: #2e7d32; }
+  .sc-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 8px; }
+  .sc-pct { font-size: 2.0rem; font-weight: 800; }
+  .sc-saving { font-size: 0.82rem; color: var(--green); font-weight: 600; margin-top: 4px; }
+  .sc-note { font-size: 0.75rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .sc-levers { margin-top: 10px; }
+  .sc-lever-row { display: flex; justify-content: space-between; padding: 3px 0; font-size: 0.78rem; border-bottom: 1px solid #f0f0f0; }
+  .sc-lever-row:last-child { border: none; }
+
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .proj-card { background: #fff; border-radius: 8px; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .proj-title { font-size: 0.82rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .proj-stat { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.82rem; border-bottom: 1px solid #f5f5f5; }
+  .proj-stat:last-child { border: none; }
+  .proj-val { font-weight: 700; }
+
+  .lever-table td.lever-name { text-align: left; font-weight: 600; }
+  .lever-table td.impact-hi { color: var(--green); font-weight: 700; }
+  .lever-table td.impact-med { color: #E65100; font-weight: 600; }
+  .lever-table td.effort-lo { color: var(--green); }
+  .lever-table td.effort-hi { color: var(--red); }
+
+  .divider { height: 20px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .callout { background: #FFF8E1; border: 1px solid #FFE082; border-left: 4px solid #FFC107; padding: 10px 14px; border-radius: 4px; font-size: 0.82rem; line-height: 1.6; margin-bottom: 14px; }
+  .callout.red { background: #FFEBEE; border-color: #EF9A9A; border-left-color: #F44336; }
+  .callout.green { background: #E8F5E9; border-color: #A5D6A7; border-left-color: #4CAF50; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div>
+    <h1>SKU Unit Economics &amp; Projections — Multiplier AMJ</h1>
+    <div class="sub">Source: OPS USA P&amp;L Jun 1–14, 2026 (actual) + SKU Avg Shipment COGS.xlsx &nbsp;|&nbsp; Jun 14, 2026</div>
+  </div>
+  <span class="badge-hdr">Jun 1–14 Actual</span>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('unit-econ')">Unit Economics (M-o-M)</button>
+  <button class="tab-btn" onclick="showTab('magashwa')">MagAshwa Levers</button>
+  <button class="tab-btn" onclick="showTab('projections')">June / July Projections</button>
+  <button class="tab-btn" onclick="showTab('multi-unit')">Multi-Unit Strategy</button>
+</div>
+
+<!-- ======= TAB 1: UNIT ECONOMICS ======= -->
+<div id="unit-econ" class="tab-pane active">
+  <div class="section-title">SKU Unit Economics — Month-on-Month Comparison (March → Jun 1–14, 2026)</div>
+  <div class="info-bar">Per-unit cost breakdown across all 4 periods. <strong>COGS</strong> = qty-weighted shipment average from SKU_avg_Shipment_COGS.xlsx. <strong>Ops%</strong> = (Inward + Duty + Outward) ÷ Revenue. Columns: prior months show Units + Ops% trend only; Jun 1–14 shows full unit breakdown. Heat on Ops%: <span style="background:#E8F5E9;padding:1px 5px">green &lt;20%</span> <span style="background:#FFF9C4;padding:1px 5px">yellow 20–30%</span> <span style="background:#FFCCBC;padding:1px 5px">orange 30–37%</span> <span style="background:#FFCDD2;padding:1px 5px">red &gt;37%</span>.</div>
+
+  <table style="font-size:11.5px;">
+    <colgroup>
+      <col style="width:16%"><col style="width:6%">
+      <col style="width:4%"><col style="width:5%">
+      <col style="width:4%"><col style="width:5%">
+      <col style="width:4%"><col style="width:5%">
+      <col style="width:4%"><col style="width:6%"><col style="width:6%"><col style="width:6%"><col style="width:6%">
+      <col style="width:5%"><col style="width:6%">
+    </colgroup>
+    <thead>
+      <tr style="background:#1a1a2e;color:#fff;font-size:0.75rem">
+        <th rowspan="2" style="text-align:left">SKU &amp; COGS/unit</th>
+        <th colspan="2" class="c" style="background:#455A64;border-right:1px solid #666">March 2026</th>
+        <th colspan="2" class="c" style="background:#455A64;border-right:1px solid #666">April 2026</th>
+        <th colspan="2" class="c" style="background:#455A64;border-right:1px solid #666">May 2026</th>
+        <th colspan="6" class="c" style="background:#0B6B45">Jun 1–14 (Full Breakdown)</th>
+        <th rowspan="2" class="c">Trend<br>Mar→Jun</th>
+      </tr>
+      <tr style="background:#1a1a2e;color:#ccc;font-size:0.7rem">
+        <th class="c">Units</th><th class="c" style="border-right:1px solid #555">Ops%</th>
+        <th class="c">Units</th><th class="c" style="border-right:1px solid #555">Ops%</th>
+        <th class="c">Units</th><th class="c" style="border-right:1px solid #555">Ops%</th>
+        <th class="c" style="background:#0a5535">Units</th>
+        <th class="c" style="background:#0a5535">ASP</th>
+        <th class="c" style="background:#0a5535">In/u (In%)</th>
+        <th class="c" style="background:#0a5535">Out/u (Out%)</th>
+        <th class="c" style="background:#0a5535">Ops%</th>
+        <th class="c" style="background:#0a5535">GM%²</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <!-- BB ROLL ON FAMILY -->
+    <tr><td colspan="15" style="background:#37474F;color:#fff;padding:4px 10px;font-size:0.77rem;font-weight:700">BB Roll On (Hair Density Serum) — BB Brand · Family: 25ml · 50ml</td></tr>
+    <tr>
+      <td style="text-align:left"><strong>BB Roll On 25ml</strong><br><span style="color:var(--muted);font-size:0.7rem">026_B0_N · COGS $0.75/u</span></td>
+      <td class="c">53,693</td><td class="ops-ok c">22.5%</td>
+      <td class="c">42,020</td><td class="ops-ok c">18.6%</td>
+      <td class="c">43,907</td><td class="ops-lo c">17.2%</td>
+      <td class="c" style="background:var(--teal)">19,022</td>
+      <td style="background:var(--teal)">$24.65</td>
+      <td style="background:var(--teal)">$0.48 (1.9%)</td>
+      <td style="background:var(--teal)">$3.65 (14.8%)</td>
+      <td class="ops-lo c bold" style="background:var(--teal)">17.3%</td>
+      <td class="c-g bold" style="background:var(--teal)">79.7%</td>
+      <td class="c-g bold">↓ 22.5→17.3%</td>
+    </tr>
+    <tr class="even">
+      <td style="text-align:left"><strong>BB Roll On 50ml</strong><br><span style="color:var(--muted);font-size:0.7rem">025_B0_N · COGS ~$1.54/u¹</span></td>
+      <td class="c">3,734</td><td class="ops-lo c">13.9%</td>
+      <td class="c">3,463</td><td class="ops-lo c">12.1%</td>
+      <td class="c">2,234</td><td class="ops-lo c">12.1%</td>
+      <td class="c" style="background:var(--teal)">988</td>
+      <td style="background:var(--teal)">$37.04</td>
+      <td style="background:var(--teal)">$1.06 (2.9%)</td>
+      <td style="background:var(--teal)">$2.84 (7.7%)</td>
+      <td class="ops-lo c bold" style="background:var(--teal)">12.6%</td>
+      <td class="c-g bold" style="background:var(--teal)">83.2%</td>
+      <td class="c-g">→ stable ~13%</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><strong>BB HGS Roll On 25ml</strong><br><span style="color:var(--red);font-size:0.7rem">00001_B0_N · Volume declining fast</span></td>
+      <td class="c">849</td><td class="ops-lo c">14.0%</td>
+      <td class="c">484</td><td class="ops-ok c">17.7%</td>
+      <td class="c">304</td><td class="ops-ok c">26.6%</td>
+      <td class="c" style="background:var(--teal)">92</td>
+      <td style="background:var(--teal)">$20.04</td>
+      <td style="background:var(--teal)">$0.58 (2.9%)</td>
+      <td style="background:var(--teal)">$4.71 (23.5%)</td>
+      <td class="ops-ok c bold" style="background:var(--teal)">28.4%</td>
+      <td class="c-r" style="background:var(--teal)">—</td>
+      <td class="c-r">↑ 14→28% worsening</td>
+    </tr>
+
+    <!-- ALPHA GUMMIES -->
+    <tr><td colspan="15" style="background:#37474F;color:#fff;padding:4px 10px;font-size:0.77rem;font-weight:700">Root Labs Alpha Gummies — RL Brand</td></tr>
+    <tr>
+      <td style="text-align:left"><strong>Alpha 60s</strong><br><span style="color:var(--muted);font-size:0.7rem">013_B0_N · COGS $1.50/u</span></td>
+      <td class="c">30,568</td><td class="ops-crit c">34.4%</td>
+      <td class="c">23,964</td><td class="ops-hi c">30.5%</td>
+      <td class="c">18,828</td><td class="ops-ok c">27.8%</td>
+      <td class="c" style="background:var(--teal)">8,052</td>
+      <td style="background:var(--teal)">$26.87</td>
+      <td style="background:var(--teal)">$2.52 (9.4%)</td>
+      <td style="background:var(--teal)">$4.37 (16.3%)</td>
+      <td class="ops-ok c bold" style="background:var(--teal)">26.8%</td>
+      <td style="background:var(--teal)">67.6%</td>
+      <td class="c-g">↓ 34.4→26.8%</td>
+    </tr>
+    <tr class="even">
+      <td style="text-align:left"><strong>Alpha 120s</strong><br><span style="color:var(--muted);font-size:0.7rem">014_B0_N · COGS $2.80/u</span></td>
+      <td class="c">6,826</td><td class="ops-ok c">27.1%</td>
+      <td class="c">5,858</td><td class="ops-ok c">26.4%</td>
+      <td class="c">6,908</td><td class="ops-ok c">23.7%</td>
+      <td class="c" style="background:var(--teal)">2,716</td>
+      <td style="background:var(--teal)">$47.31</td>
+      <td style="background:var(--teal)">$3.97 (8.4%)</td>
+      <td style="background:var(--teal)">$5.57 (11.8%)</td>
+      <td class="ops-ok c bold" style="background:var(--teal)">23.6%</td>
+      <td style="background:var(--teal)">70.5%</td>
+      <td class="c-g">↓ 27.1→23.6%</td>
+    </tr>
+
+    <!-- MAGASHWA -->
+    <tr><td colspan="15" style="background:#B71C1C;color:#fff;padding:4px 10px;font-size:0.77rem;font-weight:700">RL Magnesium + Ashwagandha (MagAshwa) — ⚠ CRITICAL: Inward 2× benchmark · Carton fix = 10 ppt improvement</td></tr>
+    <tr style="background:#FFF3E0">
+      <td style="text-align:left"><strong>MagAshwa 60s</strong><br><span style="color:var(--red);font-size:0.7rem">021_B0_N · COGS $2.18/u · Vol. wt penalty</span></td>
+      <td class="c">9,293</td><td class="ops-crit c">52.6%</td>
+      <td class="c">11,678</td><td class="ops-crit c">48.9%</td>
+      <td class="c">9,042</td><td class="ops-crit c">39.8%</td>
+      <td class="c" style="background:#FFCCBC">5,520</td>
+      <td style="background:#FFCCBC">$25.74</td>
+      <td class="c-r bold" style="background:#FFCCBC">$5.12 (19.9%)</td>
+      <td style="background:#FFCCBC">$4.03 (15.7%)</td>
+      <td class="ops-crit c bold" style="background:#FFCCBC">36.7%</td>
+      <td class="c-r bold" style="background:#FFCCBC">54.8%</td>
+      <td class="c-g">↓ 52.6→36.7%<br><span style="font-size:0.7rem">Still needs fix</span></td>
+    </tr>
+
+    <!-- SHILAJIT -->
+    <tr><td colspan="15" style="background:#37474F;color:#fff;padding:4px 10px;font-size:0.77rem;font-weight:700">BW Shilajit Gummies — Be Bodywise Brand</td></tr>
+    <tr>
+      <td style="text-align:left"><strong>Shilajit 60s</strong><br><span style="color:var(--muted);font-size:0.7rem">003_B0_N · COGS $1.40/u</span></td>
+      <td class="c">5,690</td><td class="ops-hi c">33.3%</td>
+      <td class="c">5,149</td><td class="ops-hi c">32.2%</td>
+      <td class="c">4,920</td><td class="ops-hi c">31.0%</td>
+      <td class="c" style="background:var(--teal)">1,625</td>
+      <td style="background:var(--teal)">$26.07</td>
+      <td style="background:var(--teal)">$2.27 (8.7%)</td>
+      <td style="background:var(--teal)">$4.46 (17.1%)</td>
+      <td class="ops-hi c bold" style="background:var(--teal)">30.8%</td>
+      <td style="background:var(--teal)">63.8%</td>
+      <td class="c-g">↓ 33.3→30.8%</td>
+    </tr>
+    <tr class="even">
+      <td style="text-align:left"><strong>Shilajit 120s</strong><br><span style="color:var(--muted);font-size:0.7rem">022_B0_N · COGS $2.72/u</span></td>
+      <td class="c">3,563</td><td class="ops-hi c">32.8%</td>
+      <td class="c">2,537</td><td class="ops-hi c">32.7%</td>
+      <td class="c">2,022</td><td class="ops-hi c">31.6%</td>
+      <td class="c" style="background:var(--teal)">908</td>
+      <td style="background:var(--teal)">$40.39</td>
+      <td style="background:var(--teal)">$3.68 (9.1%)</td>
+      <td style="background:var(--teal)">$5.66 (14.0%)</td>
+      <td class="ops-hi c bold" style="background:var(--teal)">31.6%</td>
+      <td style="background:var(--teal)">61.6%</td>
+      <td>→ 32.8→31.6% flat</td>
+    </tr>
+
+    <!-- SEAMOSS -->
+    <tr><td colspan="15" style="background:#37474F;color:#fff;padding:4px 10px;font-size:0.77rem;font-weight:700">RL Seamoss Gummies — Root Labs Brand · Low ASP risk</td></tr>
+    <tr>
+      <td style="text-align:left"><strong>Seamoss 60s</strong><br><span style="color:var(--amber);font-size:0.7rem">004_B0_N · COGS $1.31/u · ASP $19 — floor risk</span></td>
+      <td class="c">4,866</td><td class="ops-crit c">38.3%</td>
+      <td class="c">4,027</td><td class="ops-crit c">38.3%</td>
+      <td class="c">3,722</td><td class="ops-ok c">28.2%</td>
+      <td class="c" style="background:var(--teal)">1,366</td>
+      <td style="background:var(--teal)">$19.36</td>
+      <td style="background:var(--teal)">$3.51 (18.1%)</td>
+      <td style="background:var(--teal)">$2.98 (15.4%)</td>
+      <td class="ops-crit c bold" style="background:var(--teal)">36.6%</td>
+      <td class="c-r bold" style="background:var(--teal)">56.6%</td>
+      <td class="c-r">↑ Vol. declining, ops% volatile</td>
+    </tr>
+    <tr class="even">
+      <td style="text-align:left"><strong>Seamoss 120s</strong><br><span style="color:var(--muted);font-size:0.7rem">007_B0_N · COGS $2.53/u</span></td>
+      <td class="c">560</td><td class="ops-ok c">28.7%</td>
+      <td class="c">404</td><td class="ops-ok c">22.9%</td>
+      <td class="c">404</td><td class="ops-ok c">23.0%</td>
+      <td class="c" style="background:var(--teal)">148</td>
+      <td style="background:var(--teal)">$39.79</td>
+      <td style="background:var(--teal)">$4.82 (12.1%)</td>
+      <td style="background:var(--teal)">$3.12 (7.8%)</td>
+      <td class="ops-ok c bold" style="background:var(--teal)">22.7%</td>
+      <td style="background:var(--teal)">70.9%</td>
+      <td class="c-g">↓ 28.7→22.7%</td>
+    </tr>
+
+    <!-- OTHERS -->
+    <tr><td colspan="15" style="background:#546E7A;color:#fff;padding:4px 10px;font-size:0.77rem;font-weight:700">Other Active SKUs</td></tr>
+    <tr>
+      <td style="text-align:left"><strong>Turmeric 60s</strong><br><span style="color:var(--muted);font-size:0.7rem">005_B0_N · COGS $1.52/u</span></td>
+      <td class="c">449</td><td class="ops-crit c">40.2%</td>
+      <td class="c">442</td><td class="ops-hi c">31.5%</td>
+      <td class="c">531</td><td class="ops-hi c">34.8%</td>
+      <td class="c" style="background:var(--teal)">160</td>
+      <td style="background:var(--teal)">$18.40</td>
+      <td style="background:var(--teal)">$2.13 (11.6%)</td>
+      <td style="background:var(--teal)">$1.68 (9.1%)</td>
+      <td class="ops-hi c bold" style="background:var(--teal)">29.8%</td>
+      <td style="background:var(--teal)">61.9%</td>
+      <td class="c-g">↓ 40.2→29.8%</td>
+    </tr>
+
+    </tbody>
+  </table>
+  <div style="font-size:0.75rem;color:var(--muted);margin-top:8px;line-height:1.6;">
+    ¹ BB Roll On 50ml (025) COGS estimated from code 027 (same product, different Uniware code). &nbsp;|&nbsp;
+    ² GM% = (ASP − COGS − Inward − Duty − Outward) ÷ ASP. Jun 1–14 values only (COGS from shipment average). &nbsp;|&nbsp;
+    Ops% = (Inward + Duty + Outward) ÷ Revenue — excludes COGS, platform fees, India WH costs.
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Key Observations — M-o-M Unit Economics</div>
+  <div class="two-col" style="margin-top:12px;">
+    <div>
+      <div class="callout green">
+        <strong>BB Roll On 25ml — Consistent improvement, portfolio anchor</strong><br>
+        Ops% fell from 22.5% (March) → 17.3% (Jun 1-14). Inward dropped $0.68→$0.48; outward $4.08→$3.65. COGS only $0.75 (3%). At $24.65 ASP, GM = 79.7%. <strong>Scale this SKU.</strong>
+      </div>
+      <div class="callout green">
+        <strong>Alpha 60s — Recovering from 34.4% in March</strong><br>
+        Ops% down 7.6 ppt over 4 months (34.4% → 26.8%). Inward improving ($2.80 → $2.52). Outward still high at $4.37/u. FBT push should get to 23–24% target.
+      </div>
+      <div class="callout green" style="border-left-color:#0B5239">
+        <strong>BB Roll On 50ml — Best unit economics in portfolio</strong><br>
+        Ops% 12.6%, GM 83.2%. ASP $37.04. Very low ops cost per unit. Declining volume (3,734 → 988 units in 14 days) is the only risk. Multi-pack + FBT = volume recovery lever.
+      </div>
+    </div>
+    <div>
+      <div class="callout red">
+        <strong>MagAshwa — Improved from 52.6% in March but still critical at 36.7%</strong><br>
+        Was catastrophically high in March (52.6%!). Came down via inward reduction ($6.94 → $5.12). But still 10 ppt above Alpha 60s. Root cause: volumetric weight penalty on carton. Fix now = another ~10 ppt drop.
+      </div>
+      <div class="callout" style="border-left-color:#E65100">
+        <strong>Seamoss 60s — Volatile, at-risk SKU</strong><br>
+        Ops% oscillates: 38.3% March → 28.2% May (great!) → 36.6% Jun (back up). ASP only $19.36. This SKU has no pricing headroom to absorb ops cost swings. Consider price increase or exit.
+      </div>
+      <div class="callout" style="border-left-color:#B71C1C">
+        <strong>BB HGS Roll On 25ml — Carrier minimum trap</strong><br>
+        Volume fell 849 → 92 units in 14 days. Outward/unit went $2.09 → $4.71 because carrier minimum charge kicks in below ~300 units/fortnight. If volume stays below 200/fortnight: <strong>consider discontinuation or merge onto BB Roll On 25ml carrier lane.</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= TAB 2: MAGASHWA LEVERS ======= -->
+<div id="magashwa" class="tab-pane">
+  <div class="section-title">MagAshwa — Ops% Lever Analysis</div>
+
+  <div class="callout red">
+    <strong>Current state: 36.7% ops% — worst in portfolio by 10+ ppt.</strong>
+    At 5,520 units in 14 days (~11,040/month), this is costing an extra ~$114K/month in ops vs if it performed like Alpha 60s (26.8%). The inward alone ($5.12/unit) is the single biggest lever — 2× higher than Alpha 60s ($2.52).
+  </div>
+
+  <div class="section-title" style="margin-top:16px;">Root Cause Breakdown</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Cost Component</th>
+        <th>MagAshwa (current)</th>
+        <th>Alpha 60s (benchmark)</th>
+        <th>Delta / unit</th>
+        <th>Root Cause</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="l"><strong>Inward / unit</strong></td>
+        <td class="c-r bold">$5.12 (19.9%)</td>
+        <td class="c-g">$2.52 (9.4%)</td>
+        <td class="c-r bold">+$2.60 overcharge</td>
+        <td class="l">1) Volumetric weight penalty (box 15.1 kg vol vs 8.87 kg actual = 70% overcharge) &nbsp; 2) Not on Xindus supply chain (RL brand separate contract)</td>
+      </tr>
+      <tr>
+        <td class="l">Outward / unit</td>
+        <td>$4.03 (15.7%)</td>
+        <td class="c-g">$4.37 (16.3%)</td>
+        <td class="c-g">−$0.34 (ok)</td>
+        <td class="l">MagAshwa slightly cheaper outward than Alpha 60s. Channel mix similar.</td>
+      </tr>
+      <tr>
+        <td class="l">COGS / unit</td>
+        <td>$2.18 (8.5%)</td>
+        <td>$1.50 (5.6%)</td>
+        <td>+$0.68</td>
+        <td class="l">Higher ingredient cost (Ashwagandha + Magnesium). Expected, not a savings lever.</td>
+      </tr>
+      <tr>
+        <td class="l">Duty / unit</td>
+        <td>$0.30 (1.2%)</td>
+        <td>$0.32 (1.2%)</td>
+        <td>≈ 0</td>
+        <td class="l">Same — not a lever.</td>
+      </tr>
+      <tr class="total-row">
+        <td class="l">Total Ops%</td>
+        <td class="c-r bold">36.7%</td>
+        <td>26.8%</td>
+        <td class="c-r bold">+9.9 ppt overspend</td>
+        <td class="l">Fix inward = fix most of the gap.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="divider"></div>
+  <div class="section-title">Lever Scenarios — What Ops% Can We Achieve?</div>
+
+  <div class="scenario-grid">
+    <!-- Current -->
+    <div class="scenario-card current">
+      <div class="sc-title">📍 Current State</div>
+      <div class="sc-pct c-r">36.7%</div>
+      <div class="sc-saving">ops% of revenue (Jun 1–14 actual)</div>
+      <div class="sc-note">Inward: $5.12/u (19.9%)<br>Outward: $4.03/u (15.7%)<br>COGS: $2.18/u (8.5%)<br>Monthly ops cost: ~$112K</div>
+    </div>
+
+    <!-- Lever 1: Carton Redesign -->
+    <div class="scenario-card lever1">
+      <div class="sc-title">🔧 Lever 1: Carton Redesign Only</div>
+      <div class="sc-pct c-a">30.8%</div>
+      <div class="sc-saving c-g">Saves ~$32K/month · ~$6/unit saved</div>
+      <div class="sc-note">Current carton: 62×45×27 cm = 15.07 kg vol wt<br>Target: 45×35×27 cm = 10.94 kg vol wt<br>→ Billed on ACTUAL weight (8.87 kg)<br>Inward drops: $5.12 → $3.58/unit (−30%)</div>
+      <div class="sc-levers">
+        <div class="sc-lever-row"><span>New inward/unit</span><span class="c-g bold">$3.58 (13.9%)</span></div>
+        <div class="sc-lever-row"><span>Outward unchanged</span><span>$4.03 (15.7%)</span></div>
+        <div class="sc-lever-row"><span>Timeline</span><span>6–8 weeks (carton order)</span></div>
+      </div>
+    </div>
+
+    <!-- Lever 2: Xindus -->
+    <div class="scenario-card lever2">
+      <div class="sc-title">🔗 Lever 1 + 2: Carton + Xindus Supply Chain</div>
+      <div class="sc-pct" style="color:#1565C0">26.6%</div>
+      <div class="sc-saving c-g">Saves ~$55K/month vs current · ~$5/unit additional</div>
+      <div class="sc-note">After carton fix, Xindus onboarding reduces inward a further 20%.<br>Target inward = $2.87/unit → matches Alpha 60s benchmark ($2.52)</div>
+      <div class="sc-levers">
+        <div class="sc-lever-row"><span>New inward/unit</span><span class="c-g bold">$2.87 (11.1%)</span></div>
+        <div class="sc-lever-row"><span>Outward unchanged</span><span>$4.03 (15.7%)</span></div>
+        <div class="sc-lever-row"><span>Timeline</span><span>Carton 8 wk + Xindus 2–4 wk</span></div>
+      </div>
+    </div>
+
+    <!-- Combined: Carton + Xindus + D2C 1.5x -->
+    <div class="scenario-card combined">
+      <div class="sc-title">✅ Full Package: Carton + Xindus + D2C 1.5×</div>
+      <div class="sc-pct c-g">25.4%</div>
+      <div class="sc-saving c-g">Saves ~$62K/month vs current · 11.3 ppt improvement</div>
+      <div class="sc-note">D2C (ShipBob) outward: $3.51/u vs Amazon $4.45/u.<br>Scaling D2C 1.5× shifts channel mix → blended outward drops $4.03 → $3.82/u.<br>Combined: inward fix + Xindus + cheaper outward channel.</div>
+      <div class="sc-levers">
+        <div class="sc-lever-row"><span>New inward/unit</span><span class="c-g bold">$2.87 (11.1%)</span></div>
+        <div class="sc-lever-row"><span>New outward/unit (blended)</span><span class="c-g bold">$3.82 (14.8%)</span></div>
+        <div class="sc-lever-row"><span>Total ops%</span><span class="c-g bold">25.4%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Packaging Redesign Impact — MagAshwa Carton Sizing</div>
+  <table>
+    <thead>
+      <tr><th>Parameter</th><th>Current Carton</th><th class="c-g">Target Carton</th><th>Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="l">Box dimensions</td><td>62 × 45 × 27 cm</td><td class="c-g">45 × 35 × 27 cm (target)</td><td class="l">−29% volume reduction</td></tr>
+      <tr><td class="l">Volumetric weight</td><td class="c-r bold">15.07 kg (billed)</td><td class="c-g bold">10.94 kg (below actual)</td><td class="l">Charged on actual weight (8.87 kg)</td></tr>
+      <tr><td class="l">Actual weight / box</td><td>8.87 kg</td><td>8.87 kg (unchanged)</td><td class="l">—</td></tr>
+      <tr><td class="l">Freight billed per box</td><td class="c-r bold">15.07 kg × rate</td><td class="c-g bold">8.87 kg × rate (−41%)</td><td class="l">70% overcharge eliminated</td></tr>
+      <tr><td class="l">Inward / unit (18 units/box)</td><td class="c-r bold">$5.12</td><td class="c-g bold">~$3.58</td><td class="l">$1.54 saved per unit</td></tr>
+      <tr><td class="l">Monthly saving (11,040 units/mo)</td><td>—</td><td class="c-g bold">~$17,000/month</td><td class="l">At Jun rate × 2</td></tr>
+      <tr><td class="l">Annual saving</td><td>—</td><td class="c-g bold">~$204,000/year</td><td class="l">Carton design cost: ~$2,000–5,000 one-time</td></tr>
+    </tbody>
+  </table>
+  <div style="font-size:0.75rem;color:var(--muted);margin-top:6px;">Note: 18 units/box for MagAshwa (vs Alpha 60s at ~40 units/box — also a factor in per-unit inward cost)</div>
+</div>
+
+<!-- ======= TAB 3: PROJECTIONS ======= -->
+<div id="projections" class="tab-pane">
+  <div class="section-title">June &amp; July Ops% Projections — Scenario Analysis</div>
+  <div class="info-bar">All projections based on Jun 1–14 actual run-rate extrapolated to full month (×2.15). Revenue growth scenarios apply multipliers to individual SKU revenue lines.</div>
+
+  <div class="section-title" style="margin-top:16px">June 2026 — SKU-Level Projection (Full Month Estimate)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">SKU</th>
+        <th>Est. Monthly Rev<br><span style="font-weight:400;font-size:0.7rem">(×2.15 × Jun 1–14)</span></th>
+        <th>Current Ops%</th>
+        <th>Est. Ops Cost<br><span style="font-weight:400;font-size:0.7rem">base case</span></th>
+        <th>Ops% w/ HGR 1.5×<br><span style="font-weight:400;font-size:0.7rem">scale BB Roll On</span></th>
+        <th>Ops% w/ MagAshwa Fix<br><span style="font-weight:400;font-size:0.7rem">carton + Xindus</span></th>
+        <th>Revenue Share<br><span style="font-weight:400;font-size:0.7rem">of portfolio</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>BB Roll On 25ml</strong><br><span style="font-size:0.72rem;color:var(--muted)">Main revenue driver</span></td>
+        <td>$1,008K</td>
+        <td class="ops-lo">17.3%</td>
+        <td>$174K</td>
+        <td class="c-g bold">17.3% on $1,512K</td>
+        <td>17.3% (unchanged)</td>
+        <td>41%</td>
+      </tr>
+      <tr>
+        <td><strong>BB Roll On 50ml</strong></td>
+        <td>$79K</td>
+        <td class="ops-lo">12.6%</td>
+        <td>$10K</td>
+        <td>12.6% (unchanged)</td>
+        <td>12.6% (unchanged)</td>
+        <td>3%</td>
+      </tr>
+      <tr>
+        <td><strong>Alpha 60s</strong></td>
+        <td>$465K</td>
+        <td class="ops-ok">26.8%</td>
+        <td>$125K</td>
+        <td>26.8% (unchanged)</td>
+        <td>26.8% (unchanged)</td>
+        <td>19%</td>
+      </tr>
+      <tr>
+        <td><strong>Alpha 120s</strong></td>
+        <td>$276K</td>
+        <td class="ops-ok">23.6%</td>
+        <td>$65K</td>
+        <td>23.6% (unchanged)</td>
+        <td>23.6% (unchanged)</td>
+        <td>11%</td>
+      </tr>
+      <tr style="background:#FFF3E0">
+        <td><strong>MagAshwa 60s</strong><br><span style="font-size:0.72rem;color:var(--red)">Fix needed</span></td>
+        <td>$305K</td>
+        <td class="ops-crit">36.7%</td>
+        <td>$112K</td>
+        <td>36.7% (unchanged)</td>
+        <td class="c-g bold">26.6% → saves $31K/mo</td>
+        <td>12%</td>
+      </tr>
+      <tr>
+        <td><strong>Shilajit (60s + 120s)</strong></td>
+        <td>$171K</td>
+        <td class="ops-hi">31.2%</td>
+        <td>$53K</td>
+        <td>31.2% (unchanged)</td>
+        <td>31.2% (unchanged)</td>
+        <td>7%</td>
+      </tr>
+      <tr>
+        <td><strong>Seamoss (60s + 120s)</strong></td>
+        <td>$69K</td>
+        <td class="ops-crit">35.5%</td>
+        <td>$25K</td>
+        <td>35.5% (unchanged)</td>
+        <td>35.5% (unchanged)</td>
+        <td>3%</td>
+      </tr>
+      <tr>
+        <td><strong>Other SKUs</strong></td>
+        <td>$80K</td>
+        <td>~32%</td>
+        <td>$26K</td>
+        <td>~32%</td>
+        <td>~32%</td>
+        <td>3%</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Portfolio Total</strong></td>
+        <td><strong>$2,453K</strong></td>
+        <td class="ops-ok"><strong>23.9%</strong></td>
+        <td><strong>$590K</strong></td>
+        <td class="c-g bold">22.7% (+HGR 1.5×)</td>
+        <td class="c-g bold">22.6% (+MagAshwa fix)</td>
+        <td>100%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="divider"></div>
+  <div class="section-title">July 2026 — Combined Scenarios</div>
+  <div class="info-bar amber">July assumes levers activated mid-June: carton order placed now (8 wk lead time = ready Aug), but Xindus onboarding can start immediately (2–4 wk). Best case July uses Xindus + D2C scale; carton savings may lag to August.</div>
+
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-title" style="color:#9e9e9e">Base Case — July</div>
+      <div style="font-size:1.6rem;font-weight:800;color:var(--amber)">23.5%</div>
+      <div style="font-size:0.78rem;color:var(--muted);margin-bottom:8px">Flat from June — no levers activated</div>
+      <div class="proj-stat"><span>Projected Revenue</span><span class="proj-val">~$2,500K</span></div>
+      <div class="proj-stat"><span>Projected Ops Cost</span><span class="proj-val c-r">~$588K</span></div>
+      <div class="proj-stat"><span>MagAshwa ops%</span><span class="proj-val c-r">36.7%</span></div>
+      <div class="proj-stat"><span>BB Roll On ops%</span><span class="proj-val c-g">17.3%</span></div>
+    </div>
+    <div class="proj-card" style="border-top:3px solid #2196F3">
+      <div class="proj-title" style="color:#1565C0">Scenario A — HGR 1.5× + MagAshwa Xindus</div>
+      <div style="font-size:1.6rem;font-weight:800;color:#1565C0">21.5%</div>
+      <div style="font-size:0.78rem;color:var(--muted);margin-bottom:8px">Xindus activated, BB Roll On volume grows</div>
+      <div class="proj-stat"><span>Projected Revenue</span><span class="proj-val">~$2,960K</span></div>
+      <div class="proj-stat"><span>Projected Ops Cost</span><span class="proj-val c-a">~$637K</span></div>
+      <div class="proj-stat"><span>MagAshwa ops%</span><span class="proj-val c-a">28.0% (Xindus only)</span></div>
+      <div class="proj-stat"><span>BB Roll On ops%</span><span class="proj-val c-g">17.3%</span></div>
+      <div class="proj-stat"><span>vs Base Case</span><span class="proj-val c-g">Save ~$49K/mo</span></div>
+    </div>
+    <div class="proj-card" style="border-top:3px solid #2e7d32">
+      <div class="proj-title" style="color:#1B5E20">Scenario B — Full Package (Aug target)</div>
+      <div style="font-size:1.6rem;font-weight:800;color:var(--green)">20.2%</div>
+      <div style="font-size:0.78rem;color:var(--muted);margin-bottom:8px">Carton + Xindus + HGR 1.5× + Multi-unit push</div>
+      <div class="proj-stat"><span>Projected Revenue</span><span class="proj-val">~$3,100K</span></div>
+      <div class="proj-stat"><span>Projected Ops Cost</span><span class="proj-val c-g">~$626K</span></div>
+      <div class="proj-stat"><span>MagAshwa ops%</span><span class="proj-val c-g">25.4% (carton + Xindus + D2C)</span></div>
+      <div class="proj-stat"><span>BB Roll On ops%</span><span class="proj-val c-g">17.3%</span></div>
+      <div class="proj-stat"><span>vs Base Case</span><span class="proj-val c-g">Save ~$70K/mo</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">MagAshwa — D2C 1.5× Scale Impact (Detailed)</div>
+  <table>
+    <thead>
+      <tr><th>Channel</th><th>Current Units/mo</th><th>D2C 1.5× Units</th><th>Outward/unit</th><th>Outward Cost</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="l">Amazon FBA</td>
+        <td>2,760</td>
+        <td>2,760 (unchanged)</td>
+        <td>$4.45</td>
+        <td>$12,282</td>
+      </tr>
+      <tr>
+        <td class="l">TikTok FBT</td>
+        <td>1,380</td>
+        <td>1,380 (unchanged)</td>
+        <td>$3.85</td>
+        <td>$5,313</td>
+      </tr>
+      <tr>
+        <td class="l"><strong>D2C (ShipBob)</strong></td>
+        <td>1,380</td>
+        <td class="c-g bold">2,070 (+1.5×)</td>
+        <td class="c-g">$3.51</td>
+        <td class="c-g">$7,266</td>
+      </tr>
+      <tr class="sub-row">
+        <td class="l">Total / Blended</td>
+        <td>5,520</td>
+        <td>6,210 (+12.5%)</td>
+        <td>$4.03 → $3.99</td>
+        <td>Blended saves ~$0.04/unit</td>
+      </tr>
+      <tr class="total-row">
+        <td class="l">Outward% of Rev</td>
+        <td>15.7%</td>
+        <td>15.3%</td>
+        <td colspan="2" class="l">−0.4 ppt from D2C mix alone. Main benefit is REVENUE growth + platform fee savings (no Amazon 15%).</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:0.75rem;color:var(--muted);margin-top:6px;">The bigger D2C benefit is removing Amazon referral fees (~15%) and improving customer LTV through repeat orders. Ops% improvement from channel shift alone is marginal (~0.4 ppt).</div>
+</div>
+
+<!-- ======= TAB 4: MULTI-UNIT ======= -->
+<div id="multi-unit" class="tab-pane">
+  <div class="section-title">Multi-Unit Strategy — Why Bundles Improve Ops%</div>
+  <div class="info-bar">Multi-unit packs (Pack of 2) improve economics by: (1) amortising outward logistics over more units, (2) raising ASP which dilutes fixed inward cost %. Key metric: ops% should drop significantly on Pack of 2 vs single.</div>
+
+  <div class="callout">
+    <strong>How multi-unit packs work in ops:</strong><br>
+    Single unit: 1 unit shipped → 1× outward fulfillment fee (e.g. $4.37 for Alpha 60s).<br>
+    Pack of 2: 2 units shipped together → 1× fulfillment fee split across 2 units = $2.19 effective outward per unit.<br>
+    Net result: outward% of revenue drops ~50% for the bundled units, often improving ops% by 5–8 ppt.
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%">SKU / Bundle</th>
+        <th>Single Unit ASP</th>
+        <th>Pack of 2 ASP<br><span style="font-weight:400;font-size:0.7rem">(est. 1.9× single)</span></th>
+        <th>COGS (×2)</th>
+        <th>Inward/unit<br><span style="font-weight:400;font-size:0.7rem">(shared per pack)</span></th>
+        <th>Outward/unit<br><span style="font-weight:400;font-size:0.7rem">(÷ 2 for bundle)</span></th>
+        <th>Single Ops%</th>
+        <th>Est. Bundle Ops%</th>
+        <th>Ops% Improvement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Alpha 60s → Pack of 2</strong><br><span style="font-size:0.72rem;color:var(--muted)">Code: 018 (Alpha+Seamoss) exists</span></td>
+        <td>$26.87</td>
+        <td>$51.00 (est.)</td>
+        <td>$3.00</td>
+        <td>$2.52 (shared)</td>
+        <td>$2.19 (÷2)</td>
+        <td class="ops-ok">26.8%</td>
+        <td class="c-g bold ops-lo">~19.8%</td>
+        <td class="c-g bold">−7.0 ppt</td>
+      </tr>
+      <tr style="background:#FFF3E0">
+        <td><strong>MagAshwa 60s → Pack of 2</strong><br><span style="font-size:0.72rem;color:var(--muted)">Code 040 exists in COGS file (COGS $4.44)</span></td>
+        <td>$25.74</td>
+        <td>$48.91 (est.)</td>
+        <td>$4.44</td>
+        <td class="c-r">$5.12 (2× inward)</td>
+        <td>$2.02 (÷2)</td>
+        <td class="ops-crit">36.7%</td>
+        <td class="c-a bold ops-hi">~29.6%</td>
+        <td class="c-a">−7.1 ppt</td>
+      </tr>
+      <tr style="background:#FFF3E0">
+        <td><strong>MagAshwa 60s → Pack of 2 + Carton Fix</strong><br><span style="font-size:0.72rem;color:#1B5E20">Best case: fix inward THEN bundle</span></td>
+        <td>$25.74</td>
+        <td>$48.91</td>
+        <td>$4.44</td>
+        <td class="c-g">$2.87 (fixed inward)</td>
+        <td class="c-g">$2.02 (÷2)</td>
+        <td class="ops-crit">36.7%</td>
+        <td class="c-g bold ops-ok">~22.7%</td>
+        <td class="c-g bold">−14.0 ppt</td>
+      </tr>
+      <tr>
+        <td><strong>BB Roll On 25ml → Pack of 2</strong><br><span style="font-size:0.72rem;color:var(--muted)">Code 027K exists (COGS $1.69)</span></td>
+        <td>$24.65</td>
+        <td>$46.84 (est.)</td>
+        <td>$1.69</td>
+        <td>$0.48 (shared)</td>
+        <td>$1.83 (÷2)</td>
+        <td class="ops-lo">17.3%</td>
+        <td class="c-g bold ops-lo">~9.2%</td>
+        <td class="c-g bold">−8.1 ppt</td>
+      </tr>
+      <tr>
+        <td><strong>Alpha 120s → Pack of 2</strong><br><span style="font-size:0.72rem;color:var(--muted)">Code 014K exists (COGS $5.71)</span></td>
+        <td>$47.31</td>
+        <td>$89.89 (est.)</td>
+        <td>$5.71</td>
+        <td>$3.97 (shared)</td>
+        <td>$2.79 (÷2)</td>
+        <td class="ops-ok">23.6%</td>
+        <td class="c-g bold ops-lo">~15.2%</td>
+        <td class="c-g bold">−8.4 ppt</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="font-size:0.75rem;color:var(--muted);margin-top:6px;">
+    Outward ÷ 2 assumes both units ship in single fulfillment. Amazon FBA multi-unit fee may be slightly higher than single (weight surcharge), so actual saving is ~40–50% per unit, not exactly 50%.
+    Inward for Pack of 2 = same inward as 2 singles since they're shipped together from India (1 customs entry, 1 freight charge).
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Recommended Multi-Unit Priority</div>
+  <table class="lever-table">
+    <thead>
+      <tr><th>Priority</th><th>Bundle</th><th>Why</th><th>Est. Ops% Improvement</th><th>Effort</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="c bold" style="color:#1B5E20">1</td>
+        <td class="lever-name">BB Roll On 25ml Pack of 2</td>
+        <td class="l">Already at 17.3% → drops to ~9.2%. Highest volume SKU. Bundle already exists (code 027K).</td>
+        <td class="impact-hi">−8.1 ppt</td>
+        <td class="effort-lo">Low — SKU exists</td>
+        <td class="l"><span class="tag tag-g">Activate listing now</span></td>
+      </tr>
+      <tr>
+        <td class="c bold" style="color:#1565C0">2</td>
+        <td class="lever-name">Alpha 120s Pack of 2</td>
+        <td class="l">High ASP bundle at $90. Ops% drops from 23.6% → 15.2%. Code 014K exists.</td>
+        <td class="impact-hi">−8.4 ppt</td>
+        <td class="effort-lo">Low — SKU exists</td>
+        <td class="l"><span class="tag tag-b">Activate listing</span></td>
+      </tr>
+      <tr>
+        <td class="c bold" style="color:#E65100">3</td>
+        <td class="lever-name">MagAshwa Pack of 2 (after carton fix)</td>
+        <td class="l">Fix carton FIRST (inward $5.12 → $2.87), THEN bundle → 22.7%. Bundling before carton fix only gets to 29.6%.</td>
+        <td class="impact-hi">−14 ppt (combined)</td>
+        <td class="effort-hi">Med — sequence carton fix → bundle</td>
+        <td class="l"><span class="tag tag-a">Fix carton first, then bundle Aug</span></td>
+      </tr>
+      <tr>
+        <td class="c bold" style="color:#9e9e9e">4</td>
+        <td class="lever-name">Alpha 60s Pack of 2</td>
+        <td class="l">Combo with Seamoss (code 018) exists. Ops% drops to ~19.8%.</td>
+        <td class="impact-med">−7.0 ppt</td>
+        <td class="effort-lo">Low — SKU exists</td>
+        <td class="l"><span class="tag tag-b">Test TikTok first</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
