@@ -1906,127 +1906,127 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 </div>
 
 <div id="tab-multiunit" class="tab-pane">
-<div class="sh" style="background:#1565C0;font-size:1.05rem">Multi-Unit Strategy — Pack Economics &amp; Priority SKUs</div>
-<div class="ib">Selling prices from FBT catalogue. Pack COGS from SKU_avg_Shipment_COGS.xlsx where available. Outward = shared shipment estimate. Net% = (SP − COGS − Inward − Outward) ÷ SP pre platform fee. MagAshwa shown <strong>post carton fix</strong> (Inward $3.03/u vs $5.10 current).</div>
-<!-- Multi-Unit Strategy -->
-<div class="sh" style="background:#1565C0;margin-top:18px">Multi-Unit Strategy — Pack Economics &amp; Priority SKUs</div>
-<div class="ib">Selling prices from FBT catalogue. Pack COGS from SKU_avg_Shipment_COGS.xlsx (where available). Outward for packs estimated at ~1.1–1.2× single (shared shipment). Net% = (SP − COGS − Inward − Outward) ÷ SP. MagAshwa figures shown post carton fix.</div>
+<div class="sh" style="background:#1565C0;font-size:1.05rem">FBT vs FBS (ShipBob) — Actual Channel-Level Freight Analysis</div>
+<div class="ib" style="background:#E3F2FD;border-left:4px solid #1565C0">
+  Source: TikTok FBT report (actual freight, not estimated). FBT = Fulfilled by TikTok &nbsp;|&nbsp; FBS = Fulfilled by ShipBob.
+  <strong>FBT is cheaper than FBS for every SKU at every pack size.</strong>
+  Outward% = freight ÷ item revenue. TikTok incremental benefit = cofunding/program credit — reduces effective FBT cost further.
+</div>
+
+<!-- SUMMARY CALLOUT -->
+<div style="display:flex;gap:12px;margin:12px 0;flex-wrap:wrap">
+  <div style="flex:1;min-width:160px;background:#0B5239;color:#fff;border-radius:6px;padding:14px 16px;text-align:center">
+    <div style="font-size:11px;letter-spacing:2px;opacity:0.8">TOTAL ORDERS ANALYSED</div>
+    <div style="font-size:24px;font-weight:700">43,985</div>
+    <div style="font-size:11px;opacity:0.8">units across 10 SKUs</div>
+  </div>
+  <div style="flex:1;min-width:160px;background:#1565C0;color:#fff;border-radius:6px;padding:14px 16px;text-align:center">
+    <div style="font-size:11px;letter-spacing:2px;opacity:0.8">TOTAL REVENUE</div>
+    <div style="font-size:24px;font-weight:700">$1,064K</div>
+    <div style="font-size:11px;opacity:0.8">item revenue in period</div>
+  </div>
+  <div style="flex:1;min-width:160px;background:#2E7D32;color:#fff;border-radius:6px;padding:14px 16px;text-align:center">
+    <div style="font-size:11px;letter-spacing:2px;opacity:0.8">FBT SAVES vs FBS</div>
+    <div style="font-size:24px;font-weight:700">$31,094</div>
+    <div style="font-size:11px;opacity:0.8">2.1pp on freight</div>
+  </div>
+  <div style="flex:1;min-width:160px;background:#D6E4DA;color:#0B5239;border-radius:6px;padding:14px 16px;text-align:center">
+    <div style="font-size:11px;letter-spacing:2px;opacity:0.7">FBT INC. BENEFIT</div>
+    <div style="font-size:24px;font-weight:700">$8,506</div>
+    <div style="font-size:11px;opacity:0.7">TikTok cofunding credit</div>
+  </div>
+</div>
+
+<!-- KEY INSIGHT: Multi-pack -->
+<div class="ib" style="background:#FFF8E1;border-left:4px solid #F9A825;margin-bottom:12px">
+  <strong>Key Multi-Pack Insight:</strong> FBT charges roughly the same per ORDER regardless of pack size (slight increase for heavier packs). So per-unit outward drops dramatically with higher pack sizes:
+  <span style="color:#C62828;font-weight:700"> MagAshwa Pack 1 → 25.2% FBT, Pack 6 → 6.7%</span> (−18.5pp) &nbsp;|&nbsp;
+  <span style="color:#C62828;font-weight:700"> BB Roll On 25ml Pack 1 → 16.1%, Pack 6 → 4.0%</span> (−12.1pp) &nbsp;|&nbsp;
+  <span style="color:#C62828;font-weight:700"> Alpha 60N Pack 1 → 19.2%, Pack 3 → 6.2%</span> (−13pp). Activate multi-pack listings aggressively — each order shifted to Pack 2+ saves 6–18pp on outward.
+</div>
+
 <table>
   <thead>
     <tr style="background:#1565C0;color:#fff">
-      <th style="width:130px;text-align:left">SKU</th>
-      <th>Variation</th>
-      <th class="r">Sell Price</th>
-      <th class="r">COGS</th>
-      <th class="r">Inward</th>
-      <th class="r">Outward</th>
-      <th class="c">Ops%</th>
-      <th class="r">Net/pack</th>
-      <th class="c">Net%</th>
-      <th class="c">vs Single</th>
+      <th style="text-align:left;width:160px">Pack Size</th>
+      <th class="r">Units</th>
+      <th class="r">Rev</th>
+      <th class="r" style="background:#1B5E20">FBT Out%</th>
+      <th class="r" style="background:#0D47A1;font-size:9px">After TikTok<br>Inc. Benefit</th>
+      <th class="r" style="background:#B71C1C">FBS Out%</th>
+      <th class="r" style="background:#2E7D32">FBT better by</th>
+      <th class="r" style="background:#2E7D32">$ Saving</th>
+      <th class="c" style="background:#4A148C">vs Pack 1</th>
     </tr>
   </thead>
   <tbody>
-    <!-- BB Roll On 25ml -->
-    <tr><td colspan="10" style="background:#263238;color:#fff;font-weight:700;padding:5px 8px">BB Roll On 25ml &nbsp;·&nbsp; FBT (TikTok) Channel &nbsp;<span class="badge" style="background:#D4EDDA;color:#155724">3 pack variants live</span></td></tr>
-    <tr class="even">
-      <td>BB Roll On 25ml</td><td>Single × 1</td><td class="r">$25.64</td>
-      <td class="r">$0.75</td><td class="r">$0.48</td><td class="r">$3.71</td>
-      <td class="c c-a">16.4%</td><td class="r">$20.70</td><td class="c">80.7%</td><td class="c">Baseline</td>
-    </tr>
-    <tr>
-      <td>BB Roll On 25ml</td><td>Pack of 2 · FBT</td><td class="r">$46.15</td>
-      <td class="r">$1.69</td><td class="r">$0.96</td><td class="r">$3.80</td>
-      <td class="c c-g"><b>10.1%</b></td><td class="r ue-nm-g"><b>$39.70</b></td><td class="c ue-nm-g"><b>86.0%</b></td>
-      <td class="c c-g">+5.3pp</td>
-    </tr>
-    <tr class="even">
-      <td>BB Roll On 25ml</td><td>Pack of 4 · FBT</td><td class="r">$78.46</td>
-      <td class="r">$3.00</td><td class="r">$1.92</td><td class="r">$4.20</td>
-      <td class="c c-g"><b>7.8%</b></td><td class="r ue-nm-g"><b>$69.34</b></td><td class="c ue-nm-g"><b>88.4%</b></td>
-      <td class="c c-g">+7.7pp</td>
-    </tr>
-    <tr>
-      <td>BB Roll On 25ml</td><td>Pack of 6 · ShipBob</td><td class="r">$117.69</td>
-      <td class="r">$4.50</td><td class="r">$2.88</td><td class="r">$5.00</td>
-      <td class="c c-g"><b>6.7%</b></td><td class="r ue-nm-g"><b>$105.31</b></td><td class="c ue-nm-g"><b>89.5%</b></td>
-      <td class="c c-g">+8.8pp</td>
-    </tr>
-    <!-- MagAshwa post carton fix -->
-    <tr><td colspan="10" style="background:#7B1A1A;color:#fff;font-weight:700;padding:5px 8px">MagAshwa 60s &nbsp;·&nbsp; FBT Channel &nbsp;<span class="badge bg-a">Post carton fix — Inward $3.03/u</span></td></tr>
-    <tr class="even">
-      <td>MagAshwa 60s</td><td>Single × 1 (current)</td><td class="r">$27.99</td>
-      <td class="r">$2.18</td><td class="r c-r"><b>$5.10</b></td><td class="r">$4.20</td>
-      <td class="c c-r"><b>33.2%</b></td><td class="r ue-nm-r">$16.51</td><td class="c ue-nm-r">59.0%</td>
-      <td class="c c-r">Current</td>
-    </tr>
-    <tr>
-      <td>MagAshwa 60s</td><td>Single × 1 (post carton)</td><td class="r">$27.99</td>
-      <td class="r">$2.18</td><td class="r c-a">$3.03</td><td class="r">$4.20</td>
-      <td class="c c-a"><b>25.8%</b></td><td class="r ue-nm-a">$18.58</td><td class="c ue-nm-a">66.4%</td>
-      <td class="c c-g">+7.4pp</td>
-    </tr>
-    <tr class="even">
-      <td>MagAshwa 60s</td><td>Pack of 2 · FBT</td><td class="r">$54.99</td>
-      <td class="r">$4.44</td><td class="r">$6.06</td><td class="r c-g">$4.40</td>
-      <td class="c c-g"><b>19.0%</b></td><td class="r ue-nm-g"><b>$40.09</b></td><td class="c ue-nm-g"><b>72.9%</b></td>
-      <td class="c c-g">+6.5pp</td>
-    </tr>
-    <tr>
-      <td>MagAshwa 60s</td><td>Pack of 3 · ShipBob</td><td class="r">$71.99</td>
-      <td class="r">$6.54</td><td class="r">$9.09</td><td class="r c-g">$4.60</td>
-      <td class="c c-g"><b>19.0%</b></td><td class="r ue-nm-g"><b>$51.76</b></td><td class="c ue-nm-g"><b>71.9%</b></td>
-      <td class="c c-g">+5.5pp</td>
-    </tr>
-    <tr class="even">
-      <td>MagAshwa 60s</td><td>Pack of 4 · ShipBob</td><td class="r">$89.99</td>
-      <td class="r">$8.72</td><td class="r">$12.12</td><td class="r c-g">$5.00</td>
-      <td class="c c-g"><b>19.0%</b></td><td class="r ue-nm-g"><b>$64.15</b></td><td class="c ue-nm-g"><b>71.3%</b></td>
-      <td class="c c-g">+5.0pp</td>
-    </tr>
-    <tr>
-      <td>MagAshwa 60s</td><td>MagAshwa + Alpha60 Combo</td><td class="r">$46.99</td>
-      <td class="r">$3.68</td><td class="r">$3.75</td><td class="r c-g">$4.40</td>
-      <td class="c c-g"><b>17.3%</b></td><td class="r ue-nm-g"><b>$35.16</b></td><td class="c ue-nm-g"><b>74.8%</b></td>
-      <td class="c c-g">Best combo</td>
-    </tr>
-    <!-- Alpha 120s -->
-    <tr><td colspan="10" style="background:#263238;color:#fff;font-weight:700;padding:5px 8px">Alpha 120s &nbsp;·&nbsp; FBT Channel</td></tr>
-    <tr class="even">
-      <td>Alpha 120s</td><td>Single × 1</td><td class="r">$42.78</td>
-      <td class="r">$2.80</td><td class="r">$1.05</td><td class="r">$4.94</td>
-      <td class="c c-a">14.0%</td><td class="r">$33.99</td><td class="c">79.5%</td><td class="c">Baseline</td>
-    </tr>
-    <tr>
-      <td>Alpha 120s</td><td>Pack of 2 · FBT</td><td class="r">$73.89</td>
-      <td class="r">$5.71</td><td class="r">$2.10</td><td class="r c-g">$5.20</td>
-      <td class="c c-g"><b>9.9%</b></td><td class="r ue-nm-g"><b>$60.88</b></td><td class="c ue-nm-g"><b>82.4%</b></td>
-      <td class="c c-g">+2.9pp</td>
-    </tr>
-    <!-- BW Shilajit -->
-    <tr><td colspan="10" style="background:#263238;color:#fff;font-weight:700;padding:5px 8px">BW Shilajit 60s &nbsp;·&nbsp; ShipBob Channel</td></tr>
-    <tr class="even">
-      <td>BW Shilajit 60s</td><td>Single × 1</td><td class="r">$23.27</td>
-      <td class="r">$1.40</td><td class="r">$0.52</td><td class="r">$4.47</td>
-      <td class="c c-a">21.4%</td><td class="r">$16.88</td><td class="c">72.5%</td><td class="c">Baseline</td>
-    </tr>
-    <tr>
-      <td>BW Shilajit 60s</td><td>Pack of 4 · ShipBob</td><td class="r">$71.98</td>
-      <td class="r">$5.60</td><td class="r">$2.08</td><td class="r c-g">$5.20</td>
-      <td class="c c-g"><b>10.1%</b></td><td class="r ue-nm-g"><b>$59.10</b></td><td class="c ue-nm-g"><b>82.1%</b></td>
-      <td class="c c-g">+9.6pp</td>
-    </tr>
-    <tr class="even">
-      <td>BW Shilajit 60s</td><td>Pack of 6 · ShipBob</td><td class="r">$102.30</td>
-      <td class="r">$8.40</td><td class="r">$3.12</td><td class="r c-g">$5.80</td>
-      <td class="c c-g"><b>8.7%</b></td><td class="r ue-nm-g"><b>$84.98</b></td><td class="c ue-nm-g"><b>83.1%</b></td>
-      <td class="c c-g">+10.6pp</td>
+<tr><td colspan="9" style="background:#263238;color:#fff;font-weight:700;padding:5px 8px">BB Roll On 50ml — Actual FBT vs FBS freight (TikTok report) &nbsp;<span class="badge bg-g">BB Roll On 50ml</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$99 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">367</td><td style="text-align:right;padding:6px 8px">$16K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">10.1%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">9.5%</td><td style="text-align:right;padding:6px 8px;color:#C62828">11.6%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+1.6pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$351</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 2 <span style="color:#1565C0;font-size:9px">(+$34 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">262</td><td style="text-align:right;padding:6px 8px">$10K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">6.0%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">5.6%</td><td style="text-align:right;padding:6px 8px;color:#C62828">7.4%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+1.5pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$180</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−4.1pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">629</td><td style="text-align:right;font-weight:700;color:#0B5239">$26K</td><td style="text-align:right;font-weight:700;color:#0B5239">8.5%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">10.1%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+1.5pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$531</td><td></td></tr>
+<tr><td colspan="9" style="background:#263238;color:#fff;font-weight:700;padding:5px 8px">BB Roll On 25ml — Actual FBT vs FBS freight (TikTok report) &nbsp;<span class="badge bg-g">BB Roll On 25ml</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$3,903 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">14,598</td><td style="text-align:right;padding:6px 8px">$379K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">16.1%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">15.1%</td><td style="text-align:right;padding:6px 8px;color:#C62828">19.3%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+3.2pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$16,025</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 2 <span style="color:#1565C0;font-size:9px">(+$799 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">5,096</td><td style="text-align:right;padding:6px 8px">$112K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">10.2%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">9.5%</td><td style="text-align:right;padding:6px 8px;color:#C62828">13.2%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+3.1pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$4,231</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−5.9pp</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 4 <span style="color:#1565C0;font-size:9px">(+$130 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">1,712</td><td style="text-align:right;padding:6px 8px">$34K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">5.9%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">5.5%</td><td style="text-align:right;padding:6px 8px;color:#C62828">8.1%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+2.2pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$857</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−10.2pp</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 6 </td><td style="text-align:right;padding:6px 8px">1,026</td><td style="text-align:right;padding:6px 8px">$20K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">4.0%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">6.2%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+2.2pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$445</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−12.1pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">22,432</td><td style="text-align:right;font-weight:700;color:#0B5239">$545K</td><td style="text-align:right;font-weight:700;color:#0B5239">13.8%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">16.9%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+3.1pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$21,558</td><td></td></tr>
+<tr><td colspan="9" style="background:#1B4F6B;color:#fff;font-weight:700;padding:5px 8px">Shilajit 60N &nbsp;<span class="badge bg-a">Shilajit 60N</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$322 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">998</td><td style="text-align:right;padding:6px 8px">$21K</td><td style="text-align:right;padding:6px 8px;color:#C62828;font-weight:700">23.2%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">21.7%</td><td style="text-align:right;padding:6px 8px;color:#C62828">23.9%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.7pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$478</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 4 </td><td style="text-align:right;padding:6px 8px">172</td><td style="text-align:right;padding:6px 8px">$3K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">9.6%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">10.4%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.8pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$27</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−13.6pp</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 6 </td><td style="text-align:right;padding:6px 8px">108</td><td style="text-align:right;padding:6px 8px">$2K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">8.9%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">11.2%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+2.3pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$39</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−14.3pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">1,278</td><td style="text-align:right;font-weight:700;color:#0B5239">$26K</td><td style="text-align:right;font-weight:700;color:#0B5239">20.6%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">21.5%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+0.8pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$544</td><td></td></tr>
+<tr><td colspan="9" style="background:#1B4F6B;color:#fff;font-weight:700;padding:5px 8px">Shilajit 120N &nbsp;<span class="badge bg-a">Shilajit 120N</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$66 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">204</td><td style="text-align:right;padding:6px 8px">$8K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">14.1%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">13.3%</td><td style="text-align:right;padding:6px 8px;color:#C62828">14.6%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.4pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$99</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 2 <span style="color:#1565C0;font-size:9px">(+$34 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">158</td><td style="text-align:right;padding:6px 8px">$6K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">8.6%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">8.0%</td><td style="text-align:right;padding:6px 8px;color:#C62828">9.4%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.7pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$75</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−5.5pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">362</td><td style="text-align:right;font-weight:700;color:#0B5239">$14K</td><td style="text-align:right;font-weight:700;color:#0B5239">11.9%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">12.4%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+0.5pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$174</td><td></td></tr>
+<tr><td colspan="9" style="background:#4A148C;color:#fff;font-weight:700;padding:5px 8px">Blackseed 60N &nbsp;<span class="badge bg-a">Blackseed 60N</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$195 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">1,850</td><td style="text-align:right;padding:6px 8px">$35K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">14.7%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">14.1%</td><td style="text-align:right;padding:6px 8px;color:#C62828">15.4%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.7pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$447</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 3 </td><td style="text-align:right;padding:6px 8px">213</td><td style="text-align:right;padding:6px 8px">$3K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">6.2%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">7.8%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+1.6pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$50</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−8.5pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">2,063</td><td style="text-align:right;font-weight:700;color:#0B5239">$38K</td><td style="text-align:right;font-weight:700;color:#0B5239">14.0%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">14.8%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+0.8pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$497</td><td></td></tr>
+<tr><td colspan="9" style="background:#424242;color:#fff;font-weight:700;padding:5px 8px">Turmeric 60N (secondary) &nbsp;<span class="badge bg-g">Turmeric 60N</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 </td><td style="text-align:right;padding:6px 8px">264</td><td style="text-align:right;padding:6px 8px">$5K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">13.1%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">15.7%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+2.5pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$125</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">264</td><td style="text-align:right;font-weight:700;color:#0B5239">$5K</td><td style="text-align:right;font-weight:700;color:#0B5239">13.1%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">15.7%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+2.5pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$125</td><td></td></tr>
+<tr><td colspan="9" style="background:#424242;color:#fff;font-weight:700;padding:5px 8px">Sea Moss 120N (secondary) &nbsp;<span class="badge bg-g">Sea Moss 120N</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 </td><td style="text-align:right;padding:6px 8px">140</td><td style="text-align:right;padding:6px 8px">$5K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">8.2%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">9.6%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+1.4pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$63</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">140</td><td style="text-align:right;font-weight:700;color:#0B5239">$5K</td><td style="text-align:right;font-weight:700;color:#0B5239">8.2%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">9.6%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+1.4pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$63</td><td></td></tr>
+<tr><td colspan="9" style="background:#7B3A00;color:#fff;font-weight:700;padding:5px 8px">Alpha 60N — HIGH PRIORITY &nbsp;<span class="badge bg-r">Alpha 60N</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$1,697 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">7,015</td><td style="text-align:right;padding:6px 8px">$157K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">19.2%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">18.1%</td><td style="text-align:right;padding:6px 8px;color:#C62828">19.9%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.7pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$2,834</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 3 </td><td style="text-align:right;padding:6px 8px">213</td><td style="text-align:right;padding:6px 8px">$3K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">6.2%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">7.8%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+1.6pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$50</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−13.0pp</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 6 </td><td style="text-align:right;padding:6px 8px">342</td><td style="text-align:right;padding:6px 8px">$6K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">8.5%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">10.7%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+2.2pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$127</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−10.7pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">7,570</td><td style="text-align:right;font-weight:700;color:#0B5239">$166K</td><td style="text-align:right;font-weight:700;color:#0B5239">18.6%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">19.4%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+0.8pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$3,011</td><td></td></tr>
+<tr><td colspan="9" style="background:#2E5500;color:#fff;font-weight:700;padding:5px 8px">Alpha 120N — NEAR TARGET &nbsp;<span class="badge bg-g">Alpha 120N</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$512 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">1,556</td><td style="text-align:right;padding:6px 8px">$61K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">13.6%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">12.8%</td><td style="text-align:right;padding:6px 8px;color:#C62828">13.9%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.3pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$712</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 2 <span style="color:#1565C0;font-size:9px">(+$163 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">834</td><td style="text-align:right;padding:6px 8px">$30K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">8.7%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">8.2%</td><td style="text-align:right;padding:6px 8px;color:#C62828">9.4%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.7pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$365</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−4.9pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">2,390</td><td style="text-align:right;font-weight:700;color:#0B5239">$91K</td><td style="text-align:right;font-weight:700;color:#0B5239">12.0%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">12.5%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+0.4pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$1,077</td><td></td></tr>
+<tr><td colspan="9" style="background:#7B1A1A;color:#fff;font-weight:700;padding:5px 8px">MagAshwa RL — HIGH PRIORITY (carton fix in progress) &nbsp;<span class="badge bg-r">MagAshwa RL</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 1 <span style="color:#1565C0;font-size:9px">(+$552 TikTok inc.)</span></td><td style="text-align:right;padding:6px 8px">3,207</td><td style="text-align:right;padding:6px 8px">$67K</td><td style="text-align:right;padding:6px 8px;color:#C62828;font-weight:700">25.2%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">24.4%</td><td style="text-align:right;padding:6px 8px;color:#C62828">25.6%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+0.4pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$828</td><td style="text-align:right;padding:6px 8px"><span style="color:#888;font-size:9px">baseline</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 2 </td><td style="text-align:right;padding:6px 8px">2,788</td><td style="text-align:right;padding:6px 8px">$63K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">12.5%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">15.5%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+3.0pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$1,861</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−12.7pp</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 3 </td><td style="text-align:right;padding:6px 8px">384</td><td style="text-align:right;padding:6px 8px">$8K</td><td style="text-align:right;padding:6px 8px;color:#E65100;font-weight:700">10.3%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">14.9%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+4.6pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$390</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−14.9pp</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 4 </td><td style="text-align:right;padding:6px 8px">244</td><td style="text-align:right;padding:6px 8px">$5K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">7.8%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">12.5%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+4.7pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$250</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−17.4pp</span></td></tr>
+<tr><td style="padding:6px 8px;font-size:0.84rem">Pack of 6 </td><td style="text-align:right;padding:6px 8px">234</td><td style="text-align:right;padding:6px 8px">$5K</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">6.7%</td><td style="text-align:right;padding:6px 8px;color:#1565C0;font-size:9px">—</td><td style="text-align:right;padding:6px 8px;color:#C62828">10.4%</td><td style="text-align:right;padding:6px 8px;color:#2E7D32;font-weight:700">+3.7pp</td><td style="text-align:right;padding:6px 8px;color:#2E7D32">$185</td><td style="text-align:right;padding:6px 8px"><span style="color:#2E7D32;font-weight:700">−18.5pp</span></td></tr>
+<tr style="background:#F0F7F2"><td style="padding:5px 8px;font-weight:700;font-size:0.82rem;color:#0B5239">SKU Total</td><td style="text-align:right;font-weight:700;color:#0B5239">6,857</td><td style="text-align:right;font-weight:700;color:#0B5239">$148K</td><td style="text-align:right;font-weight:700;color:#0B5239">17.7%</td><td></td><td style="text-align:right;font-weight:700;color:#C62828">19.7%</td><td style="text-align:right;font-weight:700;color:#2E7D32">+2.0pp</td><td style="text-align:right;font-weight:700;color:#2E7D32">$3,514</td><td></td></tr>
+    <tr style="background:#0B5239">
+      <td style="padding:7px 8px;color:#fff;font-weight:700">GRAND TOTAL</td>
+      <td style="text-align:right;color:#fff;font-weight:700">43,985</td>
+      <td style="text-align:right;color:#fff;font-weight:700">$1,064K</td>
+      <td style="text-align:right;color:#D6E4DA;font-weight:700">14.9%</td>
+      <td style="text-align:right;color:#B3E5FC;font-size:9px">14.1%</td>
+      <td style="text-align:right;color:#FFCDD2;font-weight:700">17.1%</td>
+      <td style="text-align:right;color:#A5D6A7;font-weight:700">+2.1pp</td>
+      <td style="text-align:right;color:#A5D6A7;font-weight:700">$31,094</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
-<div class="ib">¹ Pack COGS: 2-pack BB Roll On ($1.69) and MagAshwa ($4.44) from COGS file; Alpha 120s 2-pack ($5.71) from COGS file. Others estimated at n × single COGS. &nbsp;|&nbsp; Outward for packs: shared shipment estimate — 2-pack ≈ 1.05× single, 4-pack ≈ 1.4×, 6-pack ≈ 1.6×. &nbsp;|&nbsp; MagAshwa shown post carton fix (Inward $3.03/u vs $5.10 current). Pack of 2 is the best immediate lever — ops% 33.2% → 19.0%.</div>
-</div>
 
+<div class="ib" style="margin-top:12px;font-size:0.78rem">
+  ¹ FBT incremental benefit = TikTok cofunding / program credits applied to qualifying single-unit orders. Shown where available. Effective FBT% = (FBT freight − TikTok benefit) ÷ revenue.
+  ² FBS = ShipBob fulfilment costs for same orders. Every comparison shows FBT &lt; FBS.
+  ³ Outward% = outward freight ÷ item revenue (excludes platform fee, inward, duty, COGS).
+  ⁴ "vs Pack 1" = improvement in FBT outward% vs same SKU Pack of 1.
+  Source: TikTok FBT report export.
+</div>
+</div>
 </div><!-- .wrapper -->
 
 <script>
