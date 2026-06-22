@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AMJ-26 Multiplier — Week 10–11 Update</title>
+</head>
+<body style="margin:0; padding:0; background:#EEE4DC; font-family:'Calibri','Segoe UI',Arial,sans-serif; color:#1F2A24; line-height:1.55;">
+
+<div id="copy-toolbar" style="position:fixed; top:20px; right:20px; z-index:9999; display:flex; gap:8px; align-items:center;">
+  <span id="copy-status" style="background:#1F2A24; color:#FFFFFF; font-size:12px; padding:8px 12px; border-radius:6px; opacity:0; transition:opacity 0.25s ease; box-shadow:0 4px 12px rgba(0,0,0,0.15);">Copied — paste into Gmail</span>
+  <button id="copyBtn" type="button" style="background:#0B5239; color:#FFFFFF; padding:11px 18px; border:none; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.18); font-family:inherit; letter-spacing:0.3px;">Copy for Email</button>
+</div>
+
+<div id="viewport-wrapper" style="max-width:960px; margin:24px auto;">
+<div id="email-content">
+<table cellpadding="0" cellspacing="0" border="0" width="940" align="left" style="width:940px; max-width:100%; border-collapse:collapse; background:#EEE4DC;">
+  <tr><td style="padding:30px 30px;">
+  <table cellpadding="0" cellspacing="0" border="0" width="880" align="left" style="width:880px; max-width:100%; border-collapse:collapse; background:#FFFFFF;">
+  <tr><td style="padding:32px 36px;">
+
+  <!-- INTRO -->
+  <p style="font-size:14px; margin:0 0 22px 0;">Sharing the <strong>Week 10–11 update</strong> for the AMJ-26 Multiplier project. This covers the <strong>June 1–20 cost read</strong>, July projections, and supply chain dashboard progress. <em>Note: figures below are from the OPS P&amp;L and have been vetted by finance.</em></p>
+
+  <!-- BANNER -->
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#0B5239; border-left:6px solid #579071;">
+    <tr><td style="padding:28px 32px;">
+      <div style="color:#D6E4DA; font-weight:700; font-size:11px; letter-spacing:3px; margin-bottom:8px;">AMJ-26 MULTIPLIER</div>
+      <div style="color:#FFFFFF; font-weight:700; font-size:28px; margin-bottom:8px;">Week 10–11 Update</div>
+      <div style="color:#D6E4DA; font-size:14px;">Root Labs &nbsp;·&nbsp; USA Supply Chain &nbsp;·&nbsp; Monday, 22 June 2026</div>
+    </td></tr>
+  </table>
+
+  <!-- OKR 01 -->
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:32px;">
+    <tr>
+      <td width="56" style="background:#0B5239; color:#FFFFFF; text-align:center; font-weight:700; font-size:16px; padding:10px 0;">01</td>
+      <td style="padding:10px 0 10px 18px; border-bottom:2px solid #0B5239; font-size:18px; font-weight:700; color:#1F2A24;">Logistics &amp; Fulfilment Cost Optimisation</td>
+    </tr>
+  </table>
+
+  <!-- P&L Table -->
+  <p style="color:#6B6052; font-weight:700; font-size:11px; letter-spacing:2px; border-bottom:1px solid #DDD2BD; padding-bottom:6px; margin:20px 0 10px 0;">MONTH-ON-MONTH COST COMPARISON — VETTED BY FINANCE</p>
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; font-size:13px;">
+    <tr>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:left; border:1px solid #DDD2BD;">Metric</th>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">March</th>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">April</th>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">May Final (1–31)</th>
+      <th style="background:#579071; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;"><strong>Jun 1–20 Actual ¹</strong></th>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">AMJ Target</th>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Gross Revenue</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">$3,043,584</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">$2,667,537</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">$2,483,587</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#F0F7F2; font-weight:700;">$1,633,810 (1–20)</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">—</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Inward Logistics</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">8.9%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">8.7%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">7.2% ↓</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#D6E4DA; font-weight:700; color:#0B5239;">7.4%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">↓↓ Jul/Aug</td>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Outward Logistics</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">17.6%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">15.1%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">14.7% ✓</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#D6E4DA; font-weight:700; color:#0B5239;">14.8%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700;">&lt;15.0%</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Import Duty</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">2.8%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">2.0%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">1.8% ↓</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#F0F7F2; font-weight:700;">1.7%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">—</td>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Storage — USA</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">0.64%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">0.53%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">0.70% ($17,255)</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#F0F7F2; font-weight:700;">~0.5% ²</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center;">↓</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600; font-size:14px;">Total Supply Chain</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#C0392B; font-weight:700;">30.1%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22; font-weight:700;">27.2%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">25.0%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#D6E4DA; font-weight:700; color:#0B5239; font-size:15px;">23.9% ↓</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700;">&lt;21.0%</td>
+    </tr>
+  </table>
+  <p style="font-size:11px; color:#888; margin:5px 0 4px 0;">¹ Jun 1–20 actual from OPS USA PNL 1st to 20th Jun26.csv, vetted by finance. ² Storage partial read for first 20 days; full June storage confirmed at month-end.</p>
+  <p style="font-size:12px; color:#0B5239; font-weight:700; margin:4px 0 18px 0;">Downward trend holding — 23.9% in Jun 1–20 continues the improvement: 30.1% → 27.2% → 25.0% → 23.9%. 2.9pp gap remaining to 21% target.</p>
+
+  <!-- Dashboard callout -->
+  <p style="font-size:13px; margin:0 0 20px 0; color:#1F2A24; background:#F0F7F2; border-left:4px solid #0B5239; padding:10px 14px;">Ops Cost Dashboard tracks all cost categories and models levers to reach 21% in real time. &nbsp;<a href="https://viraldesai-cyber.github.io/ops-P-L-dashboard/" style="color:#0B5239; font-weight:700;">View Dashboard →</a></p>
+
+  <!-- July Projections -->
+  <p style="color:#6B6052; font-weight:700; font-size:11px; letter-spacing:2px; border-bottom:1px solid #DDD2BD; padding-bottom:6px; margin:20px 0 10px 0;">JUNE–JULY PROJECTIONS (LOGISTICS FILE)</p>
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; font-size:13px; margin-bottom:12px;">
+    <tr>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:left; border:1px solid #DDD2BD;">Metric</th>
+      <th style="background:#4A235A; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">Jun Full Month (proj)</th>
+      <th style="background:#1A3A5C; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">Jul Proj ³</th>
+      <th style="background:#1A3A5C; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">Aug Proj (est.)</th>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Gross Revenue</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#F3E5F5;">~$2.45M</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#E3F2FD; font-weight:700;">~$2.94M</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#E3F2FD;">~$2.94M</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Inward %</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#F3E5F5;">7.4%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#E3F2FD; font-weight:700; color:#0B5239;">5.0%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#E3F2FD; color:#0B5239; font-weight:700;">4.0% ↓</td>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Outward %</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#F3E5F5;">14.8%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#E3F2FD;">12.8%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#E3F2FD;">12.5%</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600; font-size:14px;">Total Supply Chain</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#F3E5F5; font-weight:700;">23.9%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#D6E4DA; font-weight:700; color:#0B5239; font-size:15px;">19.8%</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; background:#D6E4DA; font-weight:700; color:#0B5239; font-size:15px;">~18.5%</td>
+    </tr>
+  </table>
+  <p style="font-size:11px; color:#888; margin:4px 0 4px 0;">³ Jul proj: Alpha 60N (GR) revenue ×2, MagAshwa ×1.2, all other SKUs at June run-rate. Inward improvement from July logistics plan (Xindus Air+Sea 70% routing) per logistics file. Aug further benefits from lower inward rates per August logistics plan.</p>
+  <p style="font-size:12px; color:#0B5239; font-weight:700; margin:4px 0 18px 0;">July projected at 19.8% — crossing below 21% target for the first time if executed on plan.</p>
+
+  <!-- June / July Execution -->
+  <p style="color:#6B6052; font-weight:700; font-size:11px; letter-spacing:2px; border-bottom:1px solid #DDD2BD; padding-bottom:6px; margin:20px 0 10px 0;">JUNE–JULY EXECUTION — KEY LEVERS</p>
+
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; font-size:13px; margin-bottom:16px;">
+    <tr>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:left; border:1px solid #DDD2BD;">Lever</th>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:center; border:1px solid #DDD2BD;">Impact</th>
+      <th style="background:#0B5239; color:#FFFFFF; padding:9px 12px; text-align:left; border:1px solid #DDD2BD;">Status</th>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">P0: Xindus Air+Sea dispatches</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">~$77K saving</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD;">70% of July dispatches via Xindus at ₹334/kg. Reduces inward from 7.4% → 5.0% in July.</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">Alpha 60N (GR) scale-up</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">Rev ×2 Jul</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD;">Alpha 60N July plan = 2× June run-rate. Higher revenue dilutes fixed ops costs and improves portfolio ops%.</td>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">MagAshwa carton fix + scale</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">~$2/unit + ×1.2</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD;">Carton reduction from 62×45×27 cm → ≤45×35×27 cm eliminates 70% volumetric penalty. Revenue ×1.2 in July. In progress with NPD.</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">FBT Migration (TikTok)</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">~$8.7K/mo</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD;">ShipBob → FBT transition in progress. FBT intake underway. Outward rate expected to improve in July/August.</td>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; font-weight:600;">D2C Ashwa Mag (ShipBob)</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">D2C integration</td>
+      <td style="padding:9px 12px; border:1px solid #DDD2BD;">D2C ShipBob data integration in progress. Dispatch plan working on connecting D2C channel to production plan.</td>
+    </tr>
+  </table>
+
+  <!-- OKR 02 -->
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:24px;">
+    <tr>
+      <td width="56" style="background:#0B5239; color:#FFFFFF; text-align:center; font-weight:700; font-size:16px; padding:10px 0;">02</td>
+      <td style="padding:10px 0 10px 18px; border-bottom:2px solid #0B5239; font-size:18px; font-weight:700; color:#1F2A24;">Supply Chain Dashboard — 70% Complete</td>
+    </tr>
+  </table>
+
+  <p style="font-size:13px; margin:14px 0 10px 0;">The Supply Chain Operations Dashboard (backend + UI) is now <strong>70% built and operational</strong>. Key milestone this week: <strong>production planning via dashboard cells is live</strong>, with the dispatch plan working on integrating the D2C channel (Ashwa Mag ShipBob) alongside Amazon and TikTok.</p>
+
+  <p style="color:#6B6052; font-weight:700; font-size:11px; letter-spacing:2px; border-bottom:1px solid #DDD2BD; padding-bottom:6px; margin:16px 0 10px 0;">SUPPLY CHAIN DASHBOARD — NEXT STEPS (UI REQUIREMENTS)</p>
+
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; font-size:12px; margin-bottom:12px;">
+    <tr>
+      <th style="background:#1F2A24; color:#FFFFFF; padding:8px 12px; text-align:left; border:1px solid #DDD2BD;">Feature</th>
+      <th style="background:#1F2A24; color:#FFFFFF; padding:8px 12px; text-align:center; border:1px solid #DDD2BD; width:60px;">Priority</th>
+      <th style="background:#1F2A24; color:#FFFFFF; padding:8px 12px; text-align:center; border:1px solid #DDD2BD; width:70px;">Status</th>
+    </tr>
+    <tr style="background:#FFF3CD;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">MOM/WOW TAT in Inward &amp; Outward DB</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22;">In Progress</td>
+    </tr>
+    <tr style="background:#FFF3CD;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">SKU / AWB Level ETA Summary (Inward)</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22;">In Progress</td>
+    </tr>
+    <tr style="background:#D6E4DA;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">MOM Tonnage wise view</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">Done ✓</td>
+    </tr>
+    <tr style="background:#FFF3CD;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">Last Scan Ageing wise pendency view</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22;">In Progress</td>
+    </tr>
+    <tr style="background:#D6E4DA;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">Date format standardisation</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">Done ✓</td>
+    </tr>
+    <tr style="background:#D6E4DA;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">Data export at any point</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">Done ✓</td>
+    </tr>
+    <tr style="background:#D6E4DA;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">VB &amp; New product mapping updated</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">Done ✓</td>
+    </tr>
+    <tr style="background:#FFF3CD;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; font-weight:600;">Daily Sync up with Amazon Tracker</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; font-weight:700; color:#C0392B;">P0</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22;">Planned</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD;">Ashwa Mag D2C DB import (ShipBob)</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#555;">P1</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22;">In Progress</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD;">Airtable Data Import</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#555;">P1</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22;">Planned</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD;">Customer Service View</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#555;">P1</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#888;">Backlog</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD;">Customer Feedback View</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#555;">P1</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#888;">Backlog</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD;">Outward Recon DB</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#555;">P1</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#888;">Backlog</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD;">Ops P&amp;L DB (live dashboard)</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#555;">P1</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#0B5239; font-weight:700;">Live ✓</td>
+    </tr>
+    <tr style="background:#F4EDDF;">
+      <td style="padding:8px 12px; border:1px solid #DDD2BD;">Cargo Document Generator</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#555;">P1</td>
+      <td style="padding:8px 12px; border:1px solid #DDD2BD; text-align:center; color:#E67E22;">In Progress</td>
+    </tr>
+  </table>
+
+  <p style="font-size:13px; margin:4px 0 18px 0; color:#1F2A24; background:#F0F7F2; border-left:4px solid #0B5239; padding:10px 14px;"><strong>OKR Status:</strong> 70% of backend &amp; UI complete. Production plan is now executable directly via dashboard cells. Dispatch plan live with Amazon + TikTok; D2C (Ashwa Mag ShipBob) integration in progress as next milestone.</p>
+
+  <!-- Footer -->
+  <p style="font-size:12px; color:#6B6052; margin:28px 0 0 0; border-top:1px solid #DDD2BD; padding-top:16px;">AMJ-26 Multiplier · Root Labs · USA Operations · Weekly cadence every Monday</p>
+
+  </td></tr>
+  </table>
+  </td></tr>
+</table>
+</div>
+</div>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', function() {
+  var el = document.getElementById('email-content');
+  var r = document.createRange();
+  r.selectNodeContents(el);
+  var s = window.getSelection();
+  s.removeAllRanges();
+  s.addRange(r);
+  document.execCommand('copy');
+  s.removeAllRanges();
+  var st = document.getElementById('copy-status');
+  st.style.opacity = '1';
+  setTimeout(function() { st.style.opacity = '0'; }, 2200);
+});
+</script>
+</body>
+</html>
