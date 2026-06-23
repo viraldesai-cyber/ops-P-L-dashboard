@@ -2030,7 +2030,7 @@ Below shows actual aged inventory storage costs vs disposal costs. The monthly s
 
 <script>
 function $(id){return document.getElementById(id)}
-function v(id){return parseFloat($(id).value)||0}
+function v(id){var el=$(id);return el?(parseFloat(el.value)||0):0}
 function fmt(n){return'$'+Math.round(n).toLocaleString()}
 function pct(a,b){return b?((a/b)*100).toFixed(1)+'%':'—'}
 function ppDiff(a,b){var d=a-b;return(d>0?'+':'')+d.toFixed(1)+'pp'}
@@ -2078,7 +2078,7 @@ function refresh(){
   if($('s_jun_ind_pct'))   $('s_jun_ind_pct').textContent   = pct(ind_total,rev);
   if($('s_jun_grand_total'))$('s_jun_grand_total').textContent=fmt(grand);
 
-  var gPct=(grand/rev*100);
+  var gPct=rev>0?(grand/rev*100):0;
   var gPctStr=gPct.toFixed(1)+'%';
   if($('s_jun_grand_pct')){
     $('s_jun_grand_pct').textContent=gPctStr;
@@ -2240,6 +2240,9 @@ function calcWaste(){
 }
 
 // Init
+document.addEventListener('input',function(e){
+  if(e.target&&e.target.classList.contains('e-num'))refresh();
+});
 window.onload=function(){
   refresh();calcFreightMix();calcJuneMix();calcSBSaving();calcPkg();calcPallet();calcWH();calcWaste();
 };
