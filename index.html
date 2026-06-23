@@ -210,7 +210,7 @@ h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
     <td class="r">$230,922</td><td class="c">8.7%</td>
     <td class="r">$179,512</td><td class="c">7.2%</td>
     <td class="r j14"><strong>$121,259</strong></td><td class="c j14"><strong>7.4%</strong></td>
-    <td class="r jun editable"><input class="e-num" id="jun_inward" value="120000" oninput="refresh()"></td>
+    <td class="r jun editable"><input class="e-num" id="jun_inward" value="162800" oninput="refresh()"></td>
     <td class="c jun"><span id="s_jun_in_pct">—</span></td>
   </tr>
   <tr class="even"><td style="padding-left:20px">↳ Amazon</td><td class="r">$91,378</td><td></td><td class="r">$67,118</td><td></td><td class="r">$63,085</td><td></td><td class="r j14">$48,200</td><td class="j14"></td><td class="r jun" style="color:#6B6052;font-size:11px">—</td><td></td></tr>
@@ -226,7 +226,7 @@ h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
     <td class="r">$52,696</td><td class="c">2.0%</td>
     <td class="r">$44,799</td><td class="c">1.8%</td>
     <td class="r j14"><strong>$27,319</strong></td><td class="c j14"><strong>1.7%</strong></td>
-    <td class="r jun editable"><input class="e-num" id="jun_duty" value="30000" oninput="refresh()"></td>
+    <td class="r jun editable"><input class="e-num" id="jun_duty" value="37400" oninput="refresh()"></td>
     <td class="c jun"><span id="s_jun_duty_pct">—</span></td>
   </tr>
   <tr class="even"><td style="padding-left:20px">↳ Amazon</td><td class="r">$39,448</td><td></td><td class="r">$24,849</td><td></td><td class="r">$22,159</td><td></td><td class="r j14">$14,344</td><td class="j14"></td><td></td><td></td></tr>
@@ -241,7 +241,7 @@ h4{font-size:12px;font-weight:700;margin:10px 0 6px;color:#0B5239}
     <td class="r bold">$402,901</td><td class="c"><strong>15.1%</strong></td>
     <td class="r bold">$366,054</td><td class="c"><strong>14.7%</strong></td>
     <td class="r j14"><strong>$242,035</strong></td><td class="c j14"><strong>14.8%</strong></td>
-    <td class="r jun editable"><input class="e-num" id="jun_outward_total" value="280000" oninput="refresh()"></td>
+    <td class="r jun editable"><input class="e-num" id="jun_outward_total" value="325600" oninput="refresh()"></td>
     <td class="c jun bold"><span id="s_jun_out_pct">—</span></td>
   </tr>
   <tr class="even hl-green">
@@ -2057,7 +2057,8 @@ function refresh(){
   var int_total=sky2c+pallet;
   var st_total=storage+waste;
   var ind_total=inward+duty;
-  var grand=inward+duty+outward_total+st_total+india+int_total;
+  var sc=inward+duty+outward_total;
+  var grand=sc+st_total+india+int_total;
   var tiktok_total=fbt+tsb;
 
   // Update spans
@@ -2078,7 +2079,7 @@ function refresh(){
   if($('s_jun_ind_pct'))   $('s_jun_ind_pct').textContent   = pct(ind_total,rev);
   if($('s_jun_grand_total'))$('s_jun_grand_total').textContent=fmt(grand);
 
-  var gPct=rev>0?(grand/rev*100):0;
+  var gPct=rev>0?(sc/rev*100):0;
   var gPctStr=gPct.toFixed(1)+'%';
   if($('s_jun_grand_pct')){
     $('s_jun_grand_pct').textContent=gPctStr;
